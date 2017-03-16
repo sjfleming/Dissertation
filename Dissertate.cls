@@ -69,8 +69,8 @@
 \usepackage[titletoc]{appendix}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
-\renewcommand\listfigurename{Listing of figures}
-\renewcommand\listtablename{Listing of tables}
+\renewcommand\listfigurename{List of figures}
+\renewcommand\listtablename{List of tables}
 
 % Endmatter
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
@@ -161,7 +161,7 @@
 	\copyrightpage
 	\abstractpage
 	\tableofcontents
-	% \listoffigures % optional
+	\listoffigures % optional
 	\dedicationpage
 	\acknowledgments
 }
@@ -205,7 +205,6 @@
 	\setcounter{page}{3}
 	\addcontentsline{toc}{chapter}{Abstract} %Edlyn added Nov 18, 2015
 	\pagestyle{fancy}
-	\justify %Edlyn added Nov 18, 2015 ===>NOTE: FOR SOME REASON THIS JUSTIFIES THE TEXT IN THE ENTIRE THESIS ???? (this is ok, but why?)
 	\lhead{Thesis advisor: Professor \@advisor} \rhead{Author: \@author} %Edlyn added "Author:" Nov 17, 2015
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}

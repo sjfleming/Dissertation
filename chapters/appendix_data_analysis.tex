@@ -3,6 +3,22 @@
 
 \section{General}
 
+Data are recorded using the ClampEx 10.3 software provided by the Molecular Devices Corporation, maker of the Axopatch 200B patch clamp current amplifier.  Analog measurements from the Axopatch 200B are digitized using the Axon CNS DigiData 1440A, a 16-bit analog-to-digital converter capable of acquisition at 250kHz.  This process results in a \texttt{.ABF} file, the proprietary Axon Binary File format.  In general, for the purposes of further analysis, the data are imported into MATLAB (The MathWorks, Inc.) using a suite of files, several of which are part of the PoreView package written by Tamas Szalay, and ultimately these make use of the MATLAB file \texttt{ABFLOAD.m}, written by Harald Hentschke and Forrest Collman.
+
+\section{Event-finding and analysis}
+
+\section{Level-finding algorithm}
+
+In an MspA experiment using a helicase to ratchet DNA through the nanopore one base at a time, recordings of current as a function of time exhibit discrete steps between stable levels.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{figures/data_analysis_level_finding.pdf}
+\caption[Data analysis: level-finding]{(a) Current versus time data recorded for a helicase stepping along DNA held in the MspA nanopore.  Stable current levels are marked by abrupt transitions, where the helicase slides one base forward (or backward).  Raw data are hardware filtered at 10kHz (gray).  Data filtered at 1kHz in software are shown in black.  (b) After application of a level-finding algorithm, the discrete mean current levels are shown in red.}
+\label{fig:data_analysis_levels}
+\end{centering}
+\end{figure}
+
 \section{Alignment of data to a known model}
 
 \section{Alignment of data for model parameter estimation}
