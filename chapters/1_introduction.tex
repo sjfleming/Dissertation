@@ -8,16 +8,41 @@ Apply your scrutiny whenever the sun's rays are let in and pour their light thro
 
 The work described in this dissertation is focused on single-molecule measurement.  The measuring instrument of choice is a biological molecule, a protein called a \textit{nanopore}, and it is used here to measure individual molecules of DNA.  This dissertation is concerned with characterizing physical properties of the nanopore system as a measurement device, and understanding its behavior with an eye toward precise control over the motion of single molecules under study.
 
-\section{Motivation and context}
+\section{Motivation and historical context}
 
-Individual molecules have been a subject of inquiry in modern physics from the time of early work on gases by John Dalton, Amedeo Avogadro, and others at the turn of the 19\textsuperscript{th} century.  Before that, the idea that matter might be made of small, indivisible units was a subject of philosophical discussion in ancient India and Greece.  In the latter part of the 19\textsuperscript{th} century, Boltzmann's work on statistical mechanics hinged on the existence of molecules, but his work was not fully appreciated during his lifetime for that very reason.  It was finally the work of Albert Einstein and Marian Smoluchowski in 1905-1906, and subsequent experiments by several others, notably Jean Baptiste Perrin in 1908, that confirmed ``the discontinuous structure of matter," in the words of Perrin's 1926 Nobel Prize in Physics \cite{Nobel1926}.
+Individual molecules have been a subject of inquiry in modern physics from the time of early work on gases by John Dalton, Amedeo Avogadro, and others at the turn of the 19\textsuperscript{th} century.  Before that, the idea that matter might be made of small, indivisible units was a subject of philosophical discussion in ancient India and Greece.  In the latter part of the 19\textsuperscript{th} century, Boltzmann's work on statistical mechanics hinged on the existence of molecules, but his work was not fully appreciated during his lifetime for that very reason.  It was finally the work of Albert Einstein and Marian Smoluchowski in 1905-1906, and subsequent experiments by several others, notably Jean Baptiste Perrin in 1908, that confirmed ``the discontinuous structure of matter," in the words of Perrin's 1926 Nobel Prize in Physics \citep{Nobel1926}.
 
-Statistical mechanics and the molecular kinetic theory of gases allowed physicists to measure properties of individual molecules indirectly, by making measurements of equilibrium properties of macroscopic systems.  In 1911, Charles Thomson Rees Wilson's invention of the cloud chamber enabled the direct visualization of individual ionized particles.
+Statistical mechanics and the molecular kinetic theory of gases allowed physicists to measure properties of individual molecules indirectly, by making measurements of equilibrium properties of macroscopic systems.  In 1911, Charles Thomson Rees Wilson's invention of the cloud chamber enabled the direct visualization of individual ionized particles.  X-ray crystallographic techniques, developed in the early part of the 20\textsuperscript{th} century, were first applied to large biological molecules by John Kendrew \citep{Kendrew1958} and Max Perutz, among others, in the late 1950s.  Though it was not strictly a single-molecule technique, it was a direct measurement of the three-dimensional structure of a molecule.  Such measurements continue to be used to determine protein structure, and have provided some of the structures depicted in Chapter \ref{lipids_mspa}.
 
-Single molecule measurements
-Other techniques for single-molecule measurements
+The ability to directly measure an individual protein molecule began with the development of the patch clamp technique in the late 1970s by Erwin Neher and Bert Sakmann, when they demonstrated that electrical recordings of ionic current across a cell membrane showed the opening and closing of individual ion channels \citep{Neher1976}.  These measurements of current through an ion channel were the first nanopore measurements.
 
 \section{The ``Nanopore"}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
+\caption[The nanopore setup]{Schematic diagram of a nanopore and the experimental setup for ionic current measurement.  The nanopore itself comprises the only conductive path through which ions can travel from one side of the impermeable membrane to the other.  Typical nanopores have a diameter on the order of one or two nanometers.}
+\label{fig:nanopore}
+\end{centering}
+\end{figure}
+
+A \textit{nanopore} is a small, nanometer-sized hole in an otherwise impermeable membrane.  A nanopore can be used as a sensitive measurement instrument when immersed in an electrolyte solution, as shown in Figure \ref{fig:nanopore}.  The nanopore then provides the only path for ions to cross the membrane.  When electrodes are used to apply an electrical potential difference across the membrane, an ionic current flows, and is focused through the nanopore.  The nanopore itself dominates the electrical resistance in the system, and sensitive measurements of (typically picoampere) currents through the nanopore give detailed information about the resistance in a several-cubic-nanometer volume.  Any changes in the resistivity in or around the nanopore -- for example due to shape change, chemical modifications, or analyte molecules occupying the nanopore -- will lead to measurable changes in ionic current.  This gives the nanopore system exquisite sensitivity, even to single molecules.  Current is recorded as a function of time, enabling the measurement of time-dependent kinetics occurring in an individual molecule or molecular interaction.
+
+\section{Using nanopores as single-molecule sensors}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/nanopore_currents.pdf}
+\caption[The nanopore as a molecule sensor]{Schematic illustration of a nanopore as a molecule sensor.  A single analyte molecule in the nanopore blocks the flow of ions, and thus reduces the measured ionic current.}
+\label{fig:nanopore_current_blockage}
+\end{centering}
+\end{figure}
+
+A nanopore can thus be used as a sensor.  Analyte molecules which enter the nanopore will physically obstruct the flow of ions, and lead to a drop in measured current, as depicted in Figure \ref{fig:nanopore_current_blockage}.
+
+In this work, the nanopore of choice is a pore-forming protein called MspA, and the impermeable membrane is a lipid bilayer.  These biological components will be described in detail in Chapter \ref{lipids_mspa}.  The electrolyte typically used in these experiments is potassium chloride [KCl], and a typical concentration is 1M.  At this concentration, there is approximately one ion per cubic nanometer.  Typical voltage biases across the membrane are on the order of 100mV.  Since a large fraction of the voltage drop happens across the nanopore, the electric field in the vicinity is on the order of 100mV over about 10nm, where 10nm is the order of magnitude of the height of the MspA nanopore.  This electric field is on the order of 10\textsuperscript{7} V/m, a very high field indeed.
+
+Biological molecules, including DNA and many proteins, can have a charge in solution, depending on the pH.  If the analyte molecule is charged, it will feel an electrophoretic force in proportion to the local electric field.  Near the nanopore, this force can be on the order of tens of piconewtons.  A direct measurement of this force is described in Chapter \ref{dna_thermal_motion_mspa}.
 
 \begin{enumerate}
 \item Nanopores as single-molecule measurement instruments
@@ -34,4 +59,4 @@ Other techniques for single-molecule measurements
 
 \section{Organization of thesis}
 
-In this thesis... \cite{Bryant1994} \cite{Vercoutere2001}
+In this thesis...
