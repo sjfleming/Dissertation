@@ -6,27 +6,27 @@ Apply your scrutiny whenever the sun's rays are let in and pour their light thro
 \chapter{Introduction}
 \label{introduction}
 
-The work described in this dissertation is focused on single-molecule measurement.  The measuring instrument of choice is a biological molecule, a protein called a \textit{nanopore}, and it is used here to measure individual molecules of DNA.  This dissertation is concerned with characterizing physical properties of the nanopore system as a measurement device, and understanding its behavior with an eye toward precise control over the motion of single molecules under study.
+The work described in this dissertation is focused on single-molecule measurement.  The measuring instrument of choice is a biological molecule, a protein called a \textit{nanopore}, and it is used here to measure properties of individual molecules of DNA.  This dissertation is concerned with characterizing physical properties of the nanopore system as a measurement device, and understanding its behavior with an eye toward precise control over the motion of single molecules under study.
 
 \section{Motivation and historical context}
 
-Individual molecules have been a subject of inquiry in modern physics from the time of early work on gases by John Dalton, Amedeo Avogadro, and others at the turn of the 19\textsuperscript{th} century.  Before that, the idea that matter might be made of small, indivisible units was a subject of philosophical discussion in ancient India and Greece.  In the latter part of the 19\textsuperscript{th} century, Boltzmann's work on statistical mechanics hinged on the existence of molecules, but his work was not fully appreciated during his lifetime for that very reason.  It was finally the work of Albert Einstein and Marian Smoluchowski in 1905-1906, and subsequent experiments by several others, notably Jean Baptiste Perrin in 1908, that confirmed ``the discontinuous structure of matter," in the words of Perrin's 1926 Nobel Prize in Physics \citep{Nobel1926}.
+Individual molecules have been a subject of inquiry and experimentation in modern physics from the time of early work on gases by John Dalton, Amedeo Avogadro, and others at the turn of the 19\textsuperscript{th} century.  Before that, the idea that matter might be made of small, indivisible units was a subject of philosophical discussion in ancient India and Greece.  In the latter part of the 19\textsuperscript{th} century, Boltzmann's work on statistical mechanics hinged on the existence of molecules, but his work was not fully appreciated during his lifetime due to skepticism about their physical existence.  It was finally the work of Albert Einstein and Marian Smoluchowski in 1905-1906, and subsequent experiments by several others, notably Jean Baptiste Perrin in 1908, that confirmed ``the discontinuous structure of matter," in the words of Perrin's 1926 Nobel Prize in Physics \citep{Nobel1926}.
 
 Statistical mechanics and the molecular kinetic theory of gases allowed physicists to measure properties of individual molecules indirectly, by making measurements of equilibrium properties of macroscopic systems.  In 1911, Charles Thomson Rees Wilson's invention of the cloud chamber enabled the direct visualization of individual ionized particles.  X-ray crystallographic techniques, developed in the early part of the 20\textsuperscript{th} century, were first applied to large biological molecules by John Kendrew \citep{Kendrew1958} and Max Perutz, among others, in the late 1950s.  Though it was not strictly a single-molecule technique, it was a direct measurement of the three-dimensional structure of a molecule.  Such measurements continue to be used to determine protein structure, and have provided some of the structures depicted in Chapter \ref{lipids_mspa}.
 
-The ability to directly measure an individual protein molecule began with the development of the patch clamp technique in the late 1970s by Erwin Neher and Bert Sakmann, when they demonstrated that electrical recordings of ionic current across a cell membrane showed the opening and closing of individual ion channels \citep{Neher1976}.  These measurements of current through an ion channel were the first nanopore measurements.
+The ability to directly measure an individual protein molecule began with the development of the patch clamp technique in the late 1970s by Erwin Neher and Bert Sakmann, when they demonstrated that electrical recordings of ionic current across a cell membrane showed the opening and closing of individual ion channels \citep{Neher1976}.  These measurements of current through an ion channel in a cell's outer membrane were the first nanopore measurements.
 
 \section{The ``Nanopore"}
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[The nanopore setup]{Schematic diagram of a nanopore and the experimental setup for ionic current measurement.  The nanopore itself comprises the only conductive path through which ions can travel from one side of the impermeable membrane to the other.  Typical nanopores have a diameter on the order of one or two nanometers.}
+\caption[The nanopore setup]{Schematic diagram of a nanopore and the experimental setup for ionic current measurement.  The nanopore itself comprises the only conductive path through which ions can travel from one side of the impermeable membrane to the other.  Typical nanopores have a diameter on the order of one or two nanometers.  The electrodes are macroscopic, and are not drawn on the same scale as the nanopore.}
 \label{fig:nanopore}
 \end{centering}
 \end{figure}
 
-A \textit{nanopore} is a small, nanometer-sized hole in an otherwise impermeable membrane.  A nanopore can be used as a sensitive measurement instrument when immersed in an electrolyte solution, as shown in Figure \ref{fig:nanopore}.  The nanopore then provides the only path for ions to cross the membrane.  When electrodes are used to apply an electrical potential difference across the membrane, an ionic current flows, and is focused through the nanopore.  The nanopore itself dominates the electrical resistance in the system, and sensitive measurements of (typically picoampere) currents through the nanopore give detailed information about the resistance in a several-cubic-nanometer volume.  Any changes in the resistivity in or around the nanopore -- for example due to shape change, chemical modifications, or analyte molecules occupying the nanopore -- will lead to measurable changes in ionic current.  This gives the nanopore system exquisite sensitivity, even to single molecules.  Current is recorded as a function of time, enabling the measurement of time-dependent kinetics occurring in an individual molecule or molecular interaction.
+A \textit{nanopore} is a small, nanometer-sized hole in an otherwise impermeable membrane.  A nanopore can be used as a sensitive measurement instrument when immersed in an electrolyte solution, as shown in Figure \ref{fig:nanopore}.  The nanopore then provides the only path for ions to cross the membrane.  When electrodes are used to apply an electrical potential difference across the membrane, an ionic current flows, and is focused through the nanopore.  The nanopore itself dominates the electrical resistance in the system, and sensitive measurements of (typically picoampere) currents through the nanopore give detailed information about the resistance in a several-cubic-nanometer volume.  Additional calculations about nanopore electrostatics can be found in \ref{np_calcs}.  Any changes in the resistivity in or around the nanopore -- for example due to shape change, chemical modifications, or analyte molecules occupying the nanopore -- will lead to measurable changes in ionic current.  This gives the nanopore system exquisite sensitivity, even to single molecules.  Current is recorded as a function of time, enabling the measurement of time-dependent kinetics occurring in an individual molecule or molecular interaction.
 
 \section{Using nanopores as single-molecule sensors}
 
@@ -44,19 +44,38 @@ In this work, the nanopore of choice is a pore-forming protein called MspA, and 
 
 Biological molecules, including DNA and many proteins, can have a charge in solution, depending on the pH.  If the analyte molecule is charged, it will feel an electrophoretic force in proportion to the local electric field.  Near the nanopore, this force can be on the order of tens of piconewtons.  A direct measurement of this force is described in Chapter \ref{dna_thermal_motion_mspa}.
 
-\begin{enumerate}
-\item Nanopores as single-molecule measurement instruments
-\item Measuring ionic current through a nanopore
-\item Spatial localization of the resistance
-\item Electrophoresis and force on molecules near nanopore
-\item Physical blockage of nanopore causes change in resistance
-\item Brief mention of signal-to-noise, comparison with other techniques
-\end{enumerate}
-
 \section{Using nanopores for DNA sequencing}
 
+In the late 1980s, Dave Deamer and George Church independently hypothesized that a nanopore of a small enough diameter would be able to accommodate single-stranded DNA [ssDNA] in single file, and could be used as a sensor to read the DNA sequence \citep{Branton2008}.  The hope was that individual DNA nucleotides would block different amounts of ionic current through the nanopore, and the DNA sequence could be read off by measuring the ionic current as the ssDNA strand passes through the nanopore (see Figure \ref{fig:nanopore_seq_expectation}).
 
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.95\textwidth]{figures/nanopore_seq_expectation.pdf}
+\caption[Nanopore DNA sequencing concept]{Schematic illustration of the concept of a nanopore as a DNA sequencing technology.  The initial hypothesis was that different DNA nucleotides would block different amounts of ionic current, leading to a current measurement that encodes the DNA sequence.  In the illustration, a small piece of ssDNA is drawn through the nanopore while the current is recorded.  The drawings depict movement of the ssDNA in time, and correspond to the current levels shown in the plot directly below.}
+\label{fig:nanopore_seq_expectation}
+\end{centering}
+\end{figure}
 
-\section{Organization of thesis}
+A first demonstration that ssDNA could be pulled single file through a nanopore was carried out in the laboratory of Dan Branton in 1996, when individual ssDNA molecules were pulled through the $\alpha$-hemolysin nanopore, a protein porin in an lipid bilayer \citep{Kasianowicz1996}.  Developments in the two decades since then have been rapid, and salient milestones are discussed further in Chapter \ref{dna_sequencing}.  Suffice it to say that the initial goal of using a nanopore to sequence DNA has been achieved.  In 2015, the entire \textit{E. coli} genome was assembled \textit{de novo} using a commercial nanopore DNA sequencer developed by Oxford Nanopore Technologies \citep{Loman2015}.
 
-In this thesis...
+As of 2017, the main challenge that limits the use of nanopores in DNA sequencing is its accuracy.  In 2015, the accuracy of a single read of a strand of DNA was around 80\% \citep{Loman2015}, though this continues to improve.  A fundamental limitation is caused by homopolymer regions: places in the DNA where a nucleotide is repeated many times in a row.  If the sequence of DNA located inside the nanopore does not change when the DNA advances by one base, the ionic current cannot change either.  Thus it is difficult to determine the number of nucleotides in these repeats.  Movement of DNA through the nanopore is stochastic.  The duration of a particular current level has not been successfully used to pinpoint the number of nucleotide repeats.  Quick movement of the DNA, as well as backtracking, can also lead to missing current levels, and missed nucleotides.  It would be beneficial to gain further control over the timing and the precise movement of the DNA molecule with respect to the nanopore, in order to improve the accuracy of the nanopore as a DNA sequencing technology.  The work described here examines the motion of DNA in a nanopore, quantifies physical characteristics of the DNA-nanopore system, and works toward establishing temporal control over DNA motion.
+
+\section{Organization of this thesis}
+
+Chapter \ref{lipids_mspa} provides a more detailed introduction to the experimental setup used in this work, which is comprised of the protein nanopore MspA in a lipid bilayer membrane.  Measurements of ionic current through the MspA nanopore are reported, and the effects of temperature and membrane bias voltage are discussed.  Simple measurements of the translocation of ssDNA are reported and discussed.
+
+Chapter \ref{thermal_motion} explores sources of noise in nanopore measurements.
+
+Chapter \ref{dna_thermal_motion_mspa} details experiments which quantify the thermal motion of ssDNA in the MspA nanopore.  The effective charges and diffusion constants of different nucleotides in MspA are measured, and correlations are observed between these quantities and the current blockages and current fluctuations observed.
+
+Chapter \ref{dna_sequencing} discusses the use of protein nanopores in DNA sequencing, and reviews a few major milestones in the development of the field over the past two decades.  A simplified and speculative model is put forth to explain the dominant effect which determines the residual ionic current measured when a given DNA sequence is in the nanopore.
+
+Chapter \ref{dna_enzymes} explains the details of how the motion of DNA through a nanopore is currently controlled using DNA enzymes.  A few examples of different enzymes are discussed from recent literature.
+
+Chapter \ref{helicase_on_dna} reports measurements of ionic current that correspond to DNA sequence when the movement of DNA through the nanopore is controlled by a helicase enzyme.  Steps in the ionic current are shown to correspond to single-base movements of the helicase enzyme along the DNA strand.
+
+Chapter \ref{helicase_motion_control} demonstrates that mechanical force can be used as a substitute for the enzymatic hydrolysis of ATP in moving the helicase enzyme along a strand of DNA.  The rate of movement of the helicase is explored as a function of applied voltage bias and temperature.  Attempts are made at temporal control over the motion of a helicase using fast voltage pulses.  Limitations and future promise of this approach are discussed.
+
+Chapter \ref{helicase_backward_motion} discusses experiments conducted with the helicase and DNA in an orientation opposite to the direction in previous chapters.  In this configuration, the helicase and the nanopore are pulling the DNA in opposite directions.  This experimental setup is used to measure the force of the helicase's ATP hydrolysis step.  In addition, it is shown that the stepping of the helicase along DNA in this reverse direction has a stronger voltage-dependence on applied mechanical force than the experiments described in Chapter \ref{helicase_motion_control}.
+
+Chapter \ref{conclusion} summarizes the key points covered in this work, and provides some concluding thoughts on outlook and future directions.
