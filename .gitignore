@@ -18,3 +18,11 @@
 *.ps
 *.eps
 *.pdf
+
+## Images:
+*.png
+*.jpg
+*.ai
+*.psd
+*.fig
+*.eps

@@ -31,6 +31,7 @@
 \newcolumntype{s}{>{\hsize=.45\hsize}X}%Edlyn added this, Jan 28
 
 \usepackage{enumitem} %Edlyn added this, March 23
+\usepackage{indentfirst} % SJF
 
 % Fonts.
 \RequirePackage{color}
@@ -78,6 +79,7 @@
 % References.
 \renewcommand\bibname{References}
 \RequirePackage[super,comma,numbers,sort&compress]{natbib} %"sort&compress" Added by Edlyn, Nov. 29 -- cv to sort and compress multiple citation numbers 
+% \RequirePackage[square,comma,numbers,sort&compress]{natbib} % SJF
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \RequirePackage[palatino]{quotchap}
 \renewcommand*{\chapterheadstartvskip}{\vspace*{-0.5\baselineskip}}
@@ -246,3 +248,7 @@
 \newcommand{\vdiv}{\pmb{\nabla}\cdot} %divergence
 \newcommand{\vcurl}{\pmb{\nabla}\times} %curl
 \newcommand\tensor[1]{\overline{\overline{#1}}} %double bar tensor notation
+
+% SJF
+\newcommand{\unit}[1]{\textsf{#1}} % font formatting for units
+\newcommand{\dna}[1]{\texttt{#1}} % font formatting for dna sequence
