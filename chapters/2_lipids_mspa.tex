@@ -12,12 +12,12 @@ The fundamental unit of life in biology is the cell.  Though they are incredibly
 
 Cells have solved the problem of setting up a barrier that defines ``inside" and ``outside" with the \textit{cell membrane}.  The detailed structure of cell membranes was the subject of much debate up until 1966, when Dan Branton showed experimentally that cell membranes are composed of a lipid bilayer, studded by proteins, some of which span both leaflets of the membrane \citep{Branton1966}.
 
-Many proteins span the entire membrane, but some also allow for passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
+Many proteins span the entire membrane, but some also allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[Ion channels in cells]{...}
+\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
+\caption[Ion channels in cells]{Cartoon of a cell.  The cell membrane is studded with proteins of all kinds.  Some of these proteins span both leaflets of the lipid bilayer membrane.  Ion channels allow certain ions in and out of the cell in a controlled manner.  Porins are open holes in the cell membrane that allow small molecules in and out of the cell.}
 \label{fig:ion_channels}
 \end{centering}
 \end{figure}
@@ -32,8 +32,8 @@ Many proteins span the entire membrane, but some also allow for passage of ions 
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[Lipids and the lipid bilayer membrane]{...}
+\includegraphics[width=0.8\textwidth]{figures/membrane.pdf}
+\caption[Lipids and the lipid bilayer membrane]{The lipid referred to in this work as ``PC" is 1,2-diphytanoyl-\textit{sn}-glycero-3-phosphocholine.  The chemical structure of the lipid is shown, along with a cartoon version showing its amphiphilic character.  Self-assembly of this lipid can result in many three-dimensional structures, one of which is the lipid bilayer that comprises cell membranes.  Water occupies the space above and below the membrane, next to the hydrophilic head groups, and the hydrophobic tails hide in a central layer, through which ions cannot pass.  The lipid bilayer is a fluid structure.}
 \label{fig:lipids}
 \end{centering}
 \end{figure}
@@ -42,8 +42,8 @@ Many proteins span the entire membrane, but some also allow for passage of ions 
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[Genetic engineering of MspA]{...}
+\includegraphics[width=\textwidth]{figures/mspa_mutations.pdf}
+\caption[Genetic engineering of MspA]{The wild-type MspA protein has negatively-charged aspartic acids lining its narrowest constriction.  Much work was done by Butler \textit{et al.} \citep{Butler2008} in engineering MspA to allow negatively-charged ssDNA to translocate through it.  This work resulted in ``M2" MspA, shown on the left.  M2-MspA is the pore used in most of the work reported here, except for the work reported in Chapter \ref{dna_thermal_motion_mspa}, and where otherwise noted.  The MspA mutant used in Chapter \ref{dna_thermal_motion_mspa} has a few extra mutations, and is shown on the right.  In this work, this MspA mutant will be referred to as ``M3."}
 \label{fig:mspa_engineering}
 \end{centering}
 \end{figure}
@@ -54,8 +54,8 @@ Many proteins span the entire membrane, but some also allow for passage of ions 
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[Experimental setup]{...}
+\includegraphics[width=0.9\textwidth]{figures/experiment_setup.pdf}
+\caption[Experimental setup]{Schematic of the experimental setup.  Ag/AgCl electrodes make contact with a buffered solution of potassium chloride [KCl].  A lipid bilayer of PC blocks the passage of ions from one electrode to the other.  The only current which can cross the membrane is the ionic current through the single MspA nanopore.  The current is measured using a current amplifier.  The simplified concept of current amplification is sketched on the right.  A bias is applied across the membrane, and the picoampere current which flows through the nanopore also flows through the large feedback resistor, $R_f$.  The output voltage is then proportional to the current through the nanopore, but larger by a factor of $R_f$.}
 \label{fig:setup}
 \end{centering}
 \end{figure}
@@ -66,21 +66,80 @@ Mention gating at reverse bais.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[MspA current versus voltage]{...}
+\includegraphics[width=\textwidth]{figures/mspa_iv.pdf}
+\caption[MspA current versus voltage]{On the left is the current versus voltage relation measured for the M2-MspA nanopore in 1M KCl, 25mM phosphate buffer, pH 8.00, at room temperature.  On the right, current is plotted as a function of time at +100mV and -100mV bias.  At 3 seconds, the applied voltage is switched from +100mV to -100mV.  It can be seen that the nanopore spontaneously closes periodically at -100mV bias.  This is referred to as ``gating."}
 \label{fig:iv_mspa}
 \end{centering}
 \end{figure}
 
 \subsection{Effect of temperature}
 
-Its relationship to water's viscosity as a function of temperature
+Its relationship to water's viscosity as a function of temperature.
+
+For ions with valence $z=1$, like potassium and chloride ions,
+
+Diffusion, Stokes-Einstein relation:
+
+\begin{equation}
+D = \frac{k_B T}{6\pi\eta r}
+\label{eqn:conductivity}
+\end{equation}
+
+Electrical mobility:
+
+\begin{equation}
+\frac{D}{\mu} = \frac{k_B T}{q}
+\label{eqn:einstein_mobility}
+\end{equation}
+
+Ionic mobility:
+
+\begin{equation}
+\mu = \frac{e}{6 \pi \eta r}
+\label{eqn:mobility}
+\end{equation}
+
+Conductivity, sum of both ions:
+
+\begin{equation}
+\lambda = F(\mu_1 + \mu_2)
+\label{eqn:conductivity}
+\end{equation}
+
+For two ions, in terms of solvent viscosity:
+
+\begin{equation}
+\lambda = \frac{1}{\eta} \frac{Fe}{6\pi} \left( \frac{1}{r_1}+\frac{1}{r_2} \right)
+\label{eqn:conductivity_eta}
+\end{equation}
+
+\begin{equation}
+\lambda(T) = \lambda(T_0) \left[ \frac{\eta(T_0)}{\eta(T)} \right]
+\label{eqn:conductivity_temp}
+\end{equation}
+
+and since conductance is proportional to this ionic conductivity, the conductance, $G$, is
+
+\begin{equation}
+G(T) = G(T_0) \left[ \frac{\eta(T_0)}{\eta(T)} \right]
+\label{eqn:conductance_temp}
+\end{equation}
+
+This is what is plotted in Figure \ref{fig:mspa_current_temp_viscosity}.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/nanopore.pdf}
-\caption[MspA current versus temperature]{...}
+\includegraphics[width=\textwidth]{figures/mspa_temp.pdf}
+\caption[MspA current versus temperature]{Measurements of the effect of temperature on the open pore current of M3-MspA.  The same data are displayed in the left and right panels.  On the left, the current is plotted as a function of voltage at temperatures from 5°C to 60°C in steps of 5°C.  On the right, the data are plotted as conductance versus voltage.  Note that for an ideal resistor, the conductance would be constant as a function of voltage.}
 \label{fig:mspa_current_temp}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/mspa_temp_viscosity.pdf}
+\caption[MspA current versus temperature explained by viscosity]{The viscosity of water is responsible for the dependence of M3-MspA open pore current on temperature.  On the left, the black circles are measurements of the viscosity of water taken from Kestin \textit{et al.} \cite{Kestin1978}.  The black line is an exponential fit, the equation of which is shown.  The right panel shows data measured in this work (black circles).  Each circle is the average conductance measured for open pore M3-MspA at 50mV bias.  The black line is Equation \ref{eqn:conductance_temp}, and it is scaled to be equal to the conductance measured at 25°C.  Evidently, the temperature dependence of the open pore conductance is captured exactly by accounting for the change in the viscosity of water with temperature.}
+\label{fig:mspa_current_temp_viscosity}
 \end{centering}
 \end{figure}
 
