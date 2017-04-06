@@ -32,6 +32,8 @@
 
 \usepackage{enumitem} %Edlyn added this, March 23
 \usepackage{indentfirst} % SJF
+\usepackage{siunitx} % SJF
+\DeclareSIUnit\Molar{M} % SJF
 
 % Fonts.
 \RequirePackage{color}
