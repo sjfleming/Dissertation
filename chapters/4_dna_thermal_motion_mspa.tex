@@ -12,11 +12,13 @@ Intro and motivation
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Capture and escape theory]{Idea of the capture and escape experiment.  Energy landscape.}
-\label{fig:capture_escape_theory}
+\includegraphics[width=\textwidth]{figures/NA-ssDNA_fluctuation_in_MspA.pdf}
+\caption[The idea of capture and escape]{On the left hand side, a NeutrAvidin/ssDNA complex is shown trapped in MspA.  The membrane is shown in gray, and a voltage bias across the membrane results in an electrophoretic force pulling the negatively-charged ssDNA into the MspA pore.  Thermal motion causes non-equilibrium position fluctuations.  On the right, the potential energy profile is shown schematically.  Thermal fluctuations of a distance greater than $L$ leads to escape of the complex.}
+\label{fig:capture_escape_idea}
 \end{centering}
 \end{figure}
+
+The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.
 
 \subsection{Theory of drift-diffusion and first-passage}
 
@@ -24,36 +26,30 @@ Equations used and model being fit.
 
 \section{Experimental setup}
 
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Experimental setup]{Physical and schematic setup of the nanopore experiment.}
-\label{fig:experiment_setup}
-\end{centering}
-\end{figure}
 
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Capture and escape experiment schematically]{Implementation of the capture and escape experiment.}
-\label{fig:capture_escape_experiment}
-\end{centering}
-\end{figure}
 
 \section{Results}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Capture and escape measurement]{Example of a typical capture and escape event.}
+\includegraphics[width=0.9\textwidth]{figures/NA-ssDNA_capture_and_escape_event.pdf}
+\caption[Capture and escape experiment schematically]{Implementation of the capture and escape experiment.}
 \label{fig:capture_escape_event}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
+\includegraphics[width=0.8\textwidth]{figures/PolyA_escape_hists.pdf}
+\caption[Measured escape times of poly(dA) ssDNA from MspA]{The histogram of poly(dA) escape data at \SI{40}{\mV}, shown with a linear and a logarithmic y-axis.  An exponential fit to the blue data is shown in green.  An exponential fits the shortest $\sim 90\%$ of events.}
+\label{fig:escape_times}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Measured escape times of ssDNA from MspA]{.}
+\caption[Measured escape times of homopolymer ssDNA from MspA]{.}
 \label{fig:escape_times}
 \end{centering}
 \end{figure}
