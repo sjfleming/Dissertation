@@ -32,7 +32,7 @@ Equations used and model being fit.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/NA-ssDNA_capture_and_escape_event.pdf}
+\includegraphics[width=0.8\textwidth]{figures/NA-ssDNA_capture_and_escape_event.pdf}
 \caption[Capture and escape experiment schematically]{Implementation of the capture and escape experiment.}
 \label{fig:capture_escape_event}
 \end{centering}
@@ -40,43 +40,61 @@ Equations used and model being fit.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/polyA_escape_histograms.pdf}
+\includegraphics[width=0.7\textwidth]{figures/polyA_escape_histograms.pdf}
 \caption[Measured escape times of poly(dA) ssDNA from MspA]{The histogram of poly(dA) escape data at \SI{60}{\mV}, \SI{25}{\celsius}, plotted with linear and logarithmic x- and y-axis.  Data points are shown in black.  An exponential fit with the same time constant of \SI{57.8}{\ms} is shown as the green line in each plot.  The exponential fits well to the shortest $\sim 90\%$ of events, denoted by the green shaded region.}
+\label{fig:polyA_escape_times}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/homopolymer_escape_data.pdf}
+\caption[Measured escape times of homopolymer ssDNA from MspA]{The left panel shows histograms of the escape times measured for the given NeutrAvidin-ssDNA complexes with \SI{60}{\mV} bias applied.  The data show that, at a given clamping voltage, the distribution of escape times is approximately exponential (solid lines) for all four ssDNA molecules, but that the time constant differs.  This time constant, called the ``average escape time," is plotted in the right panel, as a function of bias voltage.  Fits to a first-passage model are shown as dashed lines.}
 \label{fig:escape_times}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Measured escape times of homopolymer ssDNA from MspA]{.}
-\label{fig:escape_times}
-\end{centering}
-\end{figure}
-
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Current blockages for homopolymer ssDNA]{.}
+\includegraphics[width=0.55\textwidth]{figures/homopolymer_block_traces.pdf}
+\caption[Current blockage traces for homopolymer ssDNA]{Recordings of current versus time for NeutrAvidin-ssDNA complexes, where the ssDNA is a 3'-biotinylated 27mer of either poly(dA), poly(dT), poly(dC), or poly(dGdA), as indicated.  Data are compiled from four separate experiments, each filtered at \SI{10}{\kHz}.  The scale bar for the time axis indicates that each segment lasts about \SI{25}{\ms}.  For reference, the open pore M3-MspA current is shown at the upper left.}
 \label{fig:homopolymer_blockages}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Current fluctuations for poly(dC) ssDNA]{.}
+\includegraphics[width=0.6\textwidth]{figures/homopolymer_block_hists.pdf}
+\caption[Current blockage histograms for homopolymer ssDNA]{Histograms of blockage currents when different NeutrAvidin-tethered oligonucleotides are captured in the M3-MspA pore.  $I/I_0$ is the ratio of mean measured current, $I$, to open-pore current, $I_0$.  Each element in the histogram is an individual molecule.  At \SI{60}{\mV} bias (upper panel), the blockages are well separated, while at \SI{160}{\mV} bias (lower panel), the distributions are broader, and show significant overlap.}
+\label{fig:homopolymer_blockage_hists}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/polyC_current_voltage.pdf}
+\caption[Current histograms for poly(dC) ssDNA versus voltage]{Current blockage histograms are plotted at \SI{5}{\mV} increments from \SI{45}{\mV} to \SI{170}{\mV}.  The histograms show that the mean $I/I_0$ increases with applied voltage, and that the distribution is Gaussian at voltages below about \SI{100}{\mV}.  At higher bias voltages, peaks appear at lower values of $I/I_0$, and the current distribution ceases to be Gaussian.  Two distributions are singled out, and short segments of $I/I_0$ versus time are plotted in insets.}
+\label{fig:polyC_hists}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{figures/polyC_current_noise.pdf}
+\caption[Current fluctuations for single molecule poly(dC) ssDNA]{Current noise power spectral density, $S$, plotted as a function of frequency, for two individual molecules of NeutrAvidin-poly(dC) ssDNA.  One molecule is held at \SI{160}{\mV} bias, and the other at \SI{60}{\mV} bias.  The current fluctuations at high bias show an increase in noise power spectral density similar to telegraph noise.}
 \label{fig:polyC_fluctuations}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Current fluctuations for all homopolymer ssDNA]{.}
+\includegraphics[width=0.7\textwidth]{figures/homopolymer_noise.pdf}
+\caption[Current fluctuations for all homopolymer ssDNA]{Current noise power spectral density for the four oligonucleotides tethered to NeutrAvidin and trapped in M3-MspA for at least \SI{5}{\ms} by a \SI{60}{\mV} bias.  The noise power spectral density is averaged over many individual molecules ($n_A=322, n_C=716, n_{GA}=108, n_T=1197$).}
 \label{fig:homopolymer_fluctuations}
 \end{centering}
 \end{figure}
+
+The noise plotted in Figure \ref{fig:homopolymer_fluctuations} agrees with a qualitative observation of the noise visible on the traces shown in Figure \ref{fig:homopolymer_blockages}.
 
 \section{Discussion}
 
