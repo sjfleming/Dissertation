@@ -1,6 +1,6 @@
 \begin{savequote}[75mm]
-Blank.
-\qauthor{Blank.}
+Imagine living in a world where a Richter 9 earthquake raged continuously.  In such an environment, engines would be unnecessary.  Your would not need to even pedal your bicycle: you would simply attach a ratchet to the wheel preventing it from going backwards ... At the scale of proteins, Brownian motion is even more furious.
+\qauthor{George Oster and Hongyun Wang \citep{Oster2003}}
 \end{savequote}
 
 \chapter{Thermal motion of ssDNA in the MspA nanopore}
@@ -13,7 +13,7 @@ Intro and motivation
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/NA-ssDNA_fluctuation_in_MspA.pdf}
-\caption[The idea of capture and escape]{On the left hand side, a NeutrAvidin/ssDNA complex is shown trapped in MspA.  The membrane is shown in gray, and a voltage bias across the membrane results in an electrophoretic force pulling the negatively-charged ssDNA into the MspA pore.  Thermal motion causes non-equilibrium position fluctuations.  On the right, the potential energy profile is shown schematically.  Thermal fluctuations of a distance greater than $L$ leads to escape of the complex.}
+\caption[The idea of capture and escape]{The left panel shows a NeutrAvidin/ssDNA complex trapped in MspA.  The membrane is in gray, and a voltage bias across the membrane results in an electrophoretic force pulling the negatively-charged ssDNA into the MspA pore.  Thermal motion causes non-equilibrium position fluctuations.  On the right, the potential energy profile is shown schematically.  Thermal fluctuations of a distance greater than $L$ leads to escape of the complex.}
 \label{fig:capture_escape_idea}
 \end{centering}
 \end{figure}
@@ -33,7 +33,7 @@ Equations used and model being fit.
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/NA-ssDNA_capture_and_escape_event.pdf}
-\caption[Capture and escape experiment schematically]{Implementation of the capture and escape experiment.}
+\caption[Capture and escape experiment schematically]{A typical capture and escape event showing measured current and applied voltage. The cartoon depicts snapshots of the complex in the pore that correspond to the data below.  The complex is captured at \SI{160}{\mV} and held for nearly \SI{200}{\ms}.  The applied voltage is then reduced to \SI{65}{\mV}.  After approximately \SI{670}{\ms}, the complex escapes, as indicated by the current's increase to its open pore value at \SI{65}{\mV}.  The period of time between voltage reduction and escape of the complex is called the ``escape time."  After escape, the voltage is increased to \SI{160}{\mV} to await the next molecule.}
 \label{fig:capture_escape_event}
 \end{centering}
 \end{figure}
@@ -41,7 +41,7 @@ Equations used and model being fit.
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/polyA_escape_histograms.pdf}
-\caption[Measured escape times of poly(dA) ssDNA from MspA]{The histogram of poly(dA) escape data at \SI{60}{\mV}, \SI{25}{\celsius}, plotted with linear and logarithmic x- and y-axis.  Data points are shown in black.  An exponential fit with the same time constant of \SI{57.8}{\ms} is shown as the green line in each plot.  The exponential fits well to the shortest $\sim 90\%$ of events, denoted by the green shaded region.}
+\caption[Measured escape times of poly(dA) ssDNA from MspA]{The histogram of poly(dA) escape data at \SI{60}{\mV}, \SI{25}{\celsius}, plotted with linear and logarithmic x- and y-axis.  Data points are shown in black.  Error bars in each bin are $\sqrt{N}$.  An exponential fit with the same time constant of \SI{57.8}{\ms} is shown as the green line in each plot.  The exponential fits well to the shortest $\sim 90\%$ of events, denoted by the green shaded region.}
 \label{fig:polyA_escape_times}
 \end{centering}
 \end{figure}
@@ -49,7 +49,7 @@ Equations used and model being fit.
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/homopolymer_escape_data.pdf}
-\caption[Measured escape times of homopolymer ssDNA from MspA]{The left panel shows histograms of the escape times measured for the given NeutrAvidin-ssDNA complexes with \SI{60}{\mV} bias applied.  The data show that, at a given clamping voltage, the distribution of escape times is approximately exponential (solid lines) for all four ssDNA molecules, but that the time constant differs.  This time constant, called the ``average escape time," is plotted in the right panel, as a function of bias voltage.  Fits to a first-passage model are shown as dashed lines.}
+\caption[Measured escape times of homopolymer ssDNA from MspA]{(a) Histograms of the escape times measured for the given NeutrAvidin-ssDNA complexes with \SI{60}{\mV} bias applied.  Error bars in each bin are $\sqrt{N}$.  At a given clamping voltage, the distribution of escape times is approximately exponential (solid lines) for all four ssDNA molecules, but the time constant differs.  This time constant is called the ``average escape time."  (b) Average escape time plotted as a function of bias voltage.  Error bars reflect parameter estimation uncertainty at one standard deviation.  Fits to a first-passage model are shown as dashed lines.}
 \label{fig:escape_times}
 \end{centering}
 \end{figure}
@@ -89,7 +89,7 @@ Equations used and model being fit.
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/homopolymer_noise.pdf}
-\caption[Current fluctuations for all homopolymer ssDNA]{Current noise power spectral density for the four oligonucleotides tethered to NeutrAvidin and trapped in M3-MspA for at least \SI{5}{\ms} by a \SI{60}{\mV} bias.  The noise power spectral density is averaged over many individual molecules ($n_A=322, n_C=716, n_{GA}=108, n_T=1197$).}
+\caption[Current fluctuations for all homopolymer ssDNA]{Current noise power spectral density for the four oligonucleotides tethered to NeutrAvidin and trapped in M3-MspA for at least \SI{5}{\ms} by a \SI{60}{\mV} bias.  The noise power spectral density is averaged over many individual molecules ($n_A=322, n_C=716, n_{GA}=108, n_T=1197$).  The mean white noise, $\bar{S}$, is calculated by averaging the noise from \SI{50}{\Hz} to \SI{500}{\Hz}, labeled the white noise domain.  Capacitive noise begins to dominate above \SI{1}{\kHz}, and produces the visible bump before the filter at \SI{10}{\kHz}.}
 \label{fig:homopolymer_fluctuations}
 \end{centering}
 \end{figure}
@@ -103,16 +103,16 @@ The noise plotted in Figure \ref{fig:homopolymer_fluctuations} agrees with a qua
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/calc_position_fluctuations.pdf}
-\caption[Position fluctuations of ssDNA in MspA]{(a) Drift and diffusion lead to a process whereby non-equilibrium position fluctuations of ssDNA in a nanopore relax back to equilibrium.  At a bias voltage of \SI{140}{\mV}, a position fluctuation which puts base number 4 in the pore's constriction (red dashed line) will relax back to nearly the equilibrium distribution (solid blue line) in under \SI{10}{\ns}.  The diffusion constant is \SI{5.9e-11}{\m^2/s}, and the force is \SI{17}{\pico\N} at \SI{140}{\mV}, corresponding to an effective charge density of \num{0.54}$e/\text{base}$ on the ssDNA.  These values correspond to measurements of poly(dA).  (b) At equilibrium, the distribution of ssDNA position depends on the applied force, or equivalently, the applied bias voltage.  Higher voltages lead to tighter clamping of the ssDNA and less thermal motion.}
+\caption[Position fluctuations of ssDNA in MspA]{(a) Drift and diffusion lead to a process whereby non-equilibrium position fluctuations of ssDNA in a nanopore relax back to equilibrium.  At a bias voltage of \SI{140}{\mV}, a position fluctuation which puts base number 4 in the pore's constriction (red dashed line) will relax back to nearly the equilibrium distribution (solid blue line) in under \SI{10}{\ns}.  The diffusion constant is \SI{5.9e-11}{\m^2/s}, and the force is \SI{17}{\pico\N} at \SI{140}{\mV}, corresponding to an effective charge density of \num{0.54}$e/\text{base}$ on the ssDNA.  These values come from measurements of poly(dA).  (b) At equilibrium, the distribution of ssDNA position depends on the applied force, or equivalently, the applied bias voltage.  Higher voltages lead to tighter clamping of the ssDNA and less thermal motion.}
 \label{fig:position_fluctuations}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Thermal motion averaging and sequencing data]{.}
-\label{fig:thermal_motion}
+\includegraphics[width=\textwidth]{figures/thermal_motion_in_sequence_data.pdf}
+\caption[Thermal motion averaging and sequencing data]{Thermal motion of ssDNA is consistent with nanopore sequencing data.  The cartoons show how a few example sequences sit in the constriction of MspA.  The plots show measured current as a function of the position of a single base substitution in a homopolymeric strand.  The single base substitution results in a different current than the homopolymer, but only in some locations.  The fact that the width of this peak is never less than two or three bases is consistent with the thermal motion we report.  Sequence-specific currents come from measurements on M2-MspA made available online by Laszlo \textit{et al.} \citep{Laszlo2014}.}
+\label{fig:thermal_motion_sequencing}
 \end{centering}
 \end{figure}
 
@@ -120,16 +120,16 @@ The noise plotted in Figure \ref{fig:homopolymer_fluctuations} agrees with a qua
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Correlation between force and current]{.}
-\label{fig:force_current_correlation}
+\includegraphics[width=0.6\textwidth]{figures/charge_blockage_correlation.pdf}
+\caption[Correlation between effective charge and current]{Correlation between effective charge and mean blockage current.  The larger the blockage current, $I/I_0$, the smaller the effective charge.  Mean values of $I/I_0$ are measured at \SI{60}{\mV}, as shown in Figure \ref{fig:homopolymer_blockage_hists}, and the associated small error bars are the standard error of the mean.  Error bars on effective charge are one standard deviation uncertainty from the first-passage model parameter estimation.}
+\label{fig:charge_current_correlation}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Correlation between diffusion and noise]{.}
+\includegraphics[width=\textwidth]{figures/diffusion_noise_correlation.pdf}
+\caption[Correlation between diffusion and noise]{Correlation between diffusion constant, $D$, and the mean normalized excess white noise, $\bar{N}$, defined in the text.  (a) The four oligonucleotides in this study plausibly fall along the gray curve, denoting $D \propto 1/\bar{N}$.  Large error bars in $D$ reflect parameter estimation uncertainty at one standard deviation.  (b) Further exploration of this correlation, using measurements of poly(dT) at various temperatures.  The gray curve is the same curve plotted in (a).}
 \label{fig:diffusion_noise_correlation}
 \end{centering}
 \end{figure}
@@ -139,7 +139,7 @@ The noise plotted in Figure \ref{fig:homopolymer_fluctuations} agrees with a qua
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/cell.pdf}
-\caption[Thermal motion averaging with voltage]{Model of position fluctuations of ssDNA in MspA, and its effects on signal averaging, as a function of applied bias voltage.}
+\caption[Thermal motion averaging with voltage]{Model of position fluctuations of ssDNA in MspA, and its effects on signal averaging, as a function of applied bias voltage.  Traces of TTTTT to XXXXX at various voltages...?}
 \label{fig:thermal_motion_projections}
 \end{centering}
 \end{figure}

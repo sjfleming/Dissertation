@@ -26,3 +26,7 @@
 *.psd
 *.fig
 *.eps
+fonts/.DS_Store
+*.DS_Store
+fonts/._TeX-Gyre-Termes
+fonts/EB Garamond/README.markdown
