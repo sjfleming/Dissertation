@@ -8,12 +8,6 @@ At first sight, the essentially statistical character of atomic mechanics might 
 
 The fundamental unit of life in biology is the cell.  Though they are incredibly sophisticated and there is unbelievable diversity among species, cells all have in common that they must have a barrier between the ``inside" of the cell and the ``outside" world, and that they must have a means by which to transfer materials from the inside to the outside of the cell and vice versa.
 
-\section{Membranes and ion channels in biology}
-
-Cells have solved the problem of setting up a barrier that defines ``inside" and ``outside" with the \textit{cell membrane}.  The detailed structure of cell membranes was the subject of much debate up until 1966, when Dan Branton showed experimentally that cell membranes are composed of a lipid bilayer, studded by proteins, some of which span both leaflets of the membrane \citep{Branton1966,Branton2016}.
-
-Many proteins span the entire membrane, but some also allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers.  These proteins allow for the uncontrolled passage of anything small enough to fit through them, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
-
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/cell.pdf}
@@ -22,10 +16,16 @@ Many proteins span the entire membrane, but some also allow for the controlled p
 \end{centering}
 \end{figure}
 
+\section{Membranes and ion channels in biology}
+
+Cells have solved the problem of setting up a barrier that defines ``inside" and ``outside" with the \textit{cell membrane} (see Figure \ref{fig:ion_channels}).  The detailed structure of cell membranes was the subject of much debate up until 1966, when Dan Branton showed experimentally that cell membranes are composed of a lipid bilayer, studded by proteins, some of which span both leaflets of the membrane \citep{Branton1966,Branton2016}.
+
+Of the proteins which span both leaflets of the bilayer membrane, some allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers.  These proteins allow for the uncontrolled passage of anything small enough to fit through them, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/mspa.pdf}
-\caption[The protein nanopore MspA]{The three dimensional structure of the protein nanopore MspA, viewed as a solvent-accessible surface.  MspA is a porin comprised of eight identical subunits.  On the left and right, one subunit is shown in blue.  The middle image depicts a cross-section of the nanopore, with the cut part in gold.  MspA has a funnel shape, and the narrowest constriction is approximately \SI{1.2}{\nm} in diameter.  This image was generated in PyMol using the crystal structure accessed from the Protein Data Bank (1UUN), obtained by Faller \textit{et al.} at \SI{2.5}{\angstrom} resolution using X-ray diffraction \citep{Faller2004a}.}
+\caption[The protein nanopore MspA]{The three-dimensional structure of the protein nanopore MspA, viewed as a solvent-accessible surface.  MspA is a porin comprised of eight identical subunits.  On the left and right, one subunit is shown in blue.  The middle image depicts a cross-section of the nanopore, with the cut part in gold.  MspA has a funnel shape, and the narrowest constriction is approximately \SI{1.2}{\nm} in diameter.  This image was generated in PyMol using the crystal structure accessed from the Protein Data Bank (1UUN), obtained by Faller \textit{et al.} at \SI{2.5}{\angstrom} resolution using X-ray diffraction \citep{Faller2004a}.}
 \label{fig:mspa}
 \end{centering}
 \end{figure}
@@ -40,7 +40,9 @@ Many proteins span the entire membrane, but some also allow for the controlled p
 
 \section{The engineering of MspA for DNA experiments}
 
-Initial work cloning the mspA gene was done in 1999 by Niederweis \textit{et al.} \citep{Niederweis1999}.
+The three-dimensional structure of the MspA protein is shown in Figure \ref{fig:mspa}.  In its biological context, MspA forms a hydrophilic, water-filled pore through the otherwise thick hydrophobic membrane of mycobacterium.  This pore allows the passage of hydrophilic molecules of appropriate size and charge into and out of the cell \citep{Niederweis1999}.  MspA is an octameric protein composed of \SI{19406}{\dalton} subunits, forming a \SI{150}{\kilo\dalton} porin.
+
+Initial work cloning the \textit{mspA} gene was done in 1999 by Niederweis \textit{et al.} \citep{Niederweis1999}.
 
 \begin{figure}[h]
 \begin{centering}
@@ -49,6 +51,16 @@ Initial work cloning the mspA gene was done in 1999 by Niederweis \textit{et al.
 \label{fig:mspa_engineering}
 \end{centering}
 \end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/mspa_surface_charge.png}
+\caption[Hydrophobicity and surface charge of MspA]{.}
+\label{fig:mspa_engineering_charge}
+\end{centering}
+\end{figure}
+
+Surface charges and hydrophobicity are colored according to the scheme developed by Hagemans \textit{et al.} \citep{Hagemans2015}.
 
 Note that ``M2" is the standard nomenclature used for a commonly used MspA mutant which can be found in the literature \citep{Butler2008,Manrao2012,Schreiber2013,Derrington2015}.  The designation of the second MspA mutant (Figure \ref{fig:mspa_engineering}, right) as ``M3" is so far unique to this dissertation, as this mutant does not appear in the literature, except in the work published by our group \citep{Lu2015,Fleming2017} which is described in Chapter \ref{dna_thermal_motion_mspa}.
 
