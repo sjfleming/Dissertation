@@ -20,16 +20,6 @@ The fundamental unit of life in biology is the cell.  Though they are incredibly
 
 Cells have solved the problem of setting up a barrier that defines ``inside" and ``outside" with the \textit{cell membrane} (see Figure \ref{fig:ion_channels}).  The detailed structure of cell membranes was the subject of much debate up until 1966, when Dan Branton showed experimentally that cell membranes are composed of a lipid bilayer, studded by proteins, some of which span both leaflets of the membrane \citep{Branton1966,Branton2016}.
 
-Of the proteins which span both leaflets of the bilayer membrane, some allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers.  These proteins allow for the uncontrolled passage of anything small enough to fit through them, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
-
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=\textwidth]{figures/mspa.pdf}
-\caption[The protein nanopore MspA]{The three-dimensional structure of the protein nanopore MspA, viewed as a solvent-accessible surface.  MspA is a porin comprised of eight identical subunits.  On the left and right, one subunit is shown in blue.  The middle image depicts a cross-section of the nanopore, with the cut part in gold.  MspA has a funnel shape, and the narrowest constriction is approximately \SI{1.2}{\nm} in diameter.  This image was generated in PyMol using the crystal structure accessed from the Protein Data Bank (1UUN), obtained by Faller \textit{et al.} at \SI{2.5}{\angstrom} resolution using X-ray diffraction \citep{Faller2004a}.}
-\label{fig:mspa}
-\end{centering}
-\end{figure}
-
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/membrane.pdf}
@@ -38,11 +28,23 @@ Of the proteins which span both leaflets of the bilayer membrane, some allow for
 \end{centering}
 \end{figure}
 
+The structure of lipids and a bilayer lipid membrane is shown in Figure \ref{fig:lipids}.  The lipid used in this work is 1,2-diphytanoyl-\textit{sn}-glycero-3-phosphocholine, and will be referred to as ``PC."  All lipids are composed of a hydrophilic head group and hydrophobic tails, as shown.  Under the appropriate conditions, lipids can self-assemble into a fluid bilayer structure.  This is the structure of lipid membranes.  The hydrophilic heads face aqueous solution on both sides, while the interior is extremely hydrophobic, and prevents water (to some extent) and ions (almost completely) from passing through.
+
+Of the proteins which span both leaflets of the bilayer membrane, some allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers.  These proteins allow for the uncontrolled passage of anything small enough to fit through them, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/mspa.pdf}
+\caption[The protein nanopore MspA]{The three-dimensional structure of the protein nanopore MspA, viewed as a solvent-accessible surface.  MspA is a porin comprised of eight identical subunits.  On the left and right, one subunit is shown in blue.  The middle image depicts a cross-section of the nanopore, with the cut part in gold.  MspA has a funnel shape, and the narrowest constriction is approximately \SI{1.2}{\nm} in diameter.  This image was generated in PyMol using the crystal structure accessed from the Protein Data Bank (1UUN), obtained by Faller \textit{et al.} at \SI{2.5}{\angstrom} resolution using X-ray diffraction \citep{Faller2004}.}
+\label{fig:mspa}
+\end{centering}
+\end{figure}
+
 \section{The engineering of MspA for DNA experiments}
 
-The three-dimensional structure of the MspA protein is shown in Figure \ref{fig:mspa}.  In its biological context, MspA forms a hydrophilic, water-filled pore through the otherwise thick hydrophobic membrane of mycobacterium.  This pore allows the passage of hydrophilic molecules of appropriate size and charge into and out of the cell \citep{Niederweis1999}.  MspA is an octameric protein composed of \SI{19406}{\dalton} subunits, forming a \SI{150}{\kilo\dalton} porin.
+The three-dimensional structure of the MspA protein is shown in Figure \ref{fig:mspa}.  In its biological context, MspA forms a hydrophilic, water-filled pore through the otherwise thick hydrophobic membrane of mycobacterium.  This pore allows the passage of hydrophilic molecules of appropriate size and charge into and out of the cell \citep{Niederweis1999}, and is the main pathway for hydrophilic molecules to enter and exit \citep{Stahl2001}.  MspA is an octameric protein composed of \SI{19406}{\dalton} subunits, forming a \SI{150}{\kilo\dalton} porin \citep{Niederweis1999}.
 
-Initial work cloning the \textit{mspA} gene was done in 1999 by Niederweis \textit{et al.} \citep{Niederweis1999}.
+Initial work cloning the \textit{mspA} gene was done in 1999 by Niederweis \textit{et al.} \citep{Niederweis1999}.  This initial work  included single-channel recordings of ionic conductance through these wild-type MspA channels reconstituted in an artificial lipid bilayer.  The structure of the MspA protein was solved by Faller \textit{et al.} in 2004 \citep{Faller2004} (Figure \ref{fig:mspa}).  The size of the narrowest constriction of MspA, at approximately \SI{1.2}{\nm}, is just right to allow the passage of ssDNA, but too narrow to accommodate dsDNA.
 
 \begin{figure}[h]
 \begin{centering}
@@ -52,21 +54,28 @@ Initial work cloning the \textit{mspA} gene was done in 1999 by Niederweis \text
 \end{centering}
 \end{figure}
 
+The first use of MspA in a nanopore experiment with the aim of characterizing DNA was by Butler \textit{et al.} in 2008 \citep{Butler2008}.  In that work, wild-type MspA was found to have a conductance of around \SI{5}{\nano\siemens} in \SI{1}{\Molar} KCl at room temperature.  However, the wild-type pore would spontaneously gate at applied bias voltages above \SI{60}{\mV}.  ssDNA was not detectable.  Butler \textit{et al.} surmised that the negative charges lining the narrowest constriction of wild-type MspA were preventing ssDNA from entering and translocating through the pore (since the phosphate backbone of DNA is also negatively charged in solution).  They made the mutations D90N/D91N/D93N, changing the negatively charged aspartic acid residues lining the constriction to neutral asparagine residues.  This allowed ssDNA to translocate through the pore, and also prevented spontaneous gating.  Three further mutations, E139K/D134R/D188R, added positively charged amino acids in the vestibule and around the top of MspA.  Butler \textit{et al.} found that this enhanced the capture rate of DNA at lower voltage biases.  This pore is called "M2-MspA," and is shown in Figure \ref{fig:mspa_engineering}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/mspa_surface_charge.png}
-\caption[Hydrophobicity and surface charge of MspA]{.}
+\caption[Hydrophobicity and surface charge of MspA]{Surface of MspA, colored by surface charge and hydrophobicity.  Hydrophobic regions are yellow, while negative regions are red, positive are blue, and neutral hydrophilic areas are white.  The outer surface shows a clear hydrophobic transmembrane region.  Cutaways of wild-type MspA and M3-MspA show the nature of the mutations made to accommodate negatively-charged DNA.  Coloring scheme is according to Hagemans \textit{et al.} \citep{Hagemans2015}.}
 \label{fig:mspa_engineering_charge}
 \end{centering}
 \end{figure}
 
-Surface charges and hydrophobicity are colored according to the scheme developed by Hagemans \textit{et al.} \citep{Hagemans2015}.
+A closer look at the surface of MspA reveals why it is a tranmembrane porin.  Figure \ref{fig:mspa_engineering_charge} shows surface charges and hydrophobicity, colored according to the scheme developed by Hagemans \textit{et al.} \citep{Hagemans2015}.  Hydrophobic amino acids are in yellow, while negative charges are red and positive charges are blue.  White is neutral.  The figure shows that the outer surface of MspA has a $\approx$ \SI{4}{\nm} barrel of hydrophobic amino acids on the surface.  This sits in the lipid bilayer, which is also hydrophobic.  When MspA inserts into a lipid bilayer, this bottom half will insert, ensuring that pores introduced on a particular side of the membrane always have the same orientation.  The middle and right panels of Figure \ref{fig:mspa_engineering_charge} show a cutaway view of the interior of MspA.  Wild-type MspA has a negatively-charged constriction, while M3-MspA has a neutral constriction, and several added positive charges in the vestibule.
 
-Note that ``M2" is the standard nomenclature used for a commonly used MspA mutant which can be found in the literature \citep{Butler2008,Manrao2012,Schreiber2013,Derrington2015}.  The designation of the second MspA mutant (Figure \ref{fig:mspa_engineering}, right) as ``M3" is so far unique to this dissertation, as this mutant does not appear in the literature, except in the work published by our group \citep{Lu2015,Fleming2017} which is described in Chapter \ref{dna_thermal_motion_mspa}.
+It is worth noting that ``M2" is the standard nomenclature used for a commonly used MspA mutant which can be found in the literature \citep{Butler2008,Manrao2012,Schreiber2013,Derrington2015}.  The designation of the second MspA mutant (Figure \ref{fig:mspa_engineering}, right) as ``M3" is so far unique to this dissertation, as this mutant does not appear in the literature, except in the work published by our group \citep{Lu2015,Fleming2017} which is described in Chapter \ref{dna_thermal_motion_mspa}.
+
 
 \section{Electrical measurements of the MspA nanopore}
 
+Nanopore experiments are measurements of a single molecule, and this is ensured by the experimental setup.  A lipid bilayer of PC is formed across a $\sim$ \SI{20}{\um} aperture in a Teflon partition that separates two volumes of buffered KCl solution, each contacted by an electrode.  A single nanopore is allowed to insert into this lipid bilayer, and forms the only conductive path through the membrane.
+
 \subsection{Experimental setup}
+
+A schematic of the experimental setup is shown in Figure \ref{fig:setup}.  Silver / silver chloride [Ag/AgCl] electrodes make contact with an aqueous electrolyte on either side of a lipid bilayer membrane.  A single MspA nanopore is inserted into this membrane.  The electrodes are connected to a sensitive current amplifier, in this work, the Axopatch 200B (Molecular Devices, Inc.).  A simplified version of the current amplifier is also shown schematically in Figure \ref{fig:setup}, where the current amplification comes from the fact that whatever current flows through the nanopore is the same current that flows through the feedback resistor, $R_f$.  Conceptually, this means that even a small current (\SI{1}{\pA}) can cause a measurable voltage (\SI{1}{\mV}) at the output if the value of $R_f$ is large enough (\SI{1}{\giga\ohm}).
 
 \begin{figure}[h]
 \begin{centering}
@@ -76,13 +85,17 @@ Note that ``M2" is the standard nomenclature used for a commonly used MspA mutan
 \end{centering}
 \end{figure}
 
+Note that the electrodes are connected to the experiment in such a way that a positive applied voltage, $V_{bias}$, means that the ``trans" side of the membrane (Figure \ref{fig:setup}) is positive with respect to the ``cis" side, where analyte molecules are typically introduced.  This means that at positive voltage bias, negatively-charged DNA will be drawn through the nanopore, from the cis side to the trans side.
+
 \subsection{Electronics considerations}
 
-Using the Axopatch 200B in ``whole cell" mode employs a feedback resistor, $R_f$, of \SI{500}{\mega\ohm}, which means that a \SI{1}{\pico\ampere} current shows up as an output voltage of \SI{0.5}{\milli\volt}.  Following this amplification by another 20-fold amplification (the headstage accounts for a factor of two, and setting the output gain $\alpha=10$ on the Axopatch 200B amplifies by a further factor of ten) results in a signal of \SI{10}{\milli\volt} per \SI{1}{\pico\ampere} of ionic current.  The analog-to-digital converter is a Digidata 1440a from Molecular Devices, Inc., with 16-bit conversion over a range of \SI{-10}{\volt} to $+$\SI{10}{\volt}, meaning that the signal is quantized in \SI{0.3}{\milli\volt} steps.  With a digitization noise of less than \SI{1}{\milli\volt}, this means that a \SI{10}{\milli\volt} signal, corresponding to \SI{1}{\pico\ampere} of ionic current, is readily measurable.  This is quite a feat, considering that \SI{1}{\pico\ampere} is only about \num{60} ions every \SI{10}{\micro\second}.
+Using the Axopatch 200B in ``whole cell" mode employs a feedback resistor, $R_f$, of \SI{500}{\mega\ohm}, which means that a \SI{1}{\pA} current shows up as an output voltage of \SI{0.5}{\mV}.  Following this amplification by another 20-fold amplification (the headstage accounts for a factor of two, and setting the output gain $\alpha=10$ on the Axopatch 200B amplifies by a further factor of ten) results in a signal of \SI{10}{\mV} per \SI{1}{\pico\ampere} of ionic current.  The analog-to-digital converter is a Digidata 1440a from Molecular Devices, Inc., with 16-bit conversion over a range of \SI{-10}{\volt} to $+$\SI{10}{\volt}, meaning that the signal is quantized in \SI{0.3}{\mV} steps.  With a digitization noise of less than \SI{1}{\mV}, this means that a \SI{10}{\milli\volt} signal, corresponding to \SI{1}{\pico\ampere} of ionic current, is readily measurable.  This is quite a feat, considering that \SI{1}{\pA} is only about \num{60} ions every \SI{10}{\us}, and the current can be sampled as fast as once every \SI{4}{\us}.
+
+Typically, ionic current is recorded at \SI{100}{\kHz} after hardware filtering at \SI{10}{\kHz}.  The Axopatch 200B applies a voltage bias across the membrane, and this is also recorded at \SI{100}{\kHz}.
 
 \subsection{Current as a function of applied voltage}
 
-Mention gating at reverse bais.
+The simplest experiment that can be performed is a measurement of ionic current through the open nanopore, without any analyte molecules present.  Open pore measurements of M2-MspA are shown in Figure \ref{fig:iv_mspa}.  At room temperature ($\sim$ \SI{23}{\degreeCelsius}) in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, at pH \num{8.00}, the conductance of M2-MspA is roughly \SI{2}{\nano\siemens}.  However, as shown in the left panel of Figure \ref{fig:iv_mspa}, the current-versus-voltage curve is not linear.  The characteristic larger conductance at negative applied biases, as well as the slight nonlinear dip in conductance between $\sim$ \SI{100}{\mV} and $\sim$ \SI{180}{\mV}, reveals the pore's orientation in the membrane.  This current-versus-voltage curve is recorded as the initial step of each new experiment, in order to ensure that the pore orientation is as expected.
 
 \begin{figure}[h]
 \begin{centering}
@@ -91,6 +104,9 @@ Mention gating at reverse bais.
 \label{fig:iv_mspa}
 \end{centering}
 \end{figure}
+
+The right panel of Figure \ref{fig:iv_mspa} shows \num{6} seconds of a current versus time trace.  The first \SI{3}{\s} are at $+$\SI{100}{\mV} applied bias across the membrane, while the last \SI{3}{\s} are at $-$\SI{100}{\mV}.  It can be seen that the current is very stable and quiet at $+$\SI{100}{\mV}.  At $-$\SI{100}{\mV}, the pore occasionally closes spontaneously.  This is referred to as ``gating," and it was also observed by Butler \textit{et al.} for M2-MspA \citep{Butler2008}.  Gating at large negative applied bias is another confirmation that the nanopore is inserted in the correct orientation; however, gating is not as reliable a factor as the current-versus-voltage curve.
+
 
 \subsection{Effect of temperature}
 
