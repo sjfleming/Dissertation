@@ -95,24 +95,32 @@ Typically, ionic current is recorded at \SI{100}{\kHz} after hardware filtering 
 
 \subsection{Current as a function of applied voltage}
 
-The simplest experiment that can be performed is a measurement of ionic current through the open nanopore, without any analyte molecules present.  Open pore measurements of M2-MspA are shown in Figure \ref{fig:iv_mspa}.  At room temperature ($\sim$ \SI{23}{\degreeCelsius}) in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, at pH \num{8.00}, the conductance of M2-MspA is roughly \SI{2}{\nano\siemens}.  However, as shown in the left panel of Figure \ref{fig:iv_mspa}, the current-versus-voltage curve is not linear.  The characteristic larger conductance at negative applied biases, as well as the slight nonlinear dip in conductance between $\sim$ \SI{100}{\mV} and $\sim$ \SI{180}{\mV}, reveals the pore's orientation in the membrane.  This current-versus-voltage curve is recorded as the initial step of each new experiment, in order to ensure that the pore orientation is as expected.
+The simplest experiment that can be performed is a measurement of ionic current through the open nanopore, without any analyte molecules present.  Open pore measurements of M2-MspA are shown in Figure \ref{fig:iv_mspa}.  At room temperature ($\sim$ \SI{23}{\degreeCelsius}) in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, at pH \num{8.00}, the conductance of M2-MspA is roughly \SI{2}{\nano\siemens}.  However, as shown in Figure \ref{fig:iv_mspa}a, the current-versus-voltage curve is not linear.  The characteristic larger conductance at negative applied biases, as well as the slight nonlinear dip in conductance between $\sim$ \SI{100}{\mV} and $\sim$ \SI{180}{\mV}, reveals the pore's orientation in the membrane.  This current-versus-voltage curve is recorded as the initial step of each new experiment, in order to ensure that the pore orientation is as expected.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/mspa_iv.pdf}
-\caption[MspA current versus voltage]{On the left is the current versus voltage relation measured for the M2-MspA nanopore in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, pH \num{8.00}, at room temperature.  On the right, current is plotted as a function of time.  At \num{3} seconds, the applied voltage is switched from $+$\SI{100}{\milli\volt} to \SI{-100}{\milli\volt}.  It can be seen that the nanopore spontaneously closes periodically at \SI{-100}{\milli\volt} bias.  This is referred to as ``gating."}
+\caption[MspA current versus voltage]{Measurements of a single, upright, open M2-MspA nanpore without any analyte molecules.  (a) Current versus voltage relation measured in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, pH \num{8.00}, at room temperature.  (b) Current is plotted as a function of time.  At \num{3} seconds, the applied voltage is switched from $+$\SI{100}{\milli\volt} to \SI{-100}{\milli\volt}.  It can be seen that the nanopore spontaneously closes periodically at \SI{-100}{\milli\volt} bias.  This is referred to as ``gating."}
 \label{fig:iv_mspa}
 \end{centering}
 \end{figure}
 
-The right panel of Figure \ref{fig:iv_mspa} shows \num{6} seconds of a current versus time trace.  The first \SI{3}{\s} are at $+$\SI{100}{\mV} applied bias across the membrane, while the last \SI{3}{\s} are at $-$\SI{100}{\mV}.  It can be seen that the current is very stable and quiet at $+$\SI{100}{\mV}.  At $-$\SI{100}{\mV}, the pore occasionally closes spontaneously.  This is referred to as ``gating," and it was also observed by Butler \textit{et al.} for M2-MspA \citep{Butler2008}.  Gating at large negative applied bias is another confirmation that the nanopore is inserted in the correct orientation; however, gating is not as reliable a factor as the current-versus-voltage curve.
+Figure \ref{fig:iv_mspa}b shows \num{6} seconds of a current versus time trace.  The first \SI{3}{\s} are at $+$\SI{100}{\mV} applied bias across the membrane, while the last \SI{3}{\s} are at $-$\SI{100}{\mV}.  It can be seen that the current is very stable and quiet at $+$\SI{100}{\mV}.  At $-$\SI{100}{\mV}, the pore occasionally closes spontaneously.  This is referred to as ``gating," and it was also observed by Butler \textit{et al.} for M2-MspA \citep{Butler2008}.  Gating at large negative applied bias is another confirmation that the nanopore is inserted in the correct orientation; however, gating is not as reliable a factor as the current-versus-voltage curve.
 
 
 \subsection{Effect of temperature}
 
-Its relationship to water's viscosity as a function of temperature.
+The amount of ionic current passing through an MspA nanopore at constant voltage depends on temperature.  Measurements of current versus voltage at constant temperature are shown in Figure \ref{fig:mspa_current_temp}a, at temperatures from \SI{5}{\degreeCelsius} to \SI{60}{\degreeCelsius} in steps of \SI{5}{\degreeCelsius}.  Figure \ref{fig:mspa_current_temp}b shows the same data plotted as conductance versus voltage.  The non-linear relationship of current with voltage is clearly visible, and makes the nanopore different from a simple resistor.
 
-For ions with valence $z=1$, like potassium and chloride ions,
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/mspa_temp.pdf}
+\caption[MspA current versus temperature]{Measurements of the effect of temperature on the open pore current of M3-MspA.  (a) The current is plotted as a function of voltage at temperatures from \SI{5}{\degreeCelsius} to \SI{60}{\degreeCelsius} in steps of \SI{5}{\degreeCelsius}.  (b) The same data are plotted as conductance versus voltage.  Note that for an ideal resistor, the conductance would be constant as a function of voltage.}
+\label{fig:mspa_current_temp}
+\end{centering}
+\end{figure}
+
+What exactly is responsible for this dependence of open pore conductance on temperature?  An initial hypothesis might be that the change in the viscosity of the electrolyte solution with temperature should contribute.  For ions with valence $z=1$, like potassium and chloride ions,
 
 Diffusion, Stokes-Einstein relation:
 
@@ -162,14 +170,6 @@ G(T) = G(T_0) \left[ \frac{\eta(T_0)}{\eta(T)} \right]
 \end{equation}
 
 This is what is plotted in Figure \ref{fig:mspa_current_temp_viscosity}.
-
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=\textwidth]{figures/mspa_temp.pdf}
-\caption[MspA current versus temperature]{Measurements of the effect of temperature on the open pore current of M3-MspA.  The same data are displayed in the left and right panels.  On the left, the current is plotted as a function of voltage at temperatures from 5°C to 60°C in steps of 5°C.  On the right, the data are plotted as conductance versus voltage.  Note that for an ideal resistor, the conductance would be constant as a function of voltage.}
-\label{fig:mspa_current_temp}
-\end{centering}
-\end{figure}
 
 \begin{figure}[h]
 \begin{centering}
