@@ -1,28 +1,10 @@
 %%% ====================================================================
 %%%  @BibTeX-style-file{
-%%%     author          = "Alan R. Rogers",
-%%%     version         = "1.0",
-%%%     date            = "12 November 1992",
-%%%     time            = "16:07:20 MST",
-%%%     filename        = "pnas.bst",
-%%%     address         = "Department of Anthropology
-%%%                        University of Utah
-%%%                        Salt Lake City, UT 84112
-%%%                        USA",
-%%%     telephone       = "+1 801 581 5529",
-%%%     FAX             = "+1 801 581 6252",
-%%%     checksum        = "37034 967 2316 17724",
-%%%     email           = "rogers@anthro.utah.edu (Internet)",
-%%%     codetable       = "ISO/ASCII",
-%%%     keywords        = "",
-%%%     supported       = "yes",
-%%%     abstract        = "",
-%%%     docstring       = "This file produces bibliographies in the
-%%%		           format of ``Proceedings of the National
-%%%		           Academy of Sciences, USA.''",
+%%%     author          = "Russell Standish"
 %%%  }
 %%% ====================================================================
-% This is "pnas.bst", modified from "unsrt.bst"
+% This is "pnas2011.bst, adapted from "pnas2009.bst" and "pnas.bst", modified
+% from "unsrt.bst"
 % BibTeX standard bibliography style `unsrt'
 	% version 0.99a for BibTeX versions 0.99a or later, LaTeX version 2.09.
 	% Copyright (C) 1985, all rights reserved.
@@ -229,17 +211,17 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{, jj}{, f}" format.name$ 't :=
+    { s nameptr "{vv~}{ll}{, jj}{ f{}}" format.name$ 't :=
       nameptr #1 >
 	{ namesleft #1 >
 	    { ", " * t * }
-	    { numnames #2 >
+	    { numnames #1 >
 		{ ", " * }
 		'skip$
 	      if$
 	      t "others" =
 		{ " et~al." * }
-		{ " \& " * t * }
+		{ t * }
 	      if$
 	    }
 	  if$
@@ -248,6 +230,12 @@ FUNCTION {format.names}
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
+      namesleft #4 >
+      { " et~al." *
+        #0 'namesleft :=
+      }
+      'skip$
+      if$
     }
   while$
 }
@@ -454,12 +442,21 @@ FUNCTION {format.pages}
 }
 
 FUNCTION {format.vol.num.pages}
-{ volume boldface
+{ volume field.or.null
+  number empty$
+    'skip$
+    { "(" number * ")" * *
+      volume empty$
+	{ "there's a number but no volume in " cite$ * warning$ }
+	'skip$
+      if$
+    }
+  if$
   pages empty$
     'skip$
     { duplicate$ empty$
 	{ pop$ format.pages }
-	{ ", " * pages n.dashify * }
+	{ ":" * pages n.dashify * }
       if$
     }
   if$
@@ -611,8 +608,9 @@ FUNCTION {format.incoll.inproc.crossref}
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date "year" output.check
+  format.title "title" output.check
+  new.block
   crossref missing$
     { journal emphasize "journal" output.check
       format.vol.num.pages output
@@ -633,7 +631,6 @@ FUNCTION {book}
     { "author and editor" editor either.or.check }
     'skip$
   if$
-  new.block
   format.date "year" output.check
   format.btitle.series "title" output.check
   crossref missing$
@@ -658,7 +655,6 @@ FUNCTION {book}
 FUNCTION {booklet}
 { output.bibitem
   format.authors output
-  new.block
   format.date output
   format.title "title" output.check
   howpublished address comma.connect parenthesize output
@@ -670,7 +666,6 @@ FUNCTION {booklet}
 FUNCTION {inbook}
 { output.bibitem
   format.authors output.nonnull
-  new.block
   format.date "year" output.check
   format.btitle.series "title" output.check
   new.sentence
@@ -697,8 +692,8 @@ FUNCTION {inbook}
 FUNCTION {incollection}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date "year" output.check
+  format.title "title" output.check
   format.in.ed.booktitle "title" output.check
   new.sentence
   crossref missing$
@@ -723,11 +718,12 @@ FUNCTION {incollection}
 FUNCTION {inproceedings}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date "year" output.check
+  format.title "title" output.check
+  format.in.ed.booktitle "title" output.check
+  new.sentence
   crossref missing$
-    { format.btitle.series "title" output.check
-      format.editors output
+    { format.editors output
       new.block
       organization publisher comma.connect
       address comma.connect
@@ -739,6 +735,8 @@ FUNCTION {inproceedings}
     { format.incoll.inproc.crossref output.nonnull
     }
   if$
+  format.edition output
+  new.sentence
   format.pages output
   new.block
   note output
@@ -757,7 +755,6 @@ FUNCTION {manual}
     }
     { format.authors output.nonnull }
   if$
-  new.block
   format.date "year" output.check
   format.btitle.series "title" output.check
   author empty$
@@ -775,7 +772,6 @@ FUNCTION {manual}
 FUNCTION {mastersthesis}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date "year" output.check
   "Master's thesis" format.thesis.type output.nonnull
   school address comma.connect parenthesize output
@@ -787,7 +783,6 @@ FUNCTION {mastersthesis}
 FUNCTION {misc}
 { output.bibitem
   format.authors output
-  new.block
   format.date output
   format.title output
   howpublished parenthesize output
@@ -800,7 +795,6 @@ FUNCTION {misc}
 FUNCTION {phdthesis}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date "year" output.check
   "Ph.D. thesis" format.thesis.type output.nonnull
   school address comma.connect parenthesize output
@@ -812,7 +806,6 @@ FUNCTION {phdthesis}
 FUNCTION {proceedings}
 { output.bibitem
   format.editors.as.authors output
-  new.block
   format.date output
   format.btitle.series "title" output.check
   organization publisher comma.connect
@@ -828,7 +821,6 @@ FUNCTION {proceedings}
 FUNCTION {techreport}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date output
   format.title "title" output.check
   new.sentence
@@ -843,7 +835,6 @@ FUNCTION {techreport}
 FUNCTION {unpublished}
 { output.bibitem
   format.authors "author" output.check
-  new.block
   format.date output
   format.title "title" output.check
   new.block
