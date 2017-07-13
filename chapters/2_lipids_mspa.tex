@@ -30,7 +30,7 @@ Cells have solved the problem of setting up a barrier that defines ``inside" and
 
 The structure of lipids and a bilayer lipid membrane is shown in Figure \ref{fig:lipids}.  The lipid used in this work is 1,2-diphytanoyl-\textit{sn}-glycero-3-phosphocholine, and will be referred to as ``PC."  All lipids are composed of a hydrophilic head group and hydrophobic tails, as shown.  Under the appropriate conditions, lipids can self-assemble into a fluid bilayer structure.  This is the structure of lipid membranes.  The hydrophilic heads face aqueous solution on both sides, while the interior is extremely hydrophobic, and prevents water (to some extent) and ions (almost completely) from passing through.
 
-Of the proteins which span both leaflets of the bilayer membrane, some allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille1978}.  Other membrane-spanning proteins have larger openings, on the order of nanometers.  These proteins allow for the uncontrolled passage of anything small enough to fit through them, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
+Of the proteins which span both leaflets of the bilayer membrane, some allow for the controlled passage of ions from one side of the membrane to the other.  These proteins are known as ``ion channels."  For a thorough treatment of ion channels, see Reference \citenum{Hille2001}.  Other membrane-spanning proteins have larger openings, on the order of nanometers.  These proteins allow for the uncontrolled passage of anything small enough to fit through them, and are known as ``porins."  \textit{Mycobacterium smegmatis} porin A [MspA] is one of these.
 
 \begin{figure}[h]
 \begin{centering}
@@ -69,13 +69,13 @@ A closer look at the surface of MspA reveals why it is a tranmembrane porin.  Fi
 It is worth noting that ``M2" is the standard nomenclature used for a commonly used MspA mutant which can be found in the literature \citep{Butler2008,Manrao2012,Schreiber2013,Derrington2015}.  The designation of the second MspA mutant (Figure \ref{fig:mspa_engineering}, right) as ``M3" is so far unique to this dissertation, as this mutant does not appear in the literature, except in the work published by our group \citep{Lu2015,Fleming2017} which is described in Chapter \ref{dna_thermal_motion_mspa}.
 
 
-\section{Electrical measurements of the MspA nanopore}
+\section{Measurements obtained with the MspA nanopore}
 
-Nanopore experiments are measurements of a single molecule, and this is ensured by the experimental setup.  A lipid bilayer of PC is formed across a $\sim$ \SI{20}{\um} aperture in a Teflon partition that separates two volumes of buffered KCl solution, each contacted by an electrode.  A single nanopore is allowed to insert into this lipid bilayer, and forms the only conductive path through the membrane.
+Nanopore experiments are measurements of a single molecule, and this is ensured by the experimental setup.  A lipid bilayer of PC is formed across a $\sim$ \SI{20}{\um} aperture in a Teflon partition that separates two volumes of buffered KCl solution, each contacted by an electrode.  A single nanopore is allowed to insert into this lipid bilayer, and forms the only conductive path through the membrane.  Details of the protocol are contained in Appendix \ref{protocol}.
 
 \subsection{Experimental setup}
 
-A schematic of the experimental setup is shown in Figure \ref{fig:setup}.  Silver / silver chloride [Ag/AgCl] electrodes make contact with an aqueous electrolyte on either side of a lipid bilayer membrane.  A single MspA nanopore is inserted into this membrane.  The electrodes are connected to a sensitive current amplifier, in this work, the Axopatch 200B (Molecular Devices, Inc.).  A simplified version of the current amplifier is also shown schematically in Figure \ref{fig:setup}, where the current amplification comes from the fact that whatever current flows through the nanopore is the same current that flows through the feedback resistor, $R_f$.  Conceptually, this means that even a small current (\SI{1}{\pA}) can cause a measurable voltage (\SI{1}{\mV}) at the output if the value of $R_f$ is large enough (\SI{1}{\giga\ohm}).
+A schematic of the experimental setup is shown in Figure \ref{fig:setup}.  Silver / silver chloride [Ag/AgCl] electrodes make contact with an aqueous electrolyte on either side of a lipid bilayer membrane.  A single MspA nanopore is inserted into this membrane.  The electrodes are connected to a sensitive current amplifier: in this work, the Axopatch 200B (Molecular Devices, Inc.).  A simplified version of the current amplifier is also shown schematically in Figure \ref{fig:setup}, where the current amplification comes from the fact that whatever current flows through the nanopore is the same current that flows through the feedback resistor, $R_f$.  Conceptually, this means that even a small current (\SI{1}{\pA}) can cause a measurable voltage (\SI{1}{\mV}) at the output of the operational amplifier if the value of $R_f$ is large enough (\SI{1}{\giga\ohm}).
 
 \begin{figure}[h]
 \begin{centering}
@@ -91,11 +91,11 @@ Note that the electrodes are connected to the experiment in such a way that a po
 
 Using the Axopatch 200B in ``whole cell" mode employs a feedback resistor, $R_f$, of \SI{500}{\mega\ohm}, which means that a \SI{1}{\pA} current shows up as an output voltage of \SI{0.5}{\mV}.  Following this amplification by another 20-fold amplification (the headstage accounts for a factor of two, and setting the output gain $\alpha=10$ on the Axopatch 200B amplifies by a further factor of ten) results in a signal of \SI{10}{\mV} per \SI{1}{\pico\ampere} of ionic current.  The analog-to-digital converter is a Digidata 1440a from Molecular Devices, Inc., with 16-bit conversion over a range of \SI{-10}{\volt} to $+$\SI{10}{\volt}, meaning that the signal is quantized in \SI{0.3}{\mV} steps.  With a digitization noise of less than \SI{1}{\mV}, this means that a \SI{10}{\milli\volt} signal, corresponding to \SI{1}{\pico\ampere} of ionic current, is readily measurable.  This is quite a feat, considering that \SI{1}{\pA} is only about \num{60} ions every \SI{10}{\us}, and the current can be sampled as fast as once every \SI{4}{\us}.
 
-Typically, ionic current is recorded at \SI{100}{\kHz} after hardware filtering at \SI{10}{\kHz}.  The Axopatch 200B applies a voltage bias across the membrane, and this is also recorded at \SI{100}{\kHz}.
+Typically, ionic current is recorded at \SI{100}{\kHz} after hardware filtering at \SI{10}{\kHz}.  The Axopatch 200B applies a voltage bias across the membrane by setting the value of $V_{bias}$ in Figure \ref{fig:setup}, and this voltage is also recorded at \SI{100}{\kHz} during all experiments.
 
 \subsection{Current as a function of applied voltage}
 
-The simplest experiment that can be performed is a measurement of ionic current through the open nanopore, without any analyte molecules present.  Open pore measurements of M2-MspA are shown in Figure \ref{fig:iv_mspa}.  At room temperature ($\sim$ \SI{23}{\degreeCelsius}) in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, at pH \num{8.00}, the conductance of M2-MspA is roughly \SI{2}{\nano\siemens}.  However, as shown in Figure \ref{fig:iv_mspa}a, the current-versus-voltage curve is not linear.  The characteristic larger conductance at negative applied biases, as well as the slight nonlinear dip in conductance between $\sim$ \SI{100}{\mV} and $\sim$ \SI{180}{\mV}, reveals the pore's orientation in the membrane.  This current-versus-voltage curve is recorded as the initial step of each new experiment, in order to ensure that the pore orientation is as expected.
+The simplest experiment that can be performed is a measurement of ionic current through the open nanopore, without any analyte molecules present.  Open pore measurements of M2-MspA are shown in Figure \ref{fig:iv_mspa}.  At room temperature ($\sim$ \SI{23}{\degreeCelsius}) in \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate buffer, at pH \num{8.00}, the conductance of M2-MspA is roughly \SI{2}{\nano\siemens}.  However, as shown in Figure \ref{fig:iv_mspa}a, the current-versus-voltage curve is not linear.  The characteristic larger conductance at negative applied biases, as well as the slight nonlinear dip in conductance between $\sim$ \SI{100}{\mV} and $\sim$ \SI{180}{\mV}, reveals the pore's orientation in the membrane.  This current-versus-voltage curve is recorded at the beginning of each new experiment, in order to ensure that the pore orientation is as expected.
 
 \begin{figure}[h]
 \begin{centering}
@@ -105,12 +105,12 @@ The simplest experiment that can be performed is a measurement of ionic current 
 \end{centering}
 \end{figure}
 
-Figure \ref{fig:iv_mspa}b shows \num{6} seconds of a current versus time trace.  The first \SI{3}{\s} are at $+$\SI{100}{\mV} applied bias across the membrane, while the last \SI{3}{\s} are at $-$\SI{100}{\mV}.  It can be seen that the current is very stable and quiet at $+$\SI{100}{\mV}.  At $-$\SI{100}{\mV}, the pore occasionally closes spontaneously.  This is referred to as ``gating," and it was also observed by Butler \textit{et al.} for M2-MspA \citep{Butler2008}.  Gating at large negative applied bias is another confirmation that the nanopore is inserted in the correct orientation; however, gating is not as reliable a factor as the current-versus-voltage curve.
+Figure \ref{fig:iv_mspa}b shows \num{6} seconds of a current versus time trace.  The first \SI{3}{\s} are at $+$\SI{100}{\mV} applied bias across the membrane, while the last \SI{3}{\s} are at $-$\SI{100}{\mV}.  It can be seen that the current is very stable and quiet at $+$\SI{100}{\mV}.  At $-$\SI{100}{\mV}, the pore occasionally closes spontaneously.  This is referred to as ``gating," and it was also observed by Butler \textit{et al.} for M2-MspA \citep{Butler2008}.  Gating at large negative applied bias is another confirmation that the nanopore is inserted in the correct orientation; however, gating is not as reliable a factor as the current-versus-voltage curve, due to occasional variability between gating in individual pores.
 
 
 \subsection{Effect of temperature}
 
-The amount of ionic current passing through an MspA nanopore at constant voltage depends on temperature.  Measurements of current versus voltage at constant temperature are shown in Figure \ref{fig:mspa_current_temp}a, at temperatures from \SI{5}{\degreeCelsius} to \SI{60}{\degreeCelsius} in steps of \SI{5}{\degreeCelsius}.  Figure \ref{fig:mspa_current_temp}b shows the same data plotted as conductance versus voltage.  The non-linear relationship of current with voltage is clearly visible, and makes the nanopore different from a simple resistor.
+The amount of ionic current passing through an MspA nanopore at constant voltage depends on temperature.  Measurements of current versus voltage at constant temperature are shown in Figure \ref{fig:mspa_current_temp}a, at temperatures from \SI{5}{\degreeCelsius} to \SI{60}{\degreeCelsius} in steps of \SI{5}{\degreeCelsius}.  Figure \ref{fig:mspa_current_temp}b shows the same data plotted as conductance, $G=I/V$, versus voltage.  The non-linear relationship between current and voltage is clearly visible, and this makes the nanopore different from a simple resistor.
 
 \begin{figure}[h]
 \begin{centering}
@@ -120,90 +120,105 @@ The amount of ionic current passing through an MspA nanopore at constant voltage
 \end{centering}
 \end{figure}
 
-What exactly is responsible for this dependence of open pore conductance on temperature?  An initial hypothesis might be that the change in the viscosity of the electrolyte solution with temperature should contribute.  For ions with valence $z=1$, like potassium and chloride ions,
-
-Diffusion, Stokes-Einstein relation:
-
-\begin{equation}
-D = \frac{k_B T}{6\pi\eta r}
-\label{eqn:conductivity}
-\end{equation}
-
-Electrical mobility:
+What exactly is responsible for the dependence of open pore conductance on temperature?  An initial hypothesis might be that the change in the viscosity of the electrolyte solution with temperature should contribute.  The electrical mobility, $\mu$, of an ion is related to its diffusion constant, $D$, its charge, $q$, and the surrounding temperature, $T$, in the following way:
 
 \begin{equation}
 \frac{D}{\mu} = \frac{k_B T}{q}
 \label{eqn:einstein_mobility}
 \end{equation}
 
-Ionic mobility:
+\noindent
+where $k_B$ is Boltzmann's constant.  At the small length scales of an ion, a small Reynolds number means that viscous forces dominate, and the Stokes-Einstein relation is expected to hold, giving
+
+\begin{equation}
+D = \frac{k_B T}{6\pi\eta r}
+\label{eqn:stokes_einstein}
+\end{equation}
+
+\noindent
+for the diffusion constant, $D$, of an ion in free solution, where $\eta$ is the dynamic viscosity of the solution and $r$ is the ion's radius.  Combining Equations \ref{eqn:einstein_mobility} and \ref{eqn:stokes_einstein} gives the ionic mobility in terms of solution viscosity:
 
 \begin{equation}
 \mu = \frac{e}{6 \pi \eta r}
 \label{eqn:mobility}
 \end{equation}
 
-Conductivity, sum of both ions:
+\noindent
+where for ions of valence $1$, including potassium and chloride ions, the charge $q=e$, the charge of one electron.
+
+The ionic mobility can be used to compute the total solution conductivity, $\lambda$, for the sum of two species of ions, here potassium and chloride:
 
 \begin{equation}
 \lambda = F(\mu_1 + \mu_2)
 \label{eqn:conductivity}
 \end{equation}
 
-For two ions, in terms of solvent viscosity:
+\noindent
+where $F$ is Faraday's constant, the electric charge per mole of electrons.  Written explicitly in terms of solvent viscosity:
 
 \begin{equation}
 \lambda = \frac{1}{\eta} \frac{Fe}{6\pi} \left( \frac{1}{r_1}+\frac{1}{r_2} \right)
 \label{eqn:conductivity_eta}
 \end{equation}
 
+The only temperature-dependent term in the above equation is the viscosity, and so the equation can be rewritten
+
 \begin{equation}
 \lambda(T) = \lambda(T_0) \left[ \frac{\eta(T_0)}{\eta(T)} \right]
 \label{eqn:conductivity_temp}
 \end{equation}
 
-and since conductance is proportional to this ionic conductivity, the conductance, $G$, is
+\noindent
+where $\lambda(T)$ is the conductivity at some temperature $T$, and likewise $\eta(T)$ is the viscosity of the solution at temperature $T$.
+
+The total conductance measured in a nanopore experiment, $G$, is directly proportional to this solution conductivity, $\lambda$.  Assuming that the the temperature-dependence of $G$ is due solely to solution viscosity, then $G$ has the same temperature dependence as $\lambda$:
 
 \begin{equation}
 G(T) = G(T_0) \left[ \frac{\eta(T_0)}{\eta(T)} \right]
 \label{eqn:conductance_temp}
 \end{equation}
 
-This is what is plotted in Figure \ref{fig:mspa_current_temp_viscosity}.
+The viscosity of liquid water as a function of temperature was measured by Kestin \textit{et al.} \cite{Kestin1978}, and is plotted in Figure \ref{fig:mspa_current_temp_viscosity}a along with a fit (solid black line).  Using this fit for viscosity, Figure \ref{fig:mspa_current_temp_viscosity}b then plots Equation \ref{eqn:conductance_temp} as a solid black line, with $T_0=$ \SI{25}{\degreeCelsius}.  The data points (circles) are the \SI{50}{\mV} data points shown in Figure \ref{fig:mspa_current_temp}b.  Scaling Equation \ref{eqn:conductance_temp} to match the data point at \SI{25}{\degreeCelsius} results in an excellent fit to the data.  This suggests that solution viscosity is the major contributor to the  change in conductance with temperature in an open nanopore.  A similar conclusion was reached by Meller and Branton \citep{Meller2002}, who found that the temperature-dependence of the open pore conductance of $\alpha$-hemolysin was proportional to the bulk mobility of the electrolyte as a function of temperature.  As noted by Meller and Branton, this suggests that these pores do not undergo large conformational changes in this temperature range.  At temperatures from about \SI{50}{\degreeCelsius} to \SI{90}{\degreeCelsius}, deviations on the order of $10-20\%$ are observed in $\alpha$-hemolysin, with the pore conducting more current than would be predicted due to viscosity alone \citep{Kang2005}.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/mspa_temp_viscosity.pdf}
-\caption[MspA current versus temperature explained by viscosity]{The viscosity of water is responsible for the dependence of M3-MspA open pore current on temperature.  On the left, the black circles are measurements of the viscosity of water taken from Kestin \textit{et al.} \cite{Kestin1978}.  The black line is an exponential fit, the equation of which is shown.  The right panel shows data measured in this work (black circles).  Each circle is the average conductance measured for open pore M3-MspA at 50mV bias.  The black line is Equation \ref{eqn:conductance_temp}, and it is scaled to be equal to the conductance measured at 25°C.  Evidently, the temperature dependence of the open pore conductance is captured exactly by accounting for the change in the viscosity of water with temperature.}
+\caption[MspA current versus temperature explained by viscosity]{The viscosity of water is responsible for the dependence of M3-MspA open pore current on temperature.  On the left, the black circles are measurements of the viscosity of water taken from Kestin \textit{et al.} \cite{Kestin1978}.  The black line is an exponential fit, the equation of which is shown.  The right panel shows data measured in this work (black circles).  Each circle is the average conductance measured for open pore M3-MspA at 50mV bias.  The black line is Equation \ref{eqn:conductance_temp}, and it is scaled to be equal to the conductance measured at \SI{25}{\degreeCelsius}.  Evidently, the temperature dependence of the open pore conductance is captured by accounting for the change in the viscosity of water with temperature.}
 \label{fig:mspa_current_temp_viscosity}
 \end{centering}
 \end{figure}
 
 \subsection{Molecules block current through the MspA nanopore}
 
-ssDNA 100mer and 5kb, along with maybe ATP alone
+Using the nanopore as a sensing instrument involves introducing other analyte molecules into the experiment.  Analyte molecules are typically introduced on the cis side of the membrane (see Figure \ref{fig:setup}), and so a positive applied voltage results in an electric field which pulls negatively-charged analyte molecules from the cis side through the nanopore to the trans side of the membrane.  In these experiments, DNA is typically the anlayte of choice, and the phosphate backbone of DNA acquires one negative charge per phosphate in aqueous solutions with pH above $\sim 1.5$.  The nucleobases themselves (A, T, C, and G) are uncharged in the pH range of \num{4.4} to \num{9.2} \citep{Verdolino2008, Acharya2004}.
+
+Simpler even than a strand of ssDNA is a single nucleotide triphosphate, such as ATP.  ATP alone, though it is a small molecule, causes enough of a current blockage in the M2-MspA nanopore to be detected as an individual blockage event.  (It is interesting to note that in the VDAC nanopore, which has a diameter of approximately \SI{3}{\nm}, ATP cannot be detected as individual current blockage events, but rather manifests as a drop in average current and an increase in current noise \citep{Rostovtseva1998, Rostovtseva2002}.)  Figure \ref{fig:mspa_event_basics} shows the ionic current trace when ATP is introduced on the cis side of the membrane at a concentration of \SI{2}{\milli\Molar}.  The open nanopore alone, consistent with the discussion above, shows a steady current at \SI{160}{\mV}.  After the addition of ATP (center panel), individual current blockage events are visible.  One such individual blockage event is shown in detail (right panel).  Certain characteristic quantities can be computed for each event, including the local open pore current just before the event ($I_0$), the mean current while the molecule is in the pore ($I$), and the duration of the current blockage.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/ATP_event_basics.pdf}
-\caption[Current blockage events in the MspA nanopore]{Ionic current through M2-MspA is plotted as a function of time.  Data are low-pass filtered at 10kHz.  Blockages of the open pore current signify single molecules in the nanopore.  Here the blockages are caused by ATP molecules at 2mM concentration.  Current blockage ``events" can be characterized by a mean current blockage and a duration.}
+\caption[Current blockage events in the MspA nanopore]{Ionic current through M2-MspA is plotted as a function of time.  Electrolyte solution is \SI{1}{\Molar} KCl, \SI{25}{\milli\Molar} phosphate, pH \num{8.00}.  Measurements are taken at \SI{23}{\degreeCelsius}, and \SI{160}{\mV} bias is applied across the membrane.  Data are low-pass filtered at 10kHz.  Blockages of the open pore current signify single molecules in the nanopore.  Here the blockages are caused by ATP molecules at 2mM concentration.  Current blockage ``events" can be characterized by a mean current blockage and a duration.}
 \label{fig:mspa_event_basics}
 \end{centering}
 \end{figure}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=\textwidth]{figures/5kb_ssDNA_scatter.pdf}
-\caption[Scatter plot of 5.3kb ssDNA in MspA]{A scatter plot of several hundred events of 5.3kb ssDNA translocating through M3-MspA is shown in the center.  Small regions from the scatter plot have been selected, and the events contained in those regions are plotted, one on top of the other, in the four corner plots.  The applied voltage bias is 180mV.}
-\label{fig:mspa_5kb_scatter}
+\includegraphics[width=0.6\textwidth]{figures/100mer_ssDNA_scatter.pdf}
+\caption[Scatter plot of 100mer ssDNA in MspA]{Scatter plot of just over 5700 events of 100mer ssDNA translocating through M3-MspA in \SI{1}{\Molar} KCl, \SI{10}{\milli\Molar} HEPES, pH \num{8.00}.  The applied voltage bias is \SI{180}{\mV}.  There is an edge at around \SI{0.1}{ms} to the left of which no events occur.  This limit corresponds to the shortest events detectable when using a \SI{10}{\kHz} low-pass filter in hardware.}
+\label{fig:mspa_100mer_scatter}
 \end{centering}
 \end{figure}
 
+The mean current blockage and duration can be computed for all the events observed, and a scatter plot can be created.  For example, Figure \ref{fig:mspa_100mer_scatter} shows a scatter plot of all the events recorded as \num{100}mer ssDNA translocates through the M3-MspA nanopore.  The vertical axis shows the ratio of blocked-pore current to open-pore current ($I/I_0$), while the horizontal axis shows the event duration on a logarithmic scale.  Scatter plots are a convenient way to visualize all events together, and are helpful for observing clusters of similar types of events.
+
+For example, the scatter plot in the center of Figure \ref{fig:mspa_5kb_scatter} shows groupings of events in different regions of the scatter plot of \num{5300} base (\SI{5.3}{\kilo\base}) ssDNA from bacteriophage lambda.  The four panels in the figure show overlays of events from four regions of the scatter plot.  Shown in this way, it becomes apparent that the events from the region of the scatter plot denoted by the red box all have a similar structure.  The current drops to near $0.6 I_0$ and remains there until, after a variable waiting period, the current drops to $<0.1 I_0$ and the event ends, presumably as the strand translocates through the nanopore.  This is in contrast with the events in the region of the scatter plot denoted by the yellow box, where the current drops to near $0.1 I_0$ immediately, and the events are quite short in duration.  It could be hypothesized that the yellow box contains events for which the free end of the ssDNA is captured immediately, whereas the red box contains events where the tangled ball of ssDNA is captured by the nanopore, but it takes many attempts to find a free ssDNA end, at which point the ssDNA can translocate.
+
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/100mer_ssDNA_scatter.pdf}
-\caption[Scatter plot of 100mer ssDNA in MspA]{Scatter plot of just over 5700 events of 100mer ssDNA translocating through M3-MspA.  The applied voltage bias is 180mV.  Events are generally shorter compared to the 5.3kb ssDNA events in Figure \ref{fig:mspa_5kb_scatter}.  There is an edge at around \SI{0.1}{ms} to the left of which no events occur.  This limit corresponds to the shortest events detectable when using a 10kHz low-pass filter in hardware.}
-\label{fig:mspa_100mer_scatter}
+\includegraphics[width=\textwidth]{figures/5kb_ssDNA_scatter.pdf}
+\caption[Scatter plot of 5.3kb ssDNA in MspA]{A scatter plot of several hundred events of 5.3kb ssDNA translocating through M3-MspA is shown in the center.  Small regions from the scatter plot have been selected, and the events contained in those regions are plotted, one on top of the other, in the four corner plots.  In the event overlays, the ends of the events are synchronized at $t=0$.  The applied voltage bias is \SI{180}{\mV}, and the electrolyte is \SI{1}{\Molar} KCl, \SI{10}{\milli\Molar} HEPES, pH \num{8.00}.}
+\label{fig:mspa_5kb_scatter}
 \end{centering}
 \end{figure}
 

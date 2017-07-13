@@ -34,6 +34,7 @@
 \usepackage{indentfirst} % SJF
 \usepackage{siunitx} % SJF
 \DeclareSIUnit\Molar{M} % SJF
+\DeclareSIUnit\base{b} % SJF
 
 % Fonts.
 \RequirePackage{color}
