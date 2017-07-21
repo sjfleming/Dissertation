@@ -1,4 +1,77 @@
 \chapter{The first-passage problem}
 \label{first_passage}
 
-All about it.
+\section{Justification}
+
+Why one dimension?  Why the (homogeneous (time-independent drift and diffusion) Fokker-Planck / Smoluchowski equation?  What is the potential or quasipotential?  Justifications for drag coefficient being Einstein relation and for the entropic considerations.
+
+\section{First passage time}
+
+The mathematical discussion here follows the treatment of first passage times and the one-dimensional Fokker-Planck equation by Gardiner \citep{Gardiner1985}.
+
+Probability a diffusing particle is still in the interval $(0,L)$ is the survival probability, $S(x,t)$
+
+\begin{equation}
+S(x_0,t) = \int_{0}^{L} p(x,t \lvert x_0,0) \,dx
+\label{eqn:survival}
+\end{equation}
+
+Smoluchowski equation:
+
+\begin{equation}
+\pard{S(x_0,t)}{t} = A(x) \pard{S(x_0,t)}{x} + \frac{1}{2} B(x) \pardd{S(x_0,t)}{x}
+\label{eqn:smoluchowski}
+\end{equation}
+
+Particle starts at position $x_0$, and so $S(x_0,0) = 1$ on the interval $(0,L)$, and is zero elsewhere at $t=0$.  $x=L$ is the absorbing boundary, so $S(L,t)=0$, while $x=0$ is the reflecting boundary, so $\frac{\partial}{\partial x} S(0,t)=0$.
+
+First passage time is given by
+
+\begin{equation}
+\tau \, (x_0) = \int_{0}^{\infty} S(x_0,t) \,dt
+\label{eqn:first_passage}
+\end{equation}
+
+Integrating Equation \ref{eqn:smoluchowski} in time over $(0,\infty)$ gives
+
+\begin{equation}
+A(x) \pard{\tau (x_0)}{x} + \frac{1}{2} B(x) \pardd{\tau (x_0)}{x} = -1
+\label{eqn:first_passage}
+\end{equation}
+
+and the boundary conditions $\tau(0)=\tau(L)=0$.
+
+Following Gardiner \citep{Gardiner1985}, the solution for $\tau (x_0)$ is written in terms of an integrating factor, $\psi$:
+
+\begin{equation}
+\psi \, (y) = \exp \left [ \int_0^y \frac{2A(x')}{B(x')} \,dx' \right ]
+\label{eqn:psi}
+\end{equation}
+
+as
+
+\begin{equation}
+\tau \, (x_0) = 2 \int_{x_0}^{L} \left ( \frac{1}{\psi(y)} \int_{0}^{y} \frac{\psi(z)}{B(z)} \,dz \right ) \,dy
+\label{eqn:first_passage_sol}
+\end{equation}
+
+In this case, for a drift-diffusion process, $B(x) = D$, and $A(x) = \frac{F(x)}{\gamma}$, and by the Einstein relation, $\gamma = \frac{k_B T}{D}$, so $A(x) = \frac{D}{k_B T} F(x)$.  Therefore,
+
+\begin{equation}
+\psi \, (y) = \exp \left [ \frac{2}{k_B T} \int_0^y  F(x') \,dx' \right ]
+\label{eqn:psi2}
+\end{equation}
+
+and also
+
+\begin{equation}
+\tau \, (x_0) = \frac{2}{D} \int_{x_0}^{L} \left ( \frac{1}{\psi(y)} \int_{0}^{y} \psi(z) \,dz \right ) \,dy
+\label{eqn:first_passage_sol}
+\end{equation}
+
+Given a force profile, $F(x)$, this equation can be integrated numerically to solve for the first passage time as a function of initial location.  Given a probability distribution of starting locations, $w(x_0)$, the mean first passage time for escape can be computed as
+
+\begin{equation}
+\langle \tau \, \rangle = \int_{0}^{L} \tau(x_0) \, w(x_0) \,dx_0
+\label{eqn:mean_first_passage_sol}
+\end{equation}
