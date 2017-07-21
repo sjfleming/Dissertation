@@ -39,7 +39,7 @@ A(x) \pard{\tau (x_0)}{x} + \frac{1}{2} B(x) \pardd{\tau (x_0)}{x} = -1
 \label{eqn:first_passage}
 \end{equation}
 
-and the boundary conditions $\tau(0)=\tau(L)=0$.
+and the boundary conditions $\tau(0)=\tau(L)=0$, and $\pard{\tau}{x} \Bigr|_{x=0} =0$ .
 
 Following Gardiner \citep{Gardiner1985}, the solution for $\tau (x_0)$ is written in terms of an integrating factor, $\psi$:
 
@@ -55,17 +55,24 @@ as
 \label{eqn:first_passage_sol}
 \end{equation}
 
-In this case, for a drift-diffusion process, $B(x) = D$, and $A(x) = \frac{F(x)}{\gamma}$, and by the Einstein relation, $\gamma = \frac{k_B T}{D}$, so $A(x) = \frac{D}{k_B T} F(x)$.  Therefore,
+In this case, for a drift-diffusion process,
 
 \begin{equation}
-\psi \, (y) = \exp \left [ \frac{2}{k_B T} \int_0^y  F(x') \,dx' \right ]
+\pard{S(x_0,t)}{t} = \frac{F(x)}{\gamma} \pard{S(x_0,t)}{x} + D \pardd{S(x_0,t)}{x}
+\label{eqn:smoluchowski_final}
+\end{equation}
+
+so $B(x) = 2D$, and $A(x) = \frac{F(x)}{\gamma}$, and by the Einstein relation, $\gamma = \frac{k_B T}{D}$, so $A(x) = \frac{D}{k_B T} F(x)$.  Therefore,
+
+\begin{equation}
+\psi \, (y) = \exp \left [ \int_0^y  \frac{F(x')}{k_B T} \,dx' \right ]
 \label{eqn:psi2}
 \end{equation}
 
 and also
 
 \begin{equation}
-\tau \, (x_0) = \frac{2}{D} \int_{x_0}^{L} \left ( \frac{1}{\psi(y)} \int_{0}^{y} \psi(z) \,dz \right ) \,dy
+\tau \, (x_0) = \frac{1}{D} \int_{x_0}^{L} \left ( \frac{1}{\psi(y)} \int_{0}^{y} \psi(z) \,dz \right ) \,dy
 \label{eqn:first_passage_sol}
 \end{equation}
 
