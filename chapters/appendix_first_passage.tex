@@ -7,6 +7,9 @@ Why one dimension?  Why the (homogeneous (time-independent drift and diffusion) 
 
 \section{First passage time}
 
+
+\section{Drift and diffusion in a general potential}
+
 The mathematical discussion here follows the treatment of first passage times and the one-dimensional Fokker-Planck equation by Gardiner \citep{Gardiner1985}.
 
 Probability a diffusing particle is still in the interval $(0,L)$ is the survival probability, $S(x,t)$
@@ -39,6 +42,7 @@ A(x) \pard{\tau (x_0)}{x} + \frac{1}{2} B(x) \pardd{\tau (x_0)}{x} = -1
 \label{eqn:first_passage}
 \end{equation}
 
+\noindent
 and the boundary conditions $\tau(0)=\tau(L)=0$, and $\pard{\tau}{x} \Bigr|_{x=0} =0$ .
 
 Following Gardiner \citep{Gardiner1985}, the solution for $\tau (x_0)$ is written in terms of an integrating factor, $\psi$:
@@ -48,6 +52,7 @@ Following Gardiner \citep{Gardiner1985}, the solution for $\tau (x_0)$ is writte
 \label{eqn:psi}
 \end{equation}
 
+\noindent
 as
 
 \begin{equation}
@@ -62,6 +67,7 @@ In this case, for a drift-diffusion process,
 \label{eqn:smoluchowski_final}
 \end{equation}
 
+\noindent
 so $B(x) = 2D$, and $A(x) = \frac{F(x)}{\gamma}$, and by the Einstein relation, $\gamma = \frac{k_B T}{D}$, so $A(x) = \frac{D}{k_B T} F(x)$.  Therefore,
 
 \begin{equation}
@@ -82,3 +88,51 @@ Given a force profile, $F(x)$, this equation can be integrated numerically to so
 \langle \tau \, \rangle = \int_{0}^{L} \tau(x_0) \, w(x_0) \,dx_0
 \label{eqn:mean_first_passage_sol}
 \end{equation}
+
+\section{Analytical solution in a special case}
+
+For the special case where the force $F(x)$ is just a constant, an analytical solution can be written down.  In our case, with ssDNA of constant linear charge density, $\sigma$, in a constant electric field, we can approximate the force as a constant, $F(x) = \sigma V$, where $V$ is the applied voltage bias.
+
+Following the treatment in Redner \citep{Redner2001}, biased diffusion can be written as
+
+\begin{equation}
+\pard{p(x,t)}{t} + \frac{D}{k_B T} F(x) \pard{p(x,t)}{x} = D \pardd{p(x,t)}{x}
+\label{eqn:biased_diffusion}
+\end{equation}
+
+\noindent
+with $P(x,t)$ the probability that the diffusing ssDNA is at position $x$ at time $t$.  Integrating the probability over time and defining $P_0(x) = \int_{0}^{\infty} p(x,t) \,dt$ reveals that the time-integrated position probability obeys
+
+\begin{equation}
+\frac{D}{k_B T} F(x) \pard{P_0(x)}{x} = D \pardd{P_0(x)}{x}
+\label{eqn:biased_diffusion}
+\end{equation}
+
+Here we stipulate boundary conditions where $\int_{0}^{L} p(x,t=0) \,dx = 0$, and the probability flux at the $x=0$ boundary at $t=0$ is the delta function, $\pard{p(x,t)}{x} \Bigr|_{t=0} = \delta (x=0)$.  This condition corresponds to $\pard{P_0(x)}{x} \Bigr|_{x=0} = 1$.  We also fix $P_0(L)=0$, so that the ssDNA completely escapes at $x=L$.
+
+The solution, again from Redner \citep{Redner2001}, is
+
+\begin{equation}
+P_0(x) = \frac{k_B T}{\sigma V D} \left[ 1 - \exp{ \left( \frac{\sigma V (x-L)}{k_B T} \right) } \right]
+\label{eqn:biased_diffusion_solution}
+\end{equation}
+
+\noindent
+and the mean escape time is then $\langle \tau \, \rangle = \int_{0}^{L} P_0(x) \,dx$, and so
+
+\begin{equation}
+\langle \tau \, \rangle = \frac{k_B T L}{\sigma V D} - \frac{1}{D} \left( \frac{k_B T}{\sigma V} \right) ^2 \left[ 1 - \exp{ \left( - \frac{\sigma V L}{k_B T} \right) } \right]
+\label{eqn:analytical_first_passage}
+\end{equation}
+
+\section{Discussion}
+
+The dimensionless combination $\frac{\sigma V L}{k_B T}$ is seen to play an important role.  The Péclet number, $Pe$, is defined as $Pe = v L / 2 D$, and is a dimensionless quantity that quantifies the relative importance of drift versus diffusion.  In this case, the characteristic velocity $v$ is $F(x)/\gamma$, and by the Einstein relation, $\gamma=k_B T / D$, so in the case of a constant force, $F = \sigma V$, we obtain for the characteristic velocity, $v=\frac{\sigma V D}{k_B T}$.  The Péclet number in this system is then $Pe=\frac{\sigma V L}{2 k_B T}$, identical to the factor in the exponent in Equation \ref{eqn:analytical_first_passage} apart from the factor of $2$.  Rewriting Equation \ref{eqn:analytical_first_passage} in terms of $Pe$ yields \citep{Redner2001}
+
+\begin{equation}
+\langle \tau \, \rangle = \frac{L^2}{D} \left[ \frac{1}{2 Pe} - \frac{1}{4 Pe^2} \left( 1 - e^{-2Pe} \right) \right]
+\label{eqn:analytical_first_passage_pe}
+\end{equation}
+
+In this system, $L$ is \SI{7}{\nm}, and $D$ was found to be approximately \SI{5e-11}{\m^2/\s}, so the timescale $L^2/D$ is on the order of $\sim$ \SI{1}{\us}.  This would be the order of the escape time at zero applied bias, too fast to be recorded with our experimental setup.  At an applied voltage bias of \SI{30}{\mV}, the Péclet number is $Pe \approx -4$, while at \SI{70}{\mV}, $Pe \approx -10$.  Here the negative sign, corresponding to the fact that the voltage opposes diffusive ssDNA escape from the nanopore, signifies that this problem involves escape over an energy barrier.  A plot of Equation \ref{eqn:analytical_first_passage_pe} is shown in Figure ...
+
