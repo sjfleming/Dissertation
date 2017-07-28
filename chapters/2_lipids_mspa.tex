@@ -192,8 +192,6 @@ The viscosity of liquid water as a function of temperature was measured by Kesti
 
 Using the nanopore as a sensing instrument involves introducing other analyte molecules into the experiment.  Analyte molecules are typically introduced on the cis side of the membrane (see Figure \ref{fig:setup}), and so a positive applied voltage results in an electric field which pulls negatively-charged analyte molecules from the cis side through the nanopore to the trans side of the membrane.  In these experiments, DNA is typically the anlayte of choice, and the phosphate backbone of DNA acquires one negative charge per phosphate in aqueous solutions with pH above $\sim 1.5$.  The nucleobases themselves (A, T, C, and G) are uncharged in the pH range of \num{4.4} to \num{9.2} \citep{Verdolino2008, Acharya2004}.
 
-Simpler even than a strand of ssDNA is a single nucleotide triphosphate, such as ATP.  ATP alone, though it is a small molecule, causes enough of a current blockage in the M2-MspA nanopore to be detected as an individual blockage event.  (It is interesting to note that in the VDAC nanopore, which has a diameter of approximately \SI{3}{\nm}, ATP cannot be detected as individual current blockage events, but rather manifests as a drop in average current and an increase in current noise \citep{Rostovtseva1998, Rostovtseva2002}.)  Figure \ref{fig:mspa_event_basics} shows the ionic current trace when ATP is introduced on the cis side of the membrane at a concentration of \SI{2}{\milli\Molar}.  The open nanopore alone, consistent with the discussion above, shows a steady current at \SI{160}{\mV}.  After the addition of ATP (center panel), individual current blockage events are visible.  One such individual blockage event is shown in detail (right panel).  Certain characteristic quantities can be computed for each event, including the local open pore current just before the event ($I_0$), the mean current while the molecule is in the pore ($I$), and the duration of the current blockage.
-
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/ATP_event_basics.pdf}
@@ -201,6 +199,8 @@ Simpler even than a strand of ssDNA is a single nucleotide triphosphate, such as
 \label{fig:mspa_event_basics}
 \end{centering}
 \end{figure}
+
+Simpler even than a strand of ssDNA is a single nucleotide triphosphate, such as ATP.  ATP alone, though it is a small molecule, causes enough of a current blockage in the M2-MspA nanopore to be detected as an individual blockage event.  (It is interesting to note that in the VDAC nanopore, which has a diameter of approximately \SI{3}{\nm}, ATP cannot be detected as individual current blockage events, but rather manifests as a drop in average current and an increase in current noise \citep{Rostovtseva1998, Rostovtseva2002}.)  Figure \ref{fig:mspa_event_basics} shows the ionic current trace when ATP is introduced on the cis side of the membrane at a concentration of \SI{2}{\milli\Molar}.  The open nanopore alone, consistent with the discussion above, shows a steady current at \SI{160}{\mV}.  After the addition of ATP (center panel), individual current blockage events are visible.  One such individual blockage event is shown in detail (right panel).  Certain characteristic quantities can be computed for each event, including the local open pore current just before the event ($I_0$), the mean current while the molecule is in the pore ($I$), and the duration of the current blockage.
 
 \begin{figure}[h]
 \begin{centering}
@@ -216,18 +216,9 @@ For example, the scatter plot in the center of Figure \ref{fig:mspa_5kb_scatter}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=\textwidth]{figures/5kb_ssDNA_scatter.pdf}
+\includegraphics[width=0.9\textwidth]{figures/5kb_ssDNA_scatter.pdf}
 \caption[Scatter plot of 5.3kb ssDNA in MspA]{A scatter plot of several hundred events of 5.3kb ssDNA translocating through M3-MspA is shown in the center.  Small regions from the scatter plot have been selected, and the events contained in those regions are plotted, one on top of the other, in the four corner plots.  In the event overlays, the ends of the events are synchronized at $t=0$.  The applied voltage bias is \SI{180}{\mV}, and the electrolyte is \SI{1}{\Molar} KCl, \SI{10}{\milli\Molar} HEPES, pH \num{8.00}.}
 \label{fig:mspa_5kb_scatter}
 \end{centering}
 \end{figure}
 
-\subsection{Current noise of the open MspA nanopore}
-
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=\textwidth]{figures/mspa_noise_intro.pdf}
-\caption[Current noise in the MspA nanopore]{On the left is plotted a \SI{10}{\s} trace of ionic current through M2-MspA with no applied voltage bias.  The current is \SI{0}{\pA} on average, but there is some spread to the values, shown in the current histogram.  The thin gray line is a Gaussian fit, showing that the current noise is Gaussian distributed.  On the right, the current noise power spectral density is plotted as a function of frequency.  The current noise here is white at frequencies below \SI{1}{\kHz}, where there is a gradual increase due to capacitance, followed by a falloff due to the \SI{10}{\kHz} 4-pole Bessel hardware filter.  For reference, the calculated Johnson noise is shown as a dashed gray line.}
-\label{fig:mspa_noise_intro}
-\end{centering}
-\end{figure}

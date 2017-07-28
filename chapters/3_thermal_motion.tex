@@ -6,12 +6,69 @@
 \chapter{Single-molecule measurements and noise}
 \label{thermal_motion}
 
-Brief historical background.
+Measurements of single molecules inevitably involve small signals.  Any attempt to measure a small signal will immediately reveal that small signals are very often obscured by noise.  The elimination of noise sources is the constant preoccupation of the experimentalist, and it is a necessary precursor to measuring current through a nanopore.  Noise in a nanopore experiment can be caused by several different underlying physical mechanisms, which will be described here.  Central to an understanding of noise is the phenomenon of thermal motion of individual molecules, also called Brownian motion.
 
 \section{Thermal motion of ions in an electrolyte}
 
-\section{Noise measurement in the MspA nanopore}
+Particles at a temperature $T$ have an associated kinetic energy of $\frac{1}{2} k_B T$ per degree of freedom, where $k_B$ is Boltzmann's constant.  Water molecules and ions in solution therefore have a translational kinetic energy of $\frac{3}{2} k_B T$, and by setting $\frac{1}{2} mv^2 = \frac{3}{2} k_B T$, we find that a molecule or ion with mass $m$ has a root mean square velocity $v=\sqrt{\frac{3 k_B T}{m}}$.  For a potassium ion at \SI{20}{\celsius}, this is \SI{433}{\m/\s}, an incredibly high speed \citep{Hille2001}.  However, in solution, ions and water molecules are constantly colliding with one another and undergoing diffusive random walks.
 
-Nanopores with diameters of approximately \SI{1}{\nm} have a conductance on the order of \SI{1}{\nano\siemens} in the open state, and so they conduct a current of about \SI{100}{\pA} at \SI{100}{\mV} bias.  A current of \SI{100}{\pA} is approximately \num{600} ions per microsecond flowing through the nanopore.
+\section{Contributions to noise in nanopore experiments}
+
+The random thermal motions of ions in solution lead to local variations in electrical potential.  The same thermal motion of electrons in a carbon resistor also leads to fluctuations in potential.  These fluctuations are the physical basis of several contributions to measured noise.
+
+Voltage fluctuations can be measured across a resistor, and were first quantified in 1928 by John Johnson \citep{Johnson1928} and derived from first principles by Harry Nyquist \citep{Nyquist1928}.  The noise power spectral density, $S_I (f)$, with units of current squared per frequency, is given for a resistor with resistance $R$ by
+
+\begin{equation}
+S_I(f) = 4 k_B T / R
+\label{eqn:johnson}
+\end{equation}
+
+For an arbitrary circuit with complex conductance $Y(f)$, this generalizes via the fluctuation-dissipation theorem to \citep{Kogan1996, Hoogerheide2010, Sakmann1995}
+
+\begin{equation}
+S_I(f) = 4 k_B T \operatorname{Re}(Y(f))
+\label{eqn:general}
+\end{equation}
+
+\noindent
+where Re denotes the real part of the complex conductance.  This expression reduces to Equation \ref{eqn:johnson} for the simple case of a resistor.
+
+Thermal fluctuations of charge carriers lead to current noise not only by coupling to resistance, but also by coupling to a capacitance in series with some resistance.  In the case of a nanopore experiment, a simple model electrical circuit can be drawn as in Figure \ref{fig:circuit_equiv}.  $R_p$ is the resistance of the nanopore, and $R_f$ is the resistance of the amplifier's feedback resistor, \SI{500}{\mega\ohm} for the Axopatch 200B in whole cell mode with $\beta = 1$.  $C_m$ is the capacitance of the membrane, typically a few picofarads, and $R_a$ is the access resistance, which is given by $R_a = \rho/4r$, where $\rho$ is the resistivity of the electrolyte and $r$ is the radius of the nanopore \citep{Hall1975}.  The expression for the complex conductance is
+
+\begin{equation}
+Y(f) = i 2 \pi f C_{in} + \left[ 2 R_a + \frac{1}{ 1/R_p + i 2 \pi f C_m } \right]^{-1} + \frac{1}{R_f}
+\label{eqn:admittance_model}
+\end{equation}
+
+\noindent
+where $C_{in}$ is the input capacitance of the amplifier's headstage, about \SI{4}{\pF} for the Axopatch 200B.  There is also a small amount of input voltage noise at the amplifier's headstage.  Molecular Devices specifies that this is on the order of \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B.
+
+One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.
+
+This noise model does a good job approximating the noise measured in experiments.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/mspa_noise_intro.pdf}
+\caption[Current noise in the MspA nanopore]{On the left is plotted a \SI{10}{\s} trace of ionic current through M2-MspA with no applied voltage bias.  The current is \SI{0}{\pA} on average, but there is some spread to the values, shown in the current histogram.  The thin gray line is a Gaussian fit, showing that the current noise is Gaussian distributed.  On the right, the current noise power spectral density is plotted as a function of frequency.  The current noise here is white at frequencies below \SI{1}{\kHz}, where there is a gradual increase due to capacitance, followed by a falloff due to the \SI{10}{\kHz} 4-pole Bessel hardware filter.  For reference, the calculated Johnson noise is shown as a dashed gray line.}
+\label{fig:mspa_noise_intro}
+\end{centering}
+\end{figure}
+
+
+
+\section{Current noise in the open MspA nanopore}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/mspa_noise_intro.pdf}
+\caption[Current noise in the MspA nanopore]{On the left is plotted a \SI{10}{\s} trace of ionic current through M2-MspA with no applied voltage bias.  The current is \SI{0}{\pA} on average, but there is some spread to the values, shown in the current histogram.  The thin gray line is a Gaussian fit, showing that the current noise is Gaussian distributed.  On the right, the current noise power spectral density is plotted as a function of frequency.  The current noise here is white at frequencies below \SI{1}{\kHz}, where there is a gradual increase due to capacitance, followed by a falloff due to the \SI{10}{\kHz} 4-pole Bessel hardware filter.  For reference, the calculated Johnson noise is shown as a dashed gray line.}
+\label{fig:mspa_noise_intro}
+\end{centering}
+\end{figure}
+
+\section{Further considerations}
+
+Nanopores with diameters of approximately \SI{1}{\nm} have a conductance on the order of \SI{1}{\nano\siemens} in \SI{1}{\Molar} KCl in the open state, and so they conduct a current of about \SI{100}{\pA} at \SI{100}{\mV} bias.  A current of \SI{100}{\pA} is approximately \num{600} ions per microsecond flowing through the nanopore.
 
 End with a mention that thermal motion of an analyte DNA molecule would be its own source of noise.
