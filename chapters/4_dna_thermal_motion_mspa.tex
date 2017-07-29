@@ -1,14 +1,16 @@
 \begin{savequote}[75mm]
-Imagine living in a world where a Richter 9 earthquake raged continuously.  In such an environment, engines would be unnecessary.  Your would not need to even pedal your bicycle: you would simply attach a ratchet to the wheel preventing it from going backwards ... At the scale of proteins, Brownian motion is even more furious.
+Imagine living in a world where a Richter 9 earthquake raged continuously ... At the scale of proteins, Brownian motion is even more furious.
 \qauthor{George Oster and Hongyun Wang \citep{Oster2003}}
 \end{savequote}
 
 \chapter{Thermal motion of ssDNA in the MspA nanopore}
 \label{dna_thermal_motion_mspa}
 
-Intro and motivation
+We here describe experiments that quantify the thermal motion of analyte molecules.  ssDNA's passage through a nanopore can be modeled as a drift-diffusion process, where the electrophoretic drift is caused by the applied voltage bias, and diffusion is caused by thermal motion.  The drift can be quantified in terms of an effective charge, while the diffusion can be quantified in terms of an effective diffusion constant.  Therefore, measurement of the effective charge and diffusion constant of ssDNA in MspA provides a complete description of the ssDNA motion.  Due to the extreme speed with which ssDNA translocates through an MspA nanopore, it is difficult to quantify thermal motion using measurements of free translocation.
 
 \section{The capture and escape experiment}
+
+The experimental technique used here involves the use of a large protein tethered to the ssDNA that prevents its translocation through the nanopore.  The work in this chapter is the subject of two papers \citep{Lu2015,Fleming2017}, and the experimental technique is based on preceding work with DNA in $\alpha$-hemolysin nanopores \citep{Wiggin2008}, where the protein Avidin was used as a molecular stop to arrest ssDNA translocation.  Other methods used to measure the effective charge of DNA in $\alpha$-hemolysin nanopores have included unzipping dsDNA hairpins \citep{Sauer-Budge2003,Mathe2004,Lakatos2005} and monitoring the escape of DNA hairpins \citep{Wanunu2008,Lathrop2010}.
 
 \begin{figure}[h]
 \begin{centering}
@@ -18,11 +20,16 @@ Intro and motivation
 \end{centering}
 \end{figure}
 
-The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.
+The idea is depicted in Figure \ref{fig:capture_escape_idea}.  Here, the protein NeutrAvidin is used as a molecular stop that binds to the 3' end of ssDNA via a 3'-biotinylated dT (see Appendix \ref{idt_dna} for the chemical structure).  The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.  However, an electrophoretic force proportional to the effective charge and applied voltage bias pulls the ssDNA through the nanopore, effectively trapping the complex in the pore, as shown in the potential energy diagram on the right.  Thermal motion leads to position fluctuations, depicted as movement of the ssDNA within the pore.  Eventually, thermal motion will lead to escape of the complex from the nanopore.  Using $x$ to denote the position of the ssDNA within the nanopore's constriction, escape happens for $x \geq L$, $L$ being the length of ssDNA that sticks through the nanopore at equilibrium.
 
 \subsection{Theory of drift-diffusion and first-passage}
 
-Equations used and model being fit.
+The stochastic dynamics of the NeutrAvidin-ssDNA complex in MspA can be modeled as a drift-diffusion process that obeys the adjoint Smoluchowski equation.  The probability that MspA's narrowest constriction is at location $x$ along the ssDNA, having started at position $x_0$, written $p(x,t|x_0)$, obeys
+
+\begin{equation}
+\pard{p(x,t|x_0)}{t} + \frac{D}{k_B T} F(x) \pard{p(x,t|x_0)}{x} = D \pardd{p(x,t|x_0)}{x}
+\label{eqn:drift_diffusion}
+\end{equation}
 
 \section{Experimental setup}
 
