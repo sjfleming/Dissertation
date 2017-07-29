@@ -133,6 +133,14 @@ This noise model does a good job approximating the noise measured in experiments
 
 \section{Further considerations}
 
-Nanopores with diameters of approximately \SI{1}{\nm} have a conductance on the order of \SI{1}{\nano\siemens} in \SI{1}{\Molar} KCl in the open state, and so they conduct a current of about \SI{100}{\pA} at \SI{100}{\mV} bias.  A current of \SI{100}{\pA} is approximately \num{600} ions per microsecond flowing through the nanopore.
+\subsection{Limits on temporal resolution}
 
-End with a mention that thermal motion of an analyte DNA molecule would be its own source of noise.
+Current measurements from the Axopatch 200B are digitized by the Digidata 1440A (Molecular Devices, Inc.) at \SI{100}{\kHz}, which is one sample every \SI{10}{\us}.  Faster sampling would seem to be better, but as discussed previously, capacitance noise proportional to frequency squared begins to dominate near \SI{10}{\kHz} and above.  A \SI{10}{\kHz} filter is employed to reduce this noise.
+
+Even if the capacitance could be greatly reduced (which would be difficult due to the need for a lipid membrane), and if the bandwidth of the current amplifier were increased, MspA conducts very little current.  Nanopores with diameters of approximately \SI{1}{\nm} have a conductance on the order of \SI{1}{\nano\siemens} in \SI{1}{\Molar} KCl in the open state, and so they conduct a current of about \SI{100}{\pA} at \SI{100}{\mV} bias.  \SI{100}{\pA} is approximately \num{600} ions per microsecond flowing through the nanopore.  When the nanopore is blocked by an analyte molecule, relevant differences in current can be on the order of \SI{1}{\pA}.  This corresponds to differences of only \num{6} ions per microsecond.  Statistical variations in this number due to counting become more significant the faster the current is sampled.
+
+\subsection{Motion of analyte molecules}
+
+The solution would seem to be that analyte molecules should spend as much time as possible in the nanopore.  Free translocation of ssDNA, shown in Figure \ref{fig:mspa_100mer_scatter}, reveals that ssDNA translocates through the pore very quickly, spending on the order of \SI{1}{\us} on each base at \SI{180}{\mV}.  The preceding discussion reveals that this is not nearly enough time to obtain meaningful signal to make any sort of base identification.  Reducing the applied bias voltage does not help obtain more information, since it slows the translocation of the DNA while at the same time slowing the motion of ions proportionally.  Biochemical strategies for slowing down ssDNA translocation in a nanopore are discussed in Chapter \ref{dna_enzymes}.
+
+Analyte DNA molecules themselves undergo thermal motion.  In a nanopore, this thermal motion leads to back-and-forth motion of the DNA in the nanopore's narrowest constriction, and causes the signal to be averaged over several bases at a time.  This sort of thermal motion of DNA is its own source of noise.
