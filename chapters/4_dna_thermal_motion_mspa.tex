@@ -24,12 +24,30 @@ The idea is depicted in Figure \ref{fig:capture_escape_idea}.  Here, the protein
 
 \subsection{Theory of drift-diffusion and first-passage}
 
-The stochastic dynamics of the NeutrAvidin-ssDNA complex in MspA can be modeled as a drift-diffusion process that obeys the adjoint Smoluchowski equation.  The probability that MspA's narrowest constriction is at location $x$ along the ssDNA, having started at position $x_0$, written $p(x,t|x_0)$, obeys
+The stochastic dynamics of the NeutrAvidin-ssDNA complex in MspA can be modeled as a one dimensional drift-diffusion process that obeys the Smoluchowski equation.  The probability that MspA's narrowest constriction is at location $x$ along the ssDNA, having started at position $x_0$, written $p(x,t|x_0)$, obeys
 
 \begin{equation}
-\pard{p(x,t|x_0)}{t} + \frac{D}{k_B T} F(x) \pard{p(x,t|x_0)}{x} = D \pardd{p(x,t|x_0)}{x}
+\pard{p(x,t|x_0)}{t} = \frac{\partial}{\partial x} \left[ \frac{F(x)}{\gamma} p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
 \label{eqn:drift_diffusion}
 \end{equation}
+
+\noindent
+where $F(x)$ is the electrophoretic force on the ssDNA as a function of position, and $\gamma$ is the viscous drag.  $\gamma$ can be rewritten in terms of the diffusion constant using the Einstein relation: $\gamma = \frac{k_B T}{D}$.  Using this substitution,
+
+\begin{equation}
+\pard{p(x,t|x_0)}{t} = \frac{D}{k_B T} \frac{\partial}{\partial x} \left[ F(x) p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
+\label{eqn:drift_diffusion2}
+\end{equation}
+
+The force $F(x)$ depends on the applied bias voltage and the effective charge of the ssDNA.  In the simplest case, neglecting entropic forces and considering only the electrophoretic force,
+
+\begin{equation}
+F(x) = \sigma V
+\label{eqn:drift_diffusion}
+\end{equation}
+
+\noindent
+where $V$ is the bias voltage and $\sigma$ is the effective charge per unit length.
 
 \section{Experimental setup}
 
