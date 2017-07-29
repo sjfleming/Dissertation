@@ -10,8 +10,6 @@ Measurements of single molecules inevitably involve small signals.  Any attempt 
 
 First and foremost, external noise sources must be eliminated to whatever extent possible.  In the experiments reported here, a Faraday cage is used to screen out external electric fields, and a vibration isolation table is used to prevent mechanical disturbances.
 
-Noise in a nanopore experiment can be caused by several different underlying physical mechanisms, which will be described here.  Central to an understanding of noise is the phenomenon of thermal motion of individual molecules, also called Brownian motion.
-
 \section{Current noise in the open MspA nanopore}
 
 A measurement of current in an M2-MspA nanopore in a PC lipid membrane at zero applied bias is shown in Figure \ref{fig:mspa_noise_intro}a.  The current is filtered at \SI{10}{\kHz} in hardware with the 4-pole Bessel filter built into the Axopatch 200B.  A histogram of the current is shown alongside the current-versus-time trace.  The histogram reveals that the current noise is Gaussian distributed, as demonstrated by the gray line Gaussian fit.  In panel (b), the current noise power spectral density is plotted for the same data.
@@ -26,13 +24,15 @@ How power spectrum is calculated from data.
 \end{centering}
 \end{figure}
 
+Noise in a nanopore experiment can be caused by several different underlying physical mechanisms, which will be described here.  Central to an understanding of noise is the phenomenon of thermal motion of individual molecules, also called Brownian motion.
+
 \section{Thermal motion of ions in an electrolyte}
 
 Particles at a temperature $T$ have an associated kinetic energy of $\frac{1}{2} k_B T$ per degree of freedom, where $k_B$ is Boltzmann's constant.  Water molecules and ions in solution therefore have a translational kinetic energy of $\frac{3}{2} k_B T$, and by setting $\frac{1}{2} mv^2 = \frac{3}{2} k_B T$, we find that a molecule or ion with mass $m$ has a root mean square velocity $v=\sqrt{\frac{3 k_B T}{m}}$.  For a potassium ion at \SI{20}{\celsius}, this is \SI{433}{\m/\s}, an incredibly high speed \citep{Hille2001}.  However, in solution, ions and water molecules are constantly colliding with one another and undergoing diffusive random walks.
 
 \section{Contributions to noise in nanopore experiments}
 
-The random thermal motions of ions in solution lead to local variations in electrical potential.  The same thermal motion of electrons in a carbon resistor also leads to fluctuations in potential.  These fluctuations are the physical basis of several contributions to measured noise.  Voltage fluctuations across a resistor cause fluctuating currents, while voltage fluctuations across capacitors cause fluctuating capacitive currents.
+The random thermal motions of ions in solution lead to local variations in electrical potential.  The same thermal motion of electrons in a carbon resistor also leads to fluctuations in potential.  These fluctuations are the physical basis of several contributions to measured noise.  Voltage fluctuations across resistors and capacitors both cause fluctuating currents.
 
 \subsection{Thermal fluctuations of charge in resistors}
 
@@ -46,7 +46,7 @@ S_I(f) = 4 k_B T / R
 For an arbitrary circuit with complex conductance $Y(f)$, this generalizes via the fluctuation-dissipation theorem to \citep{Kogan1996, Hoogerheide2010, Sakmann1995}
 
 \begin{equation}
-S_I(f) = 4 k_B T \operatorname{Re}(Y(f))
+S_I(f) = 4 k_B T \, \operatorname{Re}(Y(f))
 \label{eqn:general}
 \end{equation}
 
@@ -87,13 +87,20 @@ where for water $\tan \delta \approx 1$ \citep{•}.
 
 \subsection{Conductance fluctuations with an applied bias}
 
-One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.  The conductance of the nanopore itself, $1/R_p$, at any given moment depends on the number of ions in the nanopore.  This number is not fixed, and fluctuates due to diffusion.  These conductance fluctuations lead to extra current noise when current is flowing due to an applied bias.  This current noise is proportional to the square of the current, and is shown for M2-MspA in Figure \ref{fig:mspa_noise}.
+One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.  The conductance of the nanopore itself, $1/R_p$, at any given moment depends on the number of ions in the nanopore.  This number is not fixed, and fluctuates due to diffusion.  These conductance fluctuations lead to extra current noise when current is flowing due to an applied bias.  Sometimes referred to as ``ion number fluctuation noise" \citep{Hoogerheide2010}, it can be written
+
+\begin{equation}
+S_{I,ion}(f) = a_{ion} I^2
+\label{eqn:ion_number}
+\end{equation}
+
+This current noise is proportional to the square of the current, and is shown for M2-MspA in Figure \ref{fig:mspa_noise}.  A fit to these measurements yields $a_{ion} =$ \SI{1.12e-9}{\Hz^{-1}}.
 
 % FIGURE OF PARABOLIC NOISE VS CURRENT HERE
 
 \subsection{Noise due to the amplifier}
 
-There is also a small amount of input voltage noise at the amplifier's headstage.  This is approximately \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B \citep{Sakmann1995}.  This voltage noise couples to the capacitance of the nanopore system as 
+There is also a small amount of input voltage noise at the amplifier's headstage.  This is approximately \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B \citep{Sakmann1995}.  This voltage noise couples to the headstage's input capacitance according to
 
 \begin{equation}
 S_{I,headstage}(f) = (2 \pi \, f \, C_{in})^2 S_{V,headstage}
@@ -107,12 +114,12 @@ where $S_{V,headstage} = ($ \SI{3}{\nV/\sqrt{\Hz}} $)^2$.
 
 A complete model of the current noise in the experiment is given by a combination of the above factors, and can be written:
 
-\begin{equation}
+\begin{multline}
 S_I(f) = 4 k_B T \operatorname{Re} \left( \left[ 2 R_a + \frac{1}{ 1/R_p + i 2 \pi f C_m } \right]^{-1} + \frac{1}{R_f} \right) + 8 \pi k_B T \, f \, C_m \tan \delta + a_{ion} I^2 + (2 \pi \, f \, C_{in})^2 S_{V,headstage}
 \label{eqn:full_nosie_model}
-\end{equation}
+\end{multline}
 
-The effects of a filter can be accounted for by modeling the complex transfer function, $h(f)$, in MATLAB.  The filtered noise then obeys $S_{I,filered}(f) = S_I(f) |h(f)|^2$.  The hardware filter used in these experiments is a 4-pole Bessel filter at \SI{10}{\kHz}.
+The effects of a filter can be accounted for by modeling the filter's complex transfer function, $h(f)$, in MATLAB.  The filtered noise then obeys $S_{I,filered}(f) = S_I(f) |h(f)|^2$.  The hardware filter used in these experiments is a 4-pole Bessel filter at \SI{10}{\kHz}.
 
 This noise model does a good job approximating the noise measured in experiments.  Figure \ref{fig:noise_model_fit} shows a fit of Equation \ref{eqn:full_nosie_model} to noise measured in M2-MspA.  Three noise plots are shown for applied biases of \SI{0}{\mV}, \SI{100}{\mV}, and \SI{150}{\mV}.  The parameters which were allowed to vary were $R_a$ and $C_m$.  The best fit to all three curves yields values of $R_a = $ \SI{1}{\mega\ohm} and $C_m = $ \SI{0.3}{\pF}.
 
