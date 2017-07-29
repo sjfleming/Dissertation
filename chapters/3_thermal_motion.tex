@@ -41,7 +41,7 @@ Y(f) = i 2 \pi f C_{in} + \left[ 2 R_a + \frac{1}{ 1/R_p + i 2 \pi f C_m } \righ
 \end{equation}
 
 \noindent
-where $C_{in}$ is the input capacitance of the amplifier's headstage, about \SI{4}{\pF} for the Axopatch 200B.  There is also a small amount of input voltage noise at the amplifier's headstage.  Molecular Devices specifies that this is on the order of \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B.
+where $C_{in}$ is the input capacitance of the amplifier's headstage, about \SI{4}{\pF} for the Axopatch 200B.  There is also a small amount of input voltage noise at the amplifier's headstage.  This is approximately \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B \citep{Sakmann1995}.  This voltage noise 
 
 One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.
 
@@ -49,8 +49,16 @@ This noise model does a good job approximating the noise measured in experiments
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=\textwidth]{figures/mspa_noise_intro.pdf}
-\caption[Current noise in the MspA nanopore]{On the left is plotted a \SI{10}{\s} trace of ionic current through M2-MspA with no applied voltage bias.  The current is \SI{0}{\pA} on average, but there is some spread to the values, shown in the current histogram.  The thin gray line is a Gaussian fit, showing that the current noise is Gaussian distributed.  On the right, the current noise power spectral density is plotted as a function of frequency.  The current noise here is white at frequencies below \SI{1}{\kHz}, where there is a gradual increase due to capacitance, followed by a falloff due to the \SI{10}{\kHz} 4-pole Bessel hardware filter.  For reference, the calculated Johnson noise is shown as a dashed gray line.}
+\includegraphics[width=\textwidth]{figures/noise_electronics.pdf}
+\caption[Current noise in the MspA nanopore]{asdf}
+\label{fig:mspa_noise_intro}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{figures/noise_model_fit.pdf}
+\caption[Current noise in the MspA nanopore]{aa.}
 \label{fig:mspa_noise_intro}
 \end{centering}
 \end{figure}
