@@ -14,7 +14,9 @@ Particles at a temperature $T$ have an associated kinetic energy of $\frac{1}{2}
 
 \section{Contributions to noise in nanopore experiments}
 
-The random thermal motions of ions in solution lead to local variations in electrical potential.  The same thermal motion of electrons in a carbon resistor also leads to fluctuations in potential.  These fluctuations are the physical basis of several contributions to measured noise.
+The random thermal motions of ions in solution lead to local variations in electrical potential.  The same thermal motion of electrons in a carbon resistor also leads to fluctuations in potential.  These fluctuations are the physical basis of several contributions to measured noise.  Voltage fluctuations across a resistor cause fluctuating currents, while voltage fluctuations across capacitors cause fluctuating capacitive currents.
+
+\subsection{Thermal fluctuations of charge in resistors}
 
 Voltage fluctuations can be measured across a resistor, and were first quantified in 1928 by John Johnson \citep{Johnson1928} and derived from first principles by Harry Nyquist \citep{Nyquist1928}.  The noise power spectral density, $S_I (f)$, with units of current squared per frequency, is given for a resistor with resistance $R$ by
 
@@ -33,7 +35,17 @@ S_I(f) = 4 k_B T \operatorname{Re}(Y(f))
 \noindent
 where Re denotes the real part of the complex conductance.  This expression reduces to Equation \ref{eqn:johnson} for the simple case of a resistor.
 
-Thermal fluctuations of charge carriers lead to current noise not only by coupling to resistance, but also by coupling to a capacitance in series with some resistance.  In the case of a nanopore experiment, a simple model electrical circuit can be drawn as in Figure \ref{fig:circuit_equiv}.  $R_p$ is the resistance of the nanopore, and $R_f$ is the resistance of the amplifier's feedback resistor, \SI{500}{\mega\ohm} for the Axopatch 200B in whole cell mode with $\beta = 1$.  $C_m$ is the capacitance of the membrane, typically a few picofarads, and $R_a$ is the access resistance, which is given by $R_a = \rho/4r$, where $\rho$ is the resistivity of the electrolyte and $r$ is the radius of the nanopore \citep{Hall1975}.  The expression for the complex conductance is
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/noise_electronics.pdf}
+\caption[Simple electrical model of the nanopore setup]{(a) Cartoon of an MspA nanopore in a PC lipid bilayer membrane, with ions in solution.  When a bias is applied, the membrane charges up as a capacitor, with opposite ions lining up on opposite sides of the membrane.  (b) A simple circuit model for the nanopore shown in (a).  $R_a$ is the access resistance, $C_m$ the membrane capacitance, and $R_p$ the resistance of the nanopore.  (c) A circuit model for the nanopore along with simplified measurement electronics.  The feedback resistor $R_f$ in the current amplifier also contributes to measurement noise.}
+\label{fig:circuit_equiv}
+\end{centering}
+\end{figure}
+
+\subsection{Thermal fluctuations of charge across capacitors}
+
+Thermal fluctuations of charge carriers also cause current fluctuations when a capacitance is in series with some resistance.  In the case of a nanopore experiment, a simple model electrical circuit can be drawn as in Figure \ref{fig:circuit_equiv}.  $R_p$ is the resistance of the nanopore, and $R_f$ is the resistance of the amplifier's feedback resistor, \SI{500}{\mega\ohm} for the Axopatch 200B in whole cell mode with $\beta = 1$.  $C_m$ is the capacitance of the membrane, typically a few picofarads, and $R_a$ is the access resistance, which is given by $R_a = \rho/4r$, where $\rho$ is the resistivity of the electrolyte and $r$ is the radius of the nanopore \citep{Hall1975}.  The expression for the complex conductance is
 
 \begin{equation}
 Y(f) = i 2 \pi f C_{in} + \left[ 2 R_a + \frac{1}{ 1/R_p + i 2 \pi f C_m } \right]^{-1} + \frac{1}{R_f}
@@ -41,25 +53,54 @@ Y(f) = i 2 \pi f C_{in} + \left[ 2 R_a + \frac{1}{ 1/R_p + i 2 \pi f C_m } \righ
 \end{equation}
 
 \noindent
-where $C_{in}$ is the input capacitance of the amplifier's headstage, about \SI{4}{\pF} for the Axopatch 200B.  There is also a small amount of input voltage noise at the amplifier's headstage.  This is approximately \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B \citep{Sakmann1995}.  This voltage noise 
+where $C_{in}$ is the input capacitance of the amplifier's headstage, about \SI{4}{\pF} for the Axopatch 200B.
 
-One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.
+\subsection{The case of a non-ideal capacitor}
 
-This noise model does a good job approximating the noise measured in experiments.
+Another contribution to current noise comes from the fact that no capacitor is completely ideal, and there is some element of dissipation.  This is referred to as dielectric loss, and is described by \citep{•}
 
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=\textwidth]{figures/noise_electronics.pdf}
-\caption[Current noise in the MspA nanopore]{asdf}
-\label{fig:mspa_noise_intro}
-\end{centering}
-\end{figure}
+\begin{equation}
+S_{I,headstage}(f) = 8 \pi k_B T \, f \, C_m \tan \delta
+\label{eqn:dielectric}
+\end{equation}
+
+\noindent
+where for water $\tan \delta \approx 1$ \citep{•}.
+
+\subsection{Conductance fluctuations when current is flowing}
+
+One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.  The conductance of the nanopore itself, $1/R_p$, at any given moment depends on the number of ions in the nanopore.  This number is not fixed, and fluctuates due to diffusion.  These conductance fluctuations lead to extra current noise when current is flowing due to an applied bias.  This current noise is proportional to the square of the current, and is shown for M2-MspA in Figure \ref{fig:mspa_noise}.
+
+\subsection{Noise due to the amplifier}
+
+There is also a small amount of input voltage noise at the amplifier's headstage.  This is approximately \SI{3}{\nV/\sqrt{\Hz}} for the Axopatch 200B \citep{Sakmann1995}.  This voltage noise couples to the capacitance of the nanopore system as 
+
+\begin{equation}
+S_{I,headstage}(f) = (2 \pi \, f \, C_{in})^2 S_{V,headstage}
+\label{eqn:headstage}
+\end{equation}
+
+\noindent
+where $S_{V,headstage} = ($ \SI{3}{\nV/\sqrt{\Hz}} $)^2$.
+
+\subsection{Full noise model}
+
+A complete model of the current noise in the experiment is given by a combination of the above factors, and can be written:
+
+\begin{equation}
+S_I(f) = 4 k_B T \operatorname{Re}(\left[ 2 R_a + \frac{1}{ 1/R_p + i 2 \pi f C_m } \right]^{-1} + \frac{1}{R_f}) + 8 \pi k_B T \, f \, C_m \tan \delta + a_{ion} I^2 + (2 \pi \, f \, C_{in})^2 S_{V,headstage}
+\label{eqn:full_nosie_model}
+\end{equation}
+
+This noise model does a good job approximating the noise measured in experiments.  Figure \ref{fig:noise_model_fit} shows a fit of Equation \ref{eqn:full_nosie_model} to noise measured in M2-MspA.  Three noise plots are shown for applied biases of \SI{0}{\mV}, \SI{100}{\mV}, and \SI{150}{\mV}.  The parameters which were allowed to vary were $R_a$ and $C_m$.  The best fit for all 
+
+
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/noise_model_fit.pdf}
 \caption[Current noise in the MspA nanopore]{M2-MspA.  $C_m = $ \SI{0.3}{\pA}. $R_a = $ \SI{1}{\mega\ohm}.  Conductance was \SI{2.27}{\nano\siemens}.  Voltages are \SI{0}{\mV}, \SI{100}{\mV}, and \SI{150}{\mV}.}
-\label{fig:mspa_noise_intro}
+\label{fig:noise_model_fit}
 \end{centering}
 \end{figure}
 
