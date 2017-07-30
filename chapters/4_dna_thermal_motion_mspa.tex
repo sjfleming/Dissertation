@@ -20,7 +20,7 @@ The experimental technique used here involves the use of a large protein tethere
 \end{centering}
 \end{figure}
 
-The idea is depicted in Figure \ref{fig:capture_escape_idea}.  Here, the protein NeutrAvidin is used as a molecular stop that binds to the 3' end of ssDNA via a 3'-biotinylated dT (see Appendix \ref{idt_dna} for the chemical structure).  The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.  However, an electrophoretic force proportional to the effective charge and applied voltage bias pulls the ssDNA through the nanopore, effectively trapping the complex in the pore, as shown in the potential energy diagram on the right.  Thermal motion leads to position fluctuations, depicted as movement of the ssDNA within the pore.  Eventually, thermal motion will lead to escape of the complex from the nanopore.  Using $x$ to denote the position of the ssDNA within the nanopore's constriction, escape happens for $x \geq L$, $L$ being the length of ssDNA that sticks through the nanopore at equilibrium.
+The idea is depicted in Figures \ref{fig:capture_escape_idea} and \ref{fig:capture_escape_event}.  Here, the protein NeutrAvidin is used as a molecular stop that binds to the 3' end of ssDNA via a 3'-biotinylated dT (see Appendix \ref{idt_dna} for the chemical structure).  The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.  However, an electrophoretic force proportional to the effective charge and applied voltage bias pulls the ssDNA through the nanopore, effectively trapping the complex in the pore, as shown in the potential energy diagram on the right.  Thermal motion leads to position fluctuations, depicted in Figure \ref{fig:capture_escape_idea} as movement of the ssDNA within the pore.  Eventually, if the bias voltage is appropriately low, thermal motion will lead to escape of the complex from the nanopore.  Using $x$ to denote the position of the ssDNA within the nanopore's constriction (see Figure \ref{fig:capture_escape_idea}), escape happens for $x \geq L$, $L$ being the length of ssDNA that sticks through the nanopore at equilibrium.
 
 \subsection{Theory of drift-diffusion and first-passage}
 
@@ -75,9 +75,13 @@ where $w(x_0)$ is the probability distribution function for the initial position
 
 The mean escape time, along with the escape time distribution, can be directly compared to experiment, and can be used to obtain an estimate for the values of $D$ and $\sigma$.
 
-\section{Experimental setup}
+\section{Experimental methods}
 
-% FIGURE that's like 2.6 but with block diagram of the amplifier, digitizer, computer, and NI-DAQ
+\subsection{Setup}
+
+The experimental setup is similar to what was described in Section \ref{experimental_setup}.  However, the capture and escape experiment requires active voltage control.  The idea is to capture many individual molecules, and measure the time it takes them to escape from the nanopore at various low bias voltages.  The setup which makes active voltage control possible is shown in Figure \ref{fig:setup_capture}.
+
+% FIGURE that's like 2.6 but with block diagram of the amplifier, digitizer, computer, and NI-DAQ.  Show temp control.
 
 \begin{figure}[h]
 \begin{centering}
@@ -87,7 +91,15 @@ The mean escape time, along with the escape time distribution, can be directly c
 \end{centering}
 \end{figure}
 
+\subsection{Sample preparation}
+
+NeutrAvidin-ssDNA complexes are created by the slow, dropwise addition of a low concentration of biotinylated ssDNA (\SI{1}{\u\Molar} in TE, pH 7.6) to a high concentration of NeutrAvidin (\SI{10}{\u\Molar} in 1x PBS), with rapid mixing.  Since each NeutrAvidin has four binding sites for biotin, this method ensures that most NeutrAvidins have either zero or one ssDNA molecule bound.  Free ssDNA is removed using a \SI{20}{\k\Da} molecular weight cutoff size exclusion spin column.  This step also serves to buffer exchange the complexes into the buffer used in the experiment, which is \SI{1}{\Molar} KCl, \SI{10}{\m\Molar} HEPES, pH \num{8.00}.
+
+\SI{10}{\p\mol} of NeutrAvidin-ssDNA complexes are loaded into the cis side of the experiment, and the cis side is mixed well.  Active voltage control and current monitoring are implemented using a custom Python program to control the NI-DAQ.
+
 \section{Results}
+
+In order to measure many individual molecules and gather statistics about their escape times, it is necessary to use a relatively high voltage to ensure a reasonable capture rate.  Here, \SI{160}{\mV} is used for this purpose.  
 
 \begin{figure}[h]
 \begin{centering}
