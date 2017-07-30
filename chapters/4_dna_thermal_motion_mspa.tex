@@ -32,7 +32,7 @@ The stochastic dynamics of the NeutrAvidin-ssDNA complex in MspA can be modeled 
 \end{equation}
 
 \noindent
-where $F(x)$ is the electrophoretic force on the ssDNA as a function of position, and $\gamma$ is the viscous drag.  $\gamma$ can be rewritten in terms of the diffusion constant using the Einstein relation: $\gamma = \frac{k_B T}{D}$.  Using this substitution,
+where $F(x)$ is the electrophoretic force on the ssDNA as a function of position, and $\gamma$ is the viscous drag.  $\gamma$ can be rewritten in terms of the diffusion constant using the Einstein relation: $\gamma = \frac{k_B T}{D}$.  Making this substitution,
 
 \begin{equation}
 \pard{p(x,t|x_0)}{t} = \frac{D}{k_B T} \frac{\partial}{\partial x} \left[ F(x) p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
@@ -54,19 +54,19 @@ where $V$ is the bias voltage and $\sigma$ is the effective charge per unit leng
 \label{eqn:drift_diffusion3}
 \end{equation}
 
-The only free parameters in Equation \ref{eqn:drift_diffusion3} are the effective charge per unit length, $\sigma$, and the diffusion constant, $D$.  Even in the case where entropic effects are considered in the force term, these can be estimated without introducing additional free parameters.  For a discussion, see Appendix \ref{first_passage}.  Using a reflecting boundary condition at $x=0$ and an absorbing boundary condition at $x=L$, signifying escape of the ssDNA from MspA, Equation \ref{eqn:drift_diffusion2} can be solved numerically.
+The only free parameters in Equation \ref{eqn:drift_diffusion3} are the effective charge per unit length, $\sigma$, and the diffusion constant, $D$.  Even in the case where entropic effects are considered in the force term, these can be estimated without introducing additional free parameters.  For a discussion, see Appendix \ref{first_passage}.  Using a reflecting boundary condition at $x=0$ and an absorbing boundary condition at $x=L$, signifying escape of the ssDNA from MspA, Equation \ref{eqn:drift_diffusion2} can be solved numerically.  In the special case where the force is adequately described by Equation \ref{eqn:simple_force}, then Equation \ref{eqn:drift_diffusion3} can be solved analytically, as in Appendix \ref{first_passage}.
 
-The ssDNA initially starts on the domain $x \in (0,L)$, but the absorbing boundary means that, as time $t$ increases $\int_0^L p(x,t|x_0) \, dx < 1$.  The probability density for escape at a given time is given by the probability flux from the boundary at $x=L$:
+The constriction of MspA initially starts on the domain $x \in (0,L)$ along the ssDNA, but the absorbing boundary means that, as time $t$ increases, the probability that the ssDNA is still in the nanopore, $\int_0^L p(x,t|x_0) \, dx < 1$.  The probability density for escape of ssDNA from MspA at a given time is given by the probability flux from the boundary (at $x=L$):
 
 \begin{equation}
 f(t,x_0) = -\frac{d}{dt} \int_0^L p(x,t|x_0) \, dx
 \label{eqn:escape_time_dist}
 \end{equation}
 
-Finally, the average escape time, $\langle \tau \, \rangle$ can be calculated as
+Finally, the average escape time, $\langle \tau \, \rangle$, can be calculated as
 
 \begin{equation}
-\langle \tau \, \rangle = \int_0^L w(x_0) \, t \, f(t|x_0) \, dx_0
+\langle \tau \, \rangle = \int_0^L \left( w(x_0) \, \int_0^{\infty} t \, f(t|x_0) \, dt \right) \, dx_0
 \label{eqn:mean_escape_time}
 \end{equation}
 
