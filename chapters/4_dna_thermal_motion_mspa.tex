@@ -109,9 +109,11 @@ NeutrAvidin-ssDNA complexes are created by the slow, dropwise addition of a low 
 
 \section{Results}
 
+\subsection{Escape time measurements}
+
 In order to measure many individual molecules and gather statistics about their escape times, it is necessary to use a relatively high voltage to ensure a reasonable capture rate.  Here, \SI{160}{\mV} is used for this purpose.  Upon capturing a molecule, the voltage is decreased to a constant, low voltage until the molecule escapes.  This process is shown in Figure \ref{fig:capture_escape_event}, along with data recorded for one molecule of poly(dT).
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/polyA_escape_histograms.pdf}
 \caption[Measured escape times of poly(dA) ssDNA from MspA]{The histogram of poly(dA) escape data at \SI{60}{\mV}, \SI{25}{\celsius}, plotted with linear and logarithmic x- and y-axis.  Data points are shown in black.  Error bars in each bin are $\sqrt{N}$.  An exponential fit with the same time constant of \SI{57.8}{\ms} is shown as the green line in each plot.  The exponential fits well to the shortest $\sim 90\%$ of events, denoted by the green shaded region.}
@@ -138,7 +140,41 @@ Homopolymer ssDNA of each of the four nucleotides were chosen as analytes in ord
 Figure \ref{fig:escape_times}b shows a summary of all the escape time data measured.  Each data point is the average escape time at a given voltage, measured by fitting an exponential to a histogram of escape times measured at that voltage.  Each data point represents between several hundred and over a thousand individual capture and escape events.  The vertical (time) axis is logarithmic, so differences between the different homopolymers 
 span more than an order of magnitude at some voltages.  Changes of \SI{40}{\mV} in the bias voltage during escape lead to changes in the average escape time that span four orders of magnitude.
 
-Fits to the first-passage model are obtained by performing a chi-squared fit of the numerical solution of Equation \ref{eqn:drift_diffusion2} to the data, allowing the parameters $\sigma$ and $D$ to vary.
+Fits to the first-passage model are obtained by performing a chi-squared fit of the numerical solution of Equation \ref{eqn:drift_diffusion2} to the data, allowing the parameters $\sigma$ and $D$ to vary.  The fitting procedure yields values for $\sigma$ and $D$ for each oligo, and these are tabulated in Table \ref{table:fit_values}.
+
+\begin{table}[h]
+\caption{Effective charges, electrophoretic driving forces, and diffusion constants extracted from the data.  Parameters are estimated from fit to first-passage model.  Uncertainties reflect one standard deviation and are obtained from chi-squared fitting.}
+\label{table:fit_values}
+\sisetup{
+table-number-alignment = center,
+table-figures-integer = 2
+}
+\centering
+\begin{tabular}{
+l
+S[separate-uncertainty,table-figures-uncertainty = 1]
+S[separate-uncertainty,table-figures-uncertainty = 1]
+S[separate-uncertainty,table-figures-uncertainty = 1]
+}
+\hline
+{ssDNA Sequence}
+& {Effective charge}
+& {Driving force}
+& {Diffusion constant} \\
+{}
+& {$Q_{eff} \,$ ($e^{-}/$base)}
+& {$F$, at \SI{100}{\mV} (\si{\pico\newton})}
+& {$D$ (\si{\micro\meter^2/\s})} \\ [0.5ex]
+\hline \hline
+\rule{0pt}{3ex}(dT)$_{27}$ & 0.62(2) & 19.7(4) & 53(10) \\ 
+(dC)$_{27}$ & 0.56(1) & 17.9(3) & 83(17) \\
+(dA)$_{27}$ & 0.53(2) & 17.1(5) & 56(17) \\
+(dGdA)$_{13}$(dG) & 0.51(1) & 16.2(5) & 43(13) \\ [1ex]
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Current blockage measurements}
 
 \begin{figure}[h]
 \begin{centering}
@@ -163,6 +199,8 @@ Fits to the first-passage model are obtained by performing a chi-squared fit of 
 \label{fig:polyC_hists}
 \end{centering}
 \end{figure}
+
+\subsection{Current noise measurements}
 
 \begin{figure}[h]
 \begin{centering}
