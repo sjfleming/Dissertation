@@ -6,7 +6,7 @@ Imagine living in a world where a Richter 9 earthquake raged continuously ... At
 \chapter{Thermal motion of ssDNA in the MspA nanopore}
 \label{dna_thermal_motion_mspa}
 
-We here describe experiments that quantify the thermal motion of analyte molecules.  ssDNA's passage through a nanopore can be modeled as a drift-diffusion process, where the electrophoretic drift is caused by the applied voltage bias, and diffusion is caused by thermal motion.  The drift can be quantified in terms of an effective charge, while the diffusion can be quantified in terms of an effective diffusion constant.  Therefore, measurement of the effective charge and diffusion constant of ssDNA in MspA provides a complete description of the ssDNA motion.  Due to the extreme speed with which ssDNA translocates through an MspA nanopore, it is difficult to quantify thermal motion using measurements of free translocation.
+Several experiments have been carried out in order to quantify the thermal motion of analyte molecules in a nanopore.  ssDNA's passage through a nanopore can be modeled as a drift-diffusion process, where the electrophoretic drift is caused by the applied voltage bias, and diffusion is caused by thermal motion.  The drift can be quantified in terms of an effective charge, while the diffusion can be quantified in terms of an effective diffusion constant.  Therefore, measurement of the effective charge and diffusion constant of ssDNA in MspA provides a complete description of the ssDNA motion.  Due to the extreme speed with which ssDNA translocates through an MspA nanopore, it is difficult to quantify thermal motion using measurements of free translocation.
 
 \section{The capture and escape experiment}
 
@@ -20,7 +20,7 @@ The experimental technique used here involves the use of a large protein tethere
 \end{centering}
 \end{figure}
 
-The idea is depicted in Figures \ref{fig:capture_escape_idea} and \ref{fig:capture_escape_event}.  Here, the protein NeutrAvidin is used as a molecular stop that binds to the 3' end of ssDNA via a 3'-biotinylated dT (see Appendix \ref{idt_dna} for the chemical structure).  The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.  However, an electrophoretic force proportional to the effective charge and applied voltage bias pulls the ssDNA through the nanopore, effectively trapping the complex in the pore, as shown in the potential energy diagram on the right.  Thermal motion leads to position fluctuations, depicted in Figure \ref{fig:capture_escape_idea} as movement of the ssDNA within the pore.  Eventually, if the bias voltage is appropriately low, thermal motion will lead to escape of the complex from the nanopore.  Using $x$ to denote the position of the ssDNA within the nanopore's constriction (see Figure \ref{fig:capture_escape_idea}), escape happens for $x \geq L$, $L$ being the length of ssDNA that sticks through the nanopore at equilibrium.
+The idea is depicted in Figures \ref{fig:capture_escape_idea} and \ref{fig:capture_escape_event}.  Here, the protein NeutrAvidin is used as a molecular stop that binds to the 3' end of ssDNA via a 3'-biotin (see Appendix \ref{idt_dna} for the chemical structure).  The NeutrAvidin protein is too large to enter the vestibule of MspA, and so the complex cannot translocate.  However, an electrophoretic force proportional to the effective charge and applied voltage bias pulls the ssDNA through the nanopore, effectively trapping the complex in the pore, as shown in the potential energy diagram on the right.  Thermal motion leads to position fluctuations, depicted in Figure \ref{fig:capture_escape_idea} as movement of the ssDNA within the pore.  Eventually, if the bias voltage is appropriately low, thermal motion will lead to escape of the complex from the nanopore.  Using $x$ to denote the position of the ssDNA within the nanopore's constriction (see Figure \ref{fig:capture_escape_idea}), escape happens for $x \geq L$, $L$ being the length of ssDNA that sticks through the nanopore at equilibrium.
 
 \subsection{Theory of drift-diffusion and first-passage}
 
@@ -77,10 +77,6 @@ The mean escape time, along with the escape time distribution, can be directly c
 
 \section{Experimental methods}
 
-\subsection{Setup}
-
-The experimental setup is similar to what was described in Section \ref{experimental_setup}.  However, the capture and escape experiment requires active voltage control.  The idea is to capture many individual molecules, and measure the time it takes them to escape from the nanopore at various low bias voltages.  The setup which makes active voltage control possible is shown in Figure \ref{fig:setup_capture}.
-
 % FIGURE that's like 2.6 but with block diagram of the amplifier, digitizer, computer, and NI-DAQ.  Show temp control.
 
 \begin{figure}[h]
@@ -91,15 +87,17 @@ The experimental setup is similar to what was described in Section \ref{experime
 \end{centering}
 \end{figure}
 
+\subsection{Setup}
+
+The experimental setup is similar to what was described in Section \ref{experimental_setup}.  However, the capture and escape experiment requires active voltage control.  The idea is to capture many individual molecules, and measure the time it takes them to escape from the nanopore at various low bias voltages.  The setup which makes active voltage control possible is shown in Figure \ref{fig:setup_capture}.
+
 \subsection{Sample preparation}
 
-NeutrAvidin-ssDNA complexes are created by the slow, dropwise addition of a low concentration of biotinylated ssDNA (\SI{1}{\u\Molar} in TE, pH 7.6) to a high concentration of NeutrAvidin (\SI{10}{\u\Molar} in 1x PBS), with rapid mixing.  Since each NeutrAvidin has four binding sites for biotin, this method ensures that most NeutrAvidins have either zero or one ssDNA molecule bound.  Free ssDNA is removed using a \SI{20}{\k\Da} molecular weight cutoff size exclusion spin column.  This step also serves to buffer exchange the complexes into the buffer used in the experiment, which is \SI{1}{\Molar} KCl, \SI{10}{\m\Molar} HEPES, pH \num{8.00}.
+ssDNA was purchased from Integrated DNA Technologies, Inc. [IDT] with HPLC purification.  Sequences used in the work covered in this chapter are all 27 bases long, and include (dA)$_{27}$ [poly(dA)], (dC)$_{27}$ [poly(dC)], (dT)$_{27}$ [poly(dT)], and (dGdA)$_{13}$dG [poly(dGdA)], each with a 3' biotin (chemical details of biotin attachment in Appendix \ref{idt_dna}).  Sequences are listed in Appendix \ref{sequences}.
 
-\SI{10}{\p\mol} of NeutrAvidin-ssDNA complexes are loaded into the cis side of the experiment, and the cis side is mixed well.  Active voltage control and current monitoring are implemented using a custom Python program to control the NI-DAQ.
+NeutrAvidin-ssDNA complexes are created by the slow, dropwise addition of a low concentration of biotinylated ssDNA (\SI{1}{\micro\Molar} in TE, pH 7.6) to a high concentration of NeutrAvidin (\SI{10}{\micro\Molar} in 1x PBS), with rapid mixing.  Since each NeutrAvidin has four binding sites for biotin, this method ensures that most NeutrAvidins have either zero or one ssDNA molecule bound.  Free ssDNA is removed using a \SI{20}{\kilo\dalton} molecular weight cutoff size exclusion spin column.  This step also serves to buffer exchange the complexes into the buffer used in the experiment, which is \SI{1}{\Molar} KCl, \SI{10}{\m\Molar} HEPES, pH \num{8.00}.
 
-\section{Results}
-
-In order to measure many individual molecules and gather statistics about their escape times, it is necessary to use a relatively high voltage to ensure a reasonable capture rate.  Here, \SI{160}{\mV} is used for this purpose.  
+\SI{10}{\pico\mole} of NeutrAvidin-ssDNA complexes are loaded into the cis side of the experiment, and the cis side is mixed well.  Active voltage control and current monitoring are implemented using a custom Python program to control the NI-DAQ.  The experiment is enclosed by a copper lid, and maintained at \SI{25}{\celsius}.
 
 \begin{figure}[h]
 \begin{centering}
@@ -109,6 +107,10 @@ In order to measure many individual molecules and gather statistics about their 
 \end{centering}
 \end{figure}
 
+\section{Results}
+
+In order to measure many individual molecules and gather statistics about their escape times, it is necessary to use a relatively high voltage to ensure a reasonable capture rate.  Here, \SI{160}{\mV} is used for this purpose.  Upon capturing a molecule, the voltage is decreased to a constant, low voltage until the molecule escapes.  This process is shown in Figure \ref{fig:capture_escape_event}, along with data recorded for one molecule of poly(dT).
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/polyA_escape_histograms.pdf}
@@ -117,6 +119,12 @@ In order to measure many individual molecules and gather statistics about their 
 \end{centering}
 \end{figure}
 
+In order to measure short escape times, it is necessary to use the ``pipette capacitance compensation" on the Axopatch 200B, and to use a small lipid bilayer area in order that the capacitance can be fully compensated.  Without full capacitance compensation, large capacitive current spikes will obscure short escape events ($<$ \SI{2}{\ms}).
+
+Measuring the escape times for many individual molecules provides a distribution of escape times.  The distribution measured for poly(dA) escaping against \SI{60}{\mV} applied bias is shown in Figure \ref{fig:polyA_escape_times}.  Shown in the figure are three ways of plotting the same data with linear and logarithmic axes.
+
+The fit to a single exponential, which is the prediction for a first-passage process (see Appendix \ref{first_passage}), is shown in green.  An exponential is a good fit to at least 90\% of the events, while the number of events with long escape times slightly exceeds the predictions of a single exponential.  A chi-squared fit to an exponential ($\sim e^{-t/\tau}$) is performed by binning the data as shown and using error bars of $\sqrt{N}$ from Poisson statistics, where $N$ is the number of molecules in a given bin.  The ``average escape time" is defined as the best fit value of $\tau$, and error bars on $\tau$ represent one standard deviation obtained from the chi-squared fit.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/homopolymer_escape_data.pdf}
@@ -124,6 +132,13 @@ In order to measure many individual molecules and gather statistics about their 
 \label{fig:escape_times}
 \end{centering}
 \end{figure}
+
+Homopolymer ssDNA of each of the four nucleotides were chosen as analytes in order to measure the effective charge and diffusion constant of each, and to see if there were noticeable differences.  Figure \ref{fig:escape_times} shows the results of the same measurements described above for each of the oligonucleotides [oligos].  Homopolymer dG was not used in order to prevent G-quadruplex formation, and a repeat of (dGdA) was chosen instead.  As demonstrated in Figure \ref{fig:escape_times}a, the average escape times at \SI{60}{\mV} clamping voltage are different for each oligo.  In particular, poly(dT) shows substantially longer escape times than the others.  This trend holds for all clamping voltages used.
+
+Figure \ref{fig:escape_times}b shows a summary of all the escape time data measured.  Each data point is the average escape time at a given voltage, measured by fitting an exponential to a histogram of escape times measured at that voltage.  Each data point represents between several hundred and over a thousand individual capture and escape events.  The vertical (time) axis is logarithmic, so differences between the different homopolymers 
+span more than an order of magnitude at some voltages.  Changes of \SI{40}{\mV} in the bias voltage during escape lead to changes in the average escape time that span four orders of magnitude.
+
+Fits to the first-passage model are obtained by performing a chi-squared fit of the numerical solution of Equation \ref{eqn:drift_diffusion2} to the data, allowing the parameters $\sigma$ and $D$ to vary.
 
 \begin{figure}[h]
 \begin{centering}
