@@ -176,21 +176,31 @@ S[separate-uncertainty,table-figures-uncertainty = 1]
 
 \subsection{Current blockage measurements}
 
+The capture and escape experiment yields much more information than escape times.  The current blockage caused by the presence of the homopolymer ssDNA is also recorded.  Figure \ref{fig:homopolymer_blockages} shows a composite recording of current versus time for four individual NeutrAvidin-ssDNA complexes held in M3-MspA at \SI{160}{\mV} bias, measured in separate experiments, along with the open pore current for M3-MspA.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.55\textwidth]{figures/homopolymer_block_traces.pdf}
-\caption[Current blockage traces for homopolymer ssDNA]{Recordings of current versus time for NeutrAvidin-ssDNA complexes, where the ssDNA is a 3'-biotinylated 27mer of either poly(dA), poly(dT), poly(dC), or poly(dGdA), as indicated.  Data are compiled from four separate experiments, each filtered at \SI{10}{\kHz}.  The scale bar for the time axis indicates that each segment lasts about \SI{25}{\ms}.  For reference, the open pore M3-MspA current is shown at the upper left.}
+\caption[Current blockage traces for homopolymer ssDNA]{Recordings of current versus time for NeutrAvidin-ssDNA complexes, where the ssDNA is a 3'-biotinylated 27mer of either poly(dA), poly(dT), poly(dC), or poly(dGdA), as indicated.  Data are compiled from four separate experiments, each filtered at \SI{10}{\kHz}.  The scale bar for the time axis indicates that each segment lasts about \SI{25}{\ms}.  For reference, the open pore M3-MspA current is shown at the upper left.  Buffer is \SI{1}{\Molar} KCl, \SI{10}{\milli\Molar} HEPES, pH \num{8.00}, and temperature is controlled at \SI{25.00}{\celsius}.}
 \label{fig:homopolymer_blockages}
 \end{centering}
 \end{figure}
 
+Perhaps most immediately apparent is that the blockage levels are different depending on the identity of the nucleotides.  The homopolymers used in this work each block different amounts of current in M3-MspA.  Due to our ability to probe single molecules individually, we can create a histogram of these current blockage levels for many molecules.  Figure \ref{fig:homopolymer_blockage_hists} shows histograms of the mean blockage currents measured for all four oligos at two different bias voltages: \SI{60}{\mV} and \SI{160}{\mV}.  Current blockages are reported in terms of mean $I/I_0$, the ratio of the measured current with DNA blocking the pore to the measured current for the open pore.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{figures/homopolymer_block_hists.pdf}
-\caption[Current blockage histograms for homopolymer ssDNA]{Histograms of blockage currents when different NeutrAvidin-tethered oligonucleotides are captured in the M3-MspA pore.  $I/I_0$ is the ratio of mean measured current, $I$, to open-pore current, $I_0$.  Each element in the histogram is an individual molecule.  At \SI{60}{\mV} bias (upper panel), the blockages are well separated, while at \SI{160}{\mV} bias (lower panel), the distributions are broader, and show significant overlap.}
+\caption[Current blockage histograms for homopolymer ssDNA]{Histograms of blockage currents when different NeutrAvidin-tethered oligonucleotides are captured in the M3-MspA pore.  $I/I_0$ is the ratio of mean measured current, $I$, to open-pore current, $I_0$.  Each element in the histogram is an individual molecule.  (a) At \SI{60}{\mV} bias, the blockages are well separated, while at \SI{160}{\mV} bias (b), the distributions are broader, and show significant overlap.}
 \label{fig:homopolymer_blockage_hists}
 \end{centering}
 \end{figure}
+
+This is the first reported observation, to our knowledge, of a very interesting phenomenon: the spread in the measured current blockages greatly increases at higher voltages, leading to significant overlap of poly(dA), poly(dC), and poly(dT).  A careful look reveals that the histograms even become multimodal, with a distinct peak emerging at lower values of $I/I_0$.
+
+We speculate that the emergence of this deeper-blockage peak at high biases could be caused by transient interactions between the NeutrAvidin protein and MspA.  Such interactions have been speculated about before by others \citep{Manrao2011} to describe a broad distribution in measured currents, but in that case it was dependent on the ssDNA sequence, and was not studied in detail.
+
+Figure \ref{fig:polyC_hists} shows a detailed look at the emergence of this deeper-blockage peak as a function of applied voltage.  Histograms are plotted at each voltage horizontally, with the current ($I/I_0$) on the vertical axis.
 
 \begin{figure}[h]
 \begin{centering}
@@ -199,6 +209,8 @@ S[separate-uncertainty,table-figures-uncertainty = 1]
 \label{fig:polyC_hists}
 \end{centering}
 \end{figure}
+
+Here, all of the oligos measured show the emergence of a similar deeper-blockage peak.
 
 \subsection{Current noise measurements}
 
