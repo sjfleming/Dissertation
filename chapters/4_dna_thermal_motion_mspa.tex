@@ -113,7 +113,7 @@ NeutrAvidin-ssDNA complexes are created by the slow, dropwise addition of a low 
 
 In order to measure many individual molecules and gather statistics about their escape times, it is necessary to use a relatively high voltage to ensure a reasonable capture rate.  Here, \SI{160}{\mV} is used for this purpose.  Upon capturing a molecule, the voltage is decreased to a constant, low voltage until the molecule escapes.  This process is shown in Figure \ref{fig:capture_escape_event}, along with data recorded for one molecule of poly(dT).
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/polyA_escape_histograms.pdf}
 \caption[Measured escape times of poly(dA) ssDNA from MspA]{The histogram of poly(dA) escape data at \SI{60}{\mV}, \SI{25}{\celsius}, plotted with linear and logarithmic x- and y-axis.  Data points are shown in black.  Error bars in each bin are $\sqrt{N}$.  An exponential fit with the same time constant of \SI{57.8}{\ms} is shown as the green line in each plot.  The exponential fits well to the shortest $\sim 90\%$ of events, denoted by the green shaded region.}
@@ -190,27 +190,29 @@ Perhaps most immediately apparent is that the blockage levels are different depe
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/homopolymer_block_hists.pdf}
-\caption[Current blockage histograms for homopolymer ssDNA]{Histograms of blockage currents when different NeutrAvidin-tethered oligonucleotides are captured in the M3-MspA pore.  $I/I_0$ is the ratio of mean measured current, $I$, to open-pore current, $I_0$.  Each element in the histogram is an individual molecule.  (a) At \SI{60}{\mV} bias, the blockages are well separated, while at \SI{160}{\mV} bias (b), the distributions are broader, and show significant overlap.}
+\includegraphics[width=0.7\textwidth]{figures/homopolymer_block_hists.pdf}
+\caption[Current blockage histograms for homopolymer ssDNA]{Histograms of mean blockage currents when different NeutrAvidin-tethered oligonucleotides are captured in the M3-MspA pore.  $I/I_0$ is the ratio of mean measured current, $I$, to open-pore current, $I_0$.  Each element in the histogram is an individual molecule.  (a) At \SI{60}{\mV} bias, the blockages are well separated, while at \SI{160}{\mV} bias (b), the distributions are broader, and show significant overlap.}
 \label{fig:homopolymer_blockage_hists}
 \end{centering}
 \end{figure}
 
-This is the first reported observation, to our knowledge, of a very interesting phenomenon: the spread in the measured current blockages greatly increases at higher voltages, leading to significant overlap of poly(dA), poly(dC), and poly(dT).  A careful look reveals that the histograms even become multimodal, with a distinct peak emerging at lower values of $I/I_0$.
+The spread in the measured current blockages greatly increases at higher voltages, leading to significant overlap of poly(dA), poly(dC), and poly(dT).  A careful look reveals that the histograms even become multimodal, with indications of a peak emerging at lower values of $I/I_0$.
 
-We speculate that the emergence of this deeper-blockage peak at high biases could be caused by transient interactions between the NeutrAvidin protein and MspA.  Such interactions have been speculated about before by others \citep{Manrao2011} to describe a broad distribution in measured currents, but in that case it was dependent on the ssDNA sequence, and was not studied in detail.
-
-Figure \ref{fig:polyC_hists} shows a detailed look at the emergence of this deeper-blockage peak as a function of applied voltage.  Histograms are plotted at each voltage horizontally, with the current ($I/I_0$) on the vertical axis.
+Figure \ref{fig:polyC_hists} shows a detailed look at the emergence of this deeper-blockage peak as a function of applied voltage.  While the peak is not so apparent in Figure \ref{fig:homopolymer_blockage_hists} due to the fact that the histograms there are mean blockages, the histograms plotted in Figure \ref{fig:polyC_hists} are histograms of the full current trace, sampled at \SI{100}{\kHz} after hardware filtering at \SI{10}{\kHz}, and median filtering with a 100-point window post-acquisition.  Every data point contributes one point to the histogram.  Histograms are plotted at each voltage horizontally, with the current ($I/I_0$) on the vertical axis.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/polyC_current_voltage.pdf}
-\caption[Current histograms for poly(dC) ssDNA versus voltage]{Current blockage histograms are plotted at \SI{5}{\mV} increments from \SI{45}{\mV} to \SI{170}{\mV}.  The histograms show that the mean $I/I_0$ increases with applied voltage, and that the distribution is Gaussian at voltages below about \SI{100}{\mV}.  At higher bias voltages, peaks appear at lower values of $I/I_0$, and the current distribution ceases to be Gaussian.  Two distributions are singled out, and short segments of $I/I_0$ versus time are plotted in insets.}
+\caption[Current histograms for poly(dC) ssDNA versus voltage]{Current blockage histograms for \num{30} molecules of poly(dC) are plotted at \SI{5}{\mV} increments from \SI{45}{\mV} to \SI{170}{\mV}.  The histograms show that the mean $I/I_0$ increases with applied voltage, and that the distribution is Gaussian at voltages below about \SI{100}{\mV}.  At higher bias voltages, peaks appear at lower values of $I/I_0$, and the current distribution ceases to be Gaussian.  Two distributions are singled out, and short segments of $I/I_0$ versus time are plotted in insets.}
 \label{fig:polyC_hists}
 \end{centering}
 \end{figure}
 
-Here, all of the oligos measured show the emergence of a similar deeper-blockage peak.
+At voltages below about \SI{100}{\mV}, the current is Gaussian distributed around a single value.  However, as the voltage increases, the distribution becomes asymmetrical, with a distinct peak or peaks emerging at lower values of $I/I_0$.  Two voltages are singled out in the insets: \SI{90}{\mV} and \SI{170}{\mV}.  The currents plotted in the insets correspond to the y-axis values.  Short traces of current versus time are plotted in order to show the dynamic nature of these current fluctuations.  The \SI{170}{\mV} data seems consistent with the picture of transient deviations from a resting state to deeper-blockage states.  These transient deeper-blockage states last on the order of \SI{1}{\ms} or less, and they get farther away from the main peak as voltage increases.  Poly(dC) is the oligo shown in Figure \ref{fig:polyC_hists}, but all four of the oligos measured in this work show the emergence of a similar deeper-blockage peak.
+
+We speculate that the emergence of this deeper-blockage peak at high biases could be caused by transient interactions between the NeutrAvidin protein and MspA.  Such interactions have been speculated about before by others \citep{Manrao2011} in different contexts.  We propose that at high bias voltages, above \SI{100}{\mV}, the electrophoretic force is strong enough to pull NeutrAvidin into a tightly clamped state where it interacts with MspA and blocks more current.  At low bias voltages, the NeutrAvidin tents to be farther away from MspA more often due to reduced tension in the ssDNA.  The likelihood of NeutrAvidin being in the tightly-clamped state is low at low bias voltages.
+
+An alternative explanation for the emergence of these discrete peaks at high bias could be that the ssDNA interacts in a specific manner with the constriction of MspA, and that these specific interactions are stabilized by the ssDNA being under high tension.  Recent molecular dynamics simulations with ssDNA and MspA have indicated that there are specific interactions between the phosphate backbone of the ssDNA and the pore's constriction that can stabilize high-tension states of the ssDNA \citep{Bhattacharya2016a}.  However, those simulations show that the lifetimes of these states are on the order of \SI{1}{\micro\s} or less, while the fluctuations observed in experiments here are on the order of milliseconds (\SI{170}{\mV} inset of Figure \ref{fig:polyC_hists}).
 
 \subsection{Current noise measurements}
 
