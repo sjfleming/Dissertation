@@ -214,11 +214,11 @@ We speculate that the emergence of this deeper-blockage peak at high biases coul
 
 An alternative explanation for the emergence of these discrete peaks at high bias could be that the ssDNA interacts in a specific manner with the constriction of MspA, and that these specific interactions are stabilized by the ssDNA being under high tension.  Recent molecular dynamics simulations with ssDNA and MspA have indicated that there are specific interactions between the phosphate backbone of the ssDNA and the pore's constriction that can stabilize high-tension states of the ssDNA \citep{Bhattacharya2016a}.  However, those simulations show that the lifetimes of these states are on the order of \SI{1}{\micro\s} or less, while the fluctuations observed in experiments here are on the order of milliseconds (\SI{170}{\mV} inset of Figure \ref{fig:polyC_hists}).
 
+A final observation about the data in Figure \ref{fig:polyC_hists} is that even though the current at each voltage is normalized to the open pore current at that voltage (and open-pore current is itself non-linear with voltage, see Figure \ref{fig:iv_mspa}a), the fractional blockage $I/I_0$ increases significantly as the bias voltage is increased.  This holds true for all four oligos studied, and it indicates that the ionic conductivity of the blocked pore increases as voltage is increased.  We attribute this to a reduction in the number of nucleotides between the NeutrAvidin and the constriction of MspA as voltage increases, due to a larger force on the ssDNA and increased tension.  Stretching of ssDNA leading to elongation was reported by Stoddart \textit{et al.} in $\alpha$-hemolysin \citep{Stoddart2015}.
+
 \subsection{Current noise measurements}
 
-It is also instructive to examine the noise power spectra of current blockages recorded when ssDNA is trapped in the MspA nanopore.  In light of the current fluctuations to a deeper-blocked state at high voltages, Figure \ref{fig:polyC_fluctuations} shows the current noise power spectral density, $S(f)$, for two individual molecules of poly(dC): one held in the pore at \SI{60}{\mV} bias, and the other at \SI{160}{\mV}, corresponding to the voltages shown in Figure \ref{fig:homopolymer_blockage_hists}.  The power spectrum of the molecule at \SI{60}{\mV} is largely ``white," meaning independent of frequency, from \SI{10}{\Hz} to the filer cutoff near \SI{10}{\kHz}.  The molecule trapped at \SI{160}{\mV} shows an entirely different power spectrum.  The large increase in noise at low frequencies, with a shoulder near \SI{200}{\Hz}, is consistent with a telegraph process where the current fluctuates between two (or more) states with a characteristic frequency of about \SI{200}{\Hz} (see Appendix \ref{noise}). 
-
-For reference, the open pore noise is plotted in Figure \ref{fig:mspa_noise_intro}.
+It is also instructive to examine the noise power spectra of current blockages recorded when ssDNA is trapped in the MspA nanopore.  In light of the current fluctuations to a deeper-blocked state at high voltages, Figure \ref{fig:polyC_fluctuations} shows the current noise power spectral density, $S(f)$, for two individual molecules of poly(dC): one held in the pore at \SI{60}{\mV} bias, and the other at \SI{160}{\mV}, corresponding to the voltages shown in Figure \ref{fig:homopolymer_blockage_hists}.  The power spectrum of the molecule at \SI{60}{\mV} is largely ``white," meaning independent of frequency, from \SI{10}{\Hz} to the filer cutoff near \SI{10}{\kHz}.  The molecule trapped at \SI{160}{\mV} shows an entirely different power spectrum.  The large increase in noise at low frequencies, with a shoulder near \SI{200}{\Hz}, is consistent with a telegraph process where the current fluctuates between two (or more) states \citep{Dutta1981} with a characteristic frequency of about \SI{200}{\Hz} (see Appendix \ref{noise}).  For reference, the open pore noise is plotted in Figure \ref{fig:mspa_noise_intro}.
 
 \begin{figure}[h]
 \begin{centering}
@@ -228,6 +228,8 @@ For reference, the open pore noise is plotted in Figure \ref{fig:mspa_noise_intr
 \end{centering}
 \end{figure}
 
+The power spectrum obtained at \SI{160}{\mV} contains valuable information about the process involved in fluctuations to the lower-current state, which we speculate has to do with the NeutrAvidin protein, but the extra noise obscures the baseline level of noise associated with the ssDNA itself.  That baseline level of noise is revealed by the measurement at \SI{60}{\mV}.  The noise power spectra at \SI{60}{\mV} can be compared for all four homopolymers, and they are plotted in Figure \ref{fig:homopolymer_fluctuations}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/homopolymer_noise.pdf}
@@ -236,7 +238,7 @@ For reference, the open pore noise is plotted in Figure \ref{fig:mspa_noise_intr
 \end{centering}
 \end{figure}
 
-The noise plotted in Figure \ref{fig:homopolymer_fluctuations} agrees with a qualitative observation of the noise visible on the traces shown in Figure \ref{fig:homopolymer_blockages}.
+Evidently, the noise associated with the ssDNA in MspA is different for each of the oligos in this study.  The noise plotted in Figure \ref{fig:homopolymer_fluctuations} agrees with a qualitative observation of the noise visible on the traces shown in Figure \ref{fig:homopolymer_blockages}, where poly(dGdA) shows visibly more noise than the others, while poly(dT) is the quietest.  The frequency domain of $f \in [50, 500]$\si{\Hz} is appropriate for quantifying the white noise level associated with each oligo, since the molecules are only trapped on the order of \SI{50}{\ms} at an applied bias of \SI{60}{\mV}, and capacitive noise sources begin to dominate at frequencies above \SI{1}{\kHz}.  The mean white noise level between \SI{50}{\Hz} and \SI{500}{\Hz} will be called $\bar{S}$ in the discussion that follows.
 
 \section{Discussion}
 
