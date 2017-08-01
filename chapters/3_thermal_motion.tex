@@ -14,7 +14,22 @@ First and foremost, external noise sources must be eliminated to whatever extent
 
 A measurement of current in an M2-MspA nanopore in a PC lipid membrane at zero applied bias is shown in Figure \ref{fig:mspa_noise_intro}a.  The current is filtered at \SI{10}{\kHz} in hardware with the 4-pole Bessel filter built into the Axopatch 200B.  A histogram of the current is shown alongside the current-versus-time trace.  The histogram reveals that the current noise is Gaussian distributed, as demonstrated by the gray line Gaussian fit.  In panel (b), the current noise power spectral density is plotted for the same data.
 
-How power spectrum is calculated from data.
+The current noise power spectral density is computed by first computing a discrete Fourier transform, $\tilde{I}_k(\omega)$, of the recording of current versus time, $I_j(t)$, as:
+
+\begin{equation}
+\tilde{I}_k(f) = \sum_{j=0}^{N-1} I_j(t) \, e^{-i \, 2\pi j k / n}
+\label{eqn:dft}
+\end{equation}
+
+\noindent
+where $N-1$ is the number of data points recorded, and the indices $j, k \in [0,N-1]$.  ($i$ is the imaginary unit.)  The current noise power spectral density, $S_I(f)$ is then computed as
+
+\begin{equation}
+S_I(f) = \frac{2}{N} \left| \tilde{I}_k(f) \right| ^2
+\label{eqn:power_spectrum}
+\end{equation}
+
+In practice, long segments of data are broken up into sections of $2^{22}$ data points.  The Fourier transforms are computed, and their magnitudes are averaged.  Some of the plots in Chapter \ref{dna_thermal_motion_mspa} further smooth the power spectral density by binning into equal bins in log frequency, and taking the median of each bin.
 
 \begin{figure}[h]
 \begin{centering}
@@ -75,7 +90,7 @@ where $C_{in}$ is the input capacitance of the amplifier's headstage, about \SI{
 
 \subsection{The case of a non-ideal capacitor}
 
-Another contribution to current noise comes from the fact that no capacitor is completely ideal, and there is some element of dissipation.  This is referred to as dielectric loss, and is described by \citep{•}
+Another contribution to current noise comes from the fact that no capacitor is completely ideal, and there is some element of dissipation.  This is referred to as dielectric loss, and is described by \citep{Sakmann1995}
 
 \begin{equation}
 S_{I,headstage}(f) = 8 \pi k_B T \, f \, C_m \tan \delta
@@ -83,7 +98,7 @@ S_{I,headstage}(f) = 8 \pi k_B T \, f \, C_m \tan \delta
 \end{equation}
 
 \noindent
-where for water $\tan \delta \approx 1$ \citep{•}.
+where for water $\tan \delta \approx 1$ \citep{Gaiduk2006,Hoogerheide2010}.  Setting $\tan \delta = 1$ appears to fit the data for this nanopore setup rather well (Section \ref{sec:full_noise_model}).
 
 \subsection{Conductance fluctuations with an applied bias}
 
@@ -94,9 +109,15 @@ S_{I,ion}(f) = a_{ion} I^2
 \label{eqn:ion_number}
 \end{equation}
 
-This current noise is proportional to the square of the current, and is shown for M2-MspA in Figure \ref{fig:mspa_noise}.  A fit to these measurements yields $a_{ion} =$ \SI{1.12e-9}{\Hz^{-1}}.
+This current noise is proportional to the square of the current, and is shown for M3-MspA in Figure \ref{fig:mspa_noise}.  A fit to these measurements yields $a_{ion} =$ \SI{1.12e-9}{\Hz^{-1}}.
 
-% FIGURE OF PARABOLIC NOISE VS CURRENT HERE
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{figures/mspa_noise_with_current.pdf}
+\caption[Current noise in MspA depends on current]{Current noise measured in open M3-MspA, as a function of current.  Data points are the mean current noise from \num{80} to \SI{280}{\Hz}.  The red line is a fit to Equation \ref{eqn:ion_number}, with $a_{ion} = $ \SI{1.12e-9}{\Hz^{-1}}.  Evidently, the current noise is proportional to the square of the current.  For reference, the Johnson noise is shown as a dashed gray line.  The conductance of the nanopore is \SI{2.25}{\nano\siemens} in \SI{1}{\Molar} KCl, \SI{10}{\m\Molar} HEPES, pH \num{8.00}.}
+\label{fig:mspa_noise}
+\end{centering}
+\end{figure}
 
 \subsection{Noise due to the amplifier}
 
@@ -111,6 +132,7 @@ S_{I,headstage}(f) = (2 \pi \, f \, C_{in})^2 S_{V,headstage}
 where $S_{V,headstage} = ($ \SI{3}{\nV/\sqrt{\Hz}} $)^2$.
 
 \section{Full noise model}
+\label{sec:full_noise_model}
 
 A complete model of the current noise in the experiment is given by a combination of the above factors, and can be written:
 
