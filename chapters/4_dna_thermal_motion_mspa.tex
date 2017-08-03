@@ -298,7 +298,25 @@ We hypothesize that the relationship between effective charge and mean blockage 
 \end{centering}
 \end{figure}
 
+Figure \ref{fig:diffusion_noise_correlation} shows the correlation between the measured diffusion constants and the noise.  Each of the four oligos are shown in panel (a).  The diffusion constant is written in terms of $D_0$, the diffusion constant of a \SI{1.5}{\nm} diameter sphere, where \SI{1.5}{\nm} is the approximate Kuhn length of ssDNA \citep{Smith1996}, and a Kuhn length is the length scale over which ssDNA behaves as if it were a freely-jointed segment, independent of the rest of the strand.
 
+The noise is plotted in terms of a quantity we call ``mean normalized excess white noise."  The notion of ``excess white noise" is explained in Figure \ref{fig:homopolymer_fluctuations}.  The dashed green line shows the mean noise, $\bar{S}$, for poly(dGdA) in the frequency range of \num{50} to \SI{500}{\Hz}.  The Johnson noise, $S_J$, for poly(dGdA) is shown in the figure as the dotted black line.  The ``excess white noise" is the difference between the measured noise and the expected Johnson noise for the resistance of the pore blocked by a given oligo.
+
+The measured current noise, $\bar{S}$, includes three contributions: (1) the Johnson noise, $S_J$, (2) noise caused by ion number fluctuations, $S_{ion}$, as discussed in Section \ref{sec:ion_number_fluctuations}, and (3) excess current fluctuations caused by the ssDNA itself, $S_{DNA}$, which may be nucleotide-specific.  The noise can then be written $\bar{S} = S_J + S_{ion} + S_{DNA}$.  We define ``mean normalied excess white noise" as
+
+\begin{equation}
+\bar{N} \equiv (\bar{S} - S_J) / \bar{I}^2
+\label{eqn:newn}
+\end{equation}
+ 
+\noindent
+where $I$ is the mean ionic current measured for a given oligo.  It then follows that $\bar{N} = (S_{ion}+S_{DNA})/\bar{I}^2 = C + S_{DNA}/\bar{I}^2$, where $C$ is approximately constant and independent of the nucleotide identity of the oligo.  The reason for division by current squared is so that $S_{DNA}$ can be separated from $S_{ion}$ and compared for different oligos.
+
+We hypothesize that the current fluctuations caused by ssDNA in MspA should have the form $S_{DNA} \propto (\Delta I)^2/D$, where $D$ is the diffusion constant, and $\Delta I$ is the difference in current between minimal and maximal blockages caused by different positions of the ssDNA.  A relation of this type was derived by Rostovtseva \textit{et al.} \citep{Rostovtseva1998, Berezhkovskii2002, Rostovtseva2002} for particle number fluctuations in a membrane channel caused by diffusion.
+
+This sort of relation can also arise in the context of a simple model of telegraph noise.  Assume there are two states: (1) a lower current state when the nucleobase is in the narrow pore constriction, and (2) a higher current state when the space between two nucleobases is in the narrow pore constriction.  Assume these states have a difference in current $\Delta I$.  A telegraph process of flipping between these states with a characteristic time scale $\tau$ gives rise to the power spectral density $S(f) = (\Delta I)^2 / \left[ 1 + (2 \pi \tau \, f)^2 \right]$.  For fluctuations that happen on very fast timescales, like those predicted here, the frequency $2\pi/\tau$ is much higher than frequencies we can measure (above \SI{10}{\kHz}).  If the fluctuation timescale is set by diffusion, then we expect $\tau \approx L_b^2 / D$, where $L_b$ is the length per base, which is \SI{0.5}{\nm}.  This timescale, as mentioned above, is on the order of nanoseconds.  Within the frequency range of interest for our measurements, from \num{50} to \SI{500}{\Hz}, the power spectral density from a telegraph process appears to be $S(f) \propto (\Delta I)^2/D$, independent of frequency.
+
+Figure \ref{fig:diffusion_noise_correlation}a shows the relation $\bar{N} \propto 1/D$ as a gray line.  The relation appears plausible; however, the limited number of data points from the four homopolymers and the large error bars in measurement of the diffusion constants of the oligos at \SI{25}{\celsius} prevents a stronger degree of certainty.  Panel (b) shows the same correlation between $D$ and $\bar{N}$ for poly(dT) measured at several temperatures.  Changing the temperature changes the diffusion constant and the noise simultaneously.  The gray line in panel (b) is the same gray line as in panel (a), and shows a convincing $D \propto 1 / \bar{N}$ relationship.
 
 \subsection{Implications}
 

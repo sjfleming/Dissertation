@@ -101,6 +101,7 @@ S_{I,headstage}(f) = 8 \pi k_B T \, f \, C_m \tan \delta
 where for water $\tan \delta \approx 1$ \citep{Gaiduk2006,Hoogerheide2010}.  Setting $\tan \delta = 1$ appears to fit the data for this nanopore setup rather well (Section \ref{sec:full_noise_model}).
 
 \subsection{Conductance fluctuations with an applied bias}
+\label{sec:ion_number_fluctuations}
 
 One further source of noise presents itself in nanopore experiments when a voltage bias is applied across the membrane and current begins to flow.  The conductance of the nanopore itself, $1/R_p$, at any given moment depends on the number of ions in the nanopore.  This number is not fixed, and fluctuates due to diffusion.  These conductance fluctuations lead to extra current noise when current is flowing due to an applied bias.  Sometimes referred to as ``ion number fluctuation noise" \citep{Hoogerheide2010}, it can be written
 
@@ -109,7 +110,7 @@ S_{I,ion}(f) = a_{ion} I^2
 \label{eqn:ion_number}
 \end{equation}
 
-This current noise is proportional to the square of the current, and is shown for M3-MspA in Figure \ref{fig:mspa_noise}.  A fit to these measurements yields $a_{ion} =$ \SI{1.12e-9}{\Hz^{-1}}.
+This current noise is proportional to the square of the current, and is shown for M3-MspA in Figure \ref{fig:mspa_noise}.  A fit to these measurements yields $a_{ion} =$ \SI{1.12e-9}{\Hz^{-1}}.  The excess white noise in the open pore is likewise proportional to the square of the current for OmpF protein nanopores \citep{Queralt-Martin2015} and solid state nanopores \citep{Hoogerheide2009}.
 
 \begin{figure}[h]
 \begin{centering}
