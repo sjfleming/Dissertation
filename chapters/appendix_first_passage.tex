@@ -12,18 +12,32 @@ Why one dimension?  Why the (homogeneous (time-independent drift and diffusion) 
 
 The mathematical discussion here follows the treatment of first passage times and the one-dimensional Fokker-Planck equation by Gardiner \citep{Gardiner1985}.
 
-Probability a diffusing particle is still in the interval $(0,L)$ is the survival probability, $S(x,t)$
+The general situation of interest is drift and diffusion in an electrostatic potential.  This can be written as a Smoluchowski equation in terms of the probability density, $p(x,t \lvert x_0)$, of finding the diffusing particle at position $x$ at time $t$ given a starting position $x_0$ at $t=0$, as in Equation \ref{eqn:drift_diffusion}:
 
 \begin{equation}
-S(x_0,t) = \int_{0}^{L} p(x,t \lvert x_0,0) \,dx
+\pard{p(x,t|x_0)}{t} = -\frac{\partial}{\partial x} \left[ \frac{F(x)}{\gamma} p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
+\label{eqn:drift_diffusion_copy}
+\end{equation}
+
+The general form of the Smoluchowski equation can be written
+
+\begin{equation}
+\pard{p(x,t|x_0)}{t} = - \frac{\partial}{\partial x} \left[ A(x) p(x,t|x_0) \right] + \frac{1}{2} \pardd{}{x} \left[ B(x) p(x,t|x_0) \right]
+\label{eqn:smoluchowski}
+\end{equation}
+
+The probability that a diffusing particle is still in the interval $(0,L)$ is the survival probability, $S(x,t)$
+
+\begin{equation}
+S(x_0,t) = \int_{0}^{L} p(x,t \lvert x_0) \,dx
 \label{eqn:survival}
 \end{equation}
 
-Smoluchowski equation:
+$S(x_0,t)$ obeys the backward Fokker-Planck equation:
 
 \begin{equation}
 \pard{S(x_0,t)}{t} = A(x) \pard{S(x_0,t)}{x} + \frac{1}{2} B(x) \pardd{S(x_0,t)}{x}
-\label{eqn:smoluchowski}
+\label{eqn:smoluchowski_general}
 \end{equation}
 
 Particle starts at position $x_0$, and so $S(x_0,0) = 1$ on the interval $(0,L)$, and is zero elsewhere at $t=0$.  $x=L$ is the absorbing boundary, so $S(L,t)=0$, while $x=0$ is the reflecting boundary, so $\frac{\partial}{\partial x} S(0,t)=0$.
@@ -68,7 +82,7 @@ In this case, for a drift-diffusion process,
 \end{equation}
 
 \noindent
-so $B(x) = 2D$, and $A(x) = \frac{F(x)}{\gamma}$, and by the Einstein relation, $\gamma = \frac{k_B T}{D}$, so $A(x) = \frac{D}{k_B T} F(x)$.  Therefore,
+where $\gamma$ is a drag coefficient, the inverse of the mobility.  So $B(x) = 2D$, and $A(x) = \frac{F(x)}{\gamma}$, and by the Einstein relation, $\gamma = \frac{k_B T}{D}$, so $A(x) = \frac{D}{k_B T} F(x)$.  Therefore,
 
 \begin{equation}
 \psi \, (y) = \exp \left [ \int_0^y  \frac{F(x')}{k_B T} \,dx' \right ]
@@ -93,22 +107,21 @@ Given a force profile, $F(x)$, this equation can be integrated numerically to so
 
 For the special case where the force $F(x)$ is just a constant, an analytical solution can be written down.  In our case, with ssDNA of constant linear charge density, $\sigma$, in a constant electric field, we can approximate the force as a constant, $F(x) = \sigma V$, where $V$ is the applied voltage bias.
 
-Following the treatment in Redner \citep{Redner2001}, biased diffusion can be written as
+Following the treatment in Redner \citep{Redner2001}, if we integrate Equation \ref{eqn:drift_diffusion_copy} over time and define $P_0(x) = \int_{0}^{\infty} p(x,t) \,dt$ then this time-integrated position probability density (units of time per unit length) obeys
 
 \begin{equation}
-\pard{p(x,t)}{t} + \frac{D}{k_B T} F(x) \pard{p(x,t)}{x} = D \pardd{p(x,t)}{x}
-\label{eqn:biased_diffusion}
-\end{equation}
-
-\noindent
-with $P(x,t)$ the probability that the diffusing ssDNA is at position $x$ at time $t$.  Integrating the probability over time and defining $P_0(x) = \int_{0}^{\infty} p(x,t) \,dt$ reveals that the time-integrated position probability obeys
-
-\begin{equation}
-\frac{D}{k_B T} F(x) \pard{P_0(x)}{x} = D \pardd{P_0(x)}{x}
+\frac{D}{k_B T} \pard{}{x} \left( F(x) P_0(x) \right) = D \pardd{P_0(x)}{x}
 \label{eqn:biased_diffusion}
 \end{equation}
 
 Here we stipulate boundary conditions where $\int_{0}^{L} p(x,t=0) \,dx = 0$, and the probability flux at the $x=0$ boundary at $t=0$ is the delta function, $\pard{p(x,t)}{x} \Bigr|_{t=0} = \delta (x=0)$.  This condition corresponds to $\pard{P_0(x)}{x} \Bigr|_{x=0} = 1$.  We also fix $P_0(L)=0$, so that the ssDNA completely escapes at $x=L$.
+
+If we make the approximation of constant force as a simple case, then $F(x) = \sigma V$, and we can write
+
+\begin{equation}
+\frac{\sigma V}{k_B T} \pard{P_0(x)}{x} = \pardd{P_0(x)}{x}
+\label{eqn:biased_diffusion2}
+\end{equation}
 
 The solution, again from Redner \citep{Redner2001}, is
 
@@ -127,6 +140,8 @@ and the mean escape time is then $\langle \tau \, \rangle = \int_{0}^{L} P_0(x) 
 
 \section{Discussion}
 
+The momentum relaxation time is $m/\gamma$.  Here, if we estimate $m$ from approximately 30 nucleotides as $m \approx $ \SI{1.5e-23}{\kg} and set $\gamma = k_B T / D$ according to the Einstein relation, then the momentum relaxation time is $m/\gamma = \frac{m D}{k_B T} \approx $ \SI{0.2}{\pico\s}.  Because \SI{0.2}{\pico\s} is eight orders of magnitude faster than the shortest escape time we are interested in (order of \SI{10}{\us}), this justifies the use of the Smoluchowski equation, which works in the strong friction regime where inertia can be neglected.
+
 The dimensionless combination $\frac{\sigma V L}{k_B T}$ is seen to play an important role.  The Péclet number, $Pe$, is defined as $Pe = v L / 2 D$, and is a dimensionless quantity that quantifies the relative importance of drift versus diffusion.  In this case, the characteristic velocity $v$ is $F(x)/\gamma$, and by the Einstein relation, $\gamma=k_B T / D$, so in the case of a constant force, $F = \sigma V$, we obtain for the characteristic velocity, $v=\frac{\sigma V D}{k_B T}$.  The Péclet number in this system is then $Pe=\frac{\sigma V L}{2 k_B T}$, identical to the factor in the exponent in Equation \ref{eqn:analytical_first_passage} apart from the factor of $2$.  Rewriting Equation \ref{eqn:analytical_first_passage} in terms of $Pe$ yields \citep{Redner2001}
 
 \begin{equation}
@@ -136,3 +151,9 @@ The dimensionless combination $\frac{\sigma V L}{k_B T}$ is seen to play an impo
 
 In this system, $L$ is \SI{7}{\nm}, and $D$ was found to be approximately \SI{5e-11}{\m^2/\s}, so the timescale $L^2/D$ is on the order of $\sim$ \SI{1}{\us}.  This would be the order of the escape time at zero applied bias, too fast to be recorded with our experimental setup.  At an applied voltage bias of \SI{30}{\mV}, the Péclet number is $Pe \approx -4$, while at \SI{70}{\mV}, $Pe \approx -10$.  Here the negative sign, corresponding to the fact that the voltage opposes diffusive ssDNA escape from the nanopore, signifies that this problem involves escape over an energy barrier.  A plot of Equation \ref{eqn:analytical_first_passage_pe} is shown in Figure ...
 
+The quasi-equilibrium position probability distribution, $p_{eq}(x)$, derived by normalizing Equation \ref{eqn:biased_diffusion_solution} by the mean escape time in Equation \ref{eqn:analytical_first_passage}, can be written as
+
+\begin{equation}
+p_{eq}(x) = \frac{1}{\langle \tau \, \rangle} P_0(x)
+\label{eqn:biased_diffusion_equilibrium}
+\end{equation}

@@ -27,15 +27,15 @@ The idea is depicted in Figures \ref{fig:capture_escape_idea} and \ref{fig:captu
 The stochastic dynamics of the NeutrAvidin-ssDNA complex in MspA can be modeled as a one dimensional drift-diffusion process that obeys the Smoluchowski equation.  The probability that MspA's narrowest constriction is at location $x$ along the ssDNA at time $t$, having started at position $x_0$, written $p(x,t|x_0)$, obeys
 
 \begin{equation}
-\pard{p(x,t|x_0)}{t} = \frac{\partial}{\partial x} \left[ \frac{F(x)}{\gamma} p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
+\pard{p(x,t|x_0)}{t} = - \frac{\partial}{\partial x} \left[ \frac{F(x)}{\gamma} p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
 \label{eqn:drift_diffusion}
 \end{equation}
 
 \noindent
-where $F(x)$ is the electrophoretic force on the ssDNA as a function of position, and $\gamma$ is the viscous drag.  $\gamma$ can be rewritten in terms of the diffusion constant using the Einstein relation: $\gamma = \frac{k_B T}{D}$.  Making this substitution,
+where $F(x)$ is the electrophoretic force on the ssDNA as a function of position, and $\gamma$ is a drag coefficient, the inverse of the mobility.  $\gamma$ can be rewritten in terms of the diffusion constant using the Einstein relation: $\gamma = \frac{k_B T}{D}$.  Making this substitution,
 
 \begin{equation}
-\pard{p(x,t|x_0)}{t} = \frac{D}{k_B T} \frac{\partial}{\partial x} \left[ F(x) p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
+\pard{p(x,t|x_0)}{t} = - \frac{D}{k_B T} \frac{\partial}{\partial x} \left[ F(x) p(x,t|x_0) \right] + D \pardd{p(x,t|x_0)}{x}
 \label{eqn:drift_diffusion2}
 \end{equation}
 
@@ -50,7 +50,7 @@ F(x) = \sigma V
 where $V$ is the bias voltage and $\sigma$ is the effective charge per unit length.  In this case,
 
 \begin{equation}
-\frac{1}{D} \pard{p(x,t|x_0)}{t} = \frac{\sigma V}{k_B T} \pard{p(x,t|x_0)}{x} + \pardd{p(x,t|x_0)}{x}
+\frac{1}{D} \pard{p(x,t|x_0)}{t} = - \frac{\sigma V}{k_B T} \pard{p(x,t|x_0)}{x} + \pardd{p(x,t|x_0)}{x}
 \label{eqn:drift_diffusion3}
 \end{equation}
 
@@ -77,19 +77,17 @@ The mean escape time, along with the escape time distribution, can be directly c
 
 \section{Experimental methods}
 
-% FIGURE that's like 2.6 but with block diagram of the amplifier, digitizer, computer, and NI-DAQ.  Show temp control.
-
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/experiment_setup_capture_escape.pdf}
-\caption[Experimental setup for capture and escape]{Schematic diagram of the experimental setup for the capture and escape experiment.  Active voltage control is achieved by running a computer program which reads voltage and current data from a National Instruments DAQ and sets the command voltage by supplying an analog voltage output signal from the DAQ that goes to the external command input of the Axopatch 200B.  The Axopatch directly controls all voltages in the experiment.  Meanwhile, current and voltage data are recorded separately on the computer via the DigiData 1440A.}
+\caption[Experimental setup for capture and escape]{Schematic diagram of the experimental setup for the capture and escape experiment.  Active voltage control is achieved by running a computer program which reads voltage and current data from a National Instruments DAQ and sets the command voltage by supplying an analog voltage output signal from the DAQ that goes to the external command input of the Axopatch 200B.  The Axopatch directly controls all voltages in the experiment.  Meanwhile, current and voltage data are recorded separately on the computer via the Digidata 1440A.}
 \label{fig:setup_capture}
 \end{centering}
 \end{figure}
 
 \subsection{Setup}
 
-The experimental setup is similar to what was described in Section \ref{experimental_setup}.  However, the capture and escape experiment requires active voltage control.  The idea is to capture many individual molecules, and measure the time it takes them to escape from the nanopore at various low bias voltages.  The setup which makes active voltage control possible is shown in Figure \ref{fig:setup_capture}.
+The experimental setup is similar to what was described in Section \ref{experimental_setup}.  However, the capture and escape experiment requires active voltage control.  The idea is to capture many individual molecules, and measure the time it takes them to escape from the nanopore at various low bias voltages.  The setup which makes active voltage control possible is shown in Figure \ref{fig:setup_capture}.  The computer records voltage and current outputs from the Axopatch 200B (Molecular Devices, Sunnyvale, CA) which are digitized by the Digidata 1440A (Molecular Devices, Sunnyvale, CA).  The computer simultaneously runs a program written in Python that monitors current and voltage from the Axopatch which are digitized by the NI-DAQ USB 6003 (National Instruments, Inc.), and sends commands back to the DAQ, which sets an analog voltage output that is fed into the external command input of the Axopatch.  The Axopatch then clamps the membrane voltage to the value specified by the external command.
 
 \subsection{Sample preparation}
 
@@ -140,7 +138,7 @@ Homopolymer ssDNA of each of the four nucleotides were chosen as analytes in ord
 Figure \ref{fig:escape_times}b shows a summary of all the escape time data measured.  Each data point is the average escape time at a given voltage, measured by fitting an exponential to a histogram of escape times measured at that voltage.  Each data point represents between several hundred and over a thousand individual capture and escape events.  The vertical (time) axis is logarithmic, so differences between the different homopolymers 
 span more than an order of magnitude at some voltages.  Changes of \SI{40}{\mV} in the bias voltage during escape lead to changes in the average escape time that span four orders of magnitude.
 
-Fits to the first-passage model are obtained by performing a chi-squared fit of the numerical solution of Equation \ref{eqn:drift_diffusion2} to the data, allowing the parameters $\sigma$ and $D$ to vary.  The fitting procedure yields values for $\sigma$ and $D$ for each oligo, and these are tabulated in Table \ref{table:fit_values}.
+Fits to the first-passage model are obtained by performing a chi-squared fit of the numerical solution of Equation \ref{eqn:drift_diffusion2} to the data, allowing the parameters $\sigma$ and $D$ to vary.  The fitting procedure yields values for $\sigma$ and $D$ for each oligo, and these are tabulated in Table \ref{table:fit_values}.  The ``effective charge" is calculated as $Q_{eff} = \sigma * L_b$, where the length per base for ssDNA, $L_b = $ \SI{0.5}{\nm} \citep{Chi2013}.
 
 \begin{table}[h]
 \caption{Effective charges, electrophoretic driving forces, and diffusion constants extracted from the data.  Parameters are estimated from fit to first-passage model.  Uncertainties reflect one standard deviation and are obtained from chi-squared fitting.}
@@ -188,9 +186,9 @@ The capture and escape experiment yields much more information than escape times
 
 Perhaps most immediately apparent is that the blockage levels are different depending on the identity of the nucleotides.  The homopolymers used in this work each block different amounts of current in M3-MspA.  Due to our ability to probe single molecules individually, we can create a histogram of these current blockage levels for many molecules.  Figure \ref{fig:homopolymer_blockage_hists} shows histograms of the mean blockage currents measured for all four oligos at two different bias voltages: \SI{60}{\mV} and \SI{160}{\mV}.  Current blockages are reported in terms of mean $I/I_0$, the ratio of the measured current with DNA blocking the pore to the measured current for the open pore.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/homopolymer_block_hists.pdf}
+\includegraphics[width=0.6\textwidth]{figures/homopolymer_block_hists.pdf}
 \caption[Current blockage histograms for homopolymer ssDNA]{Histograms of mean blockage currents when different NeutrAvidin-tethered oligonucleotides are captured in the M3-MspA pore.  $I/I_0$ is the ratio of mean measured current, $I$, to open-pore current, $I_0$.  Each element in the histogram is an individual molecule.  (a) At \SI{60}{\mV} bias, the blockages are well separated, while at \SI{160}{\mV} bias (b), the distributions are broader, and show significant overlap.}
 \label{fig:homopolymer_blockage_hists}
 \end{centering}
@@ -244,14 +242,15 @@ Evidently, the noise associated with the ssDNA in MspA is different for each of 
 
 \subsection{Thermal motion of the ssDNA in MspA}
 
-Equation \ref{eqn:drift_diffusion2} can be integrated over time to give the time-independent position probability distribution, $P_0(x|x_0) = \int_0^{\infty} p(x,t|x_0) \, dt$.  The solution, with the appropriate reflecting boundary condition at $x=0$ and absorbing boundary condition at $x=L$ is (see Appendix \ref{first_passage}, Equation \ref{eqn:biased_diffusion_solution}).
+Equation \ref{eqn:drift_diffusion2} can be solved to find the probability that the ssDNA will be at a given position at a given time.  This can be averaged over time, giving a quasi-equilibrium position probability, by finding the time-integrated position probability and normalizing.  The solution, with the appropriate reflecting boundary condition at $x=0$ and absorbing boundary condition at $x=L$ is (see Appendix \ref{first_passage}, Equation \ref{eqn:biased_diffusion_solution}):
 
 \begin{equation}
-P_0(x) = \frac{k_B T}{\sigma V D} \left[ 1 - \exp{ \left( \frac{\sigma V (x-L)}{k_B T} \right) } \right]
+p_{eq}(x) \propto 1 - \exp{\left( -\frac{| \sigma V | (x-L)}{k_B T} \right)}
 \label{eqn:biased_diffusion_solution2}
 \end{equation}
 
-Plots of Equation \ref{eqn:biased_diffusion_solution2} are shown in Figure \ref{fig:position_fluctuations}b for several applied voltage biases.
+\noindent
+If there were no absorbing (escape) boundary at $x=L$, this would reduce to $p_{eq}(x) \propto \exp (- \frac{|\sigma V|}{k_B T} x)$, which is what would be expected from the standpoint of a Boltzmann factor.   Plots of Equation \ref{eqn:biased_diffusion_solution2} are shown in Figure \ref{fig:position_fluctuations}b for a few applied voltage biases.  The blue curve shows that at \SI{100}{\mV} bias, the ssDNA spends about 14\% of its time greater than one base away from the fully-clamped position.  However, if the voltage is increased to \SI{300}{\mV}, the ssDNA spends less than 0.3\% of its time greater than one base away from fully-clamped.  This suggests that signal averaging due to thermal motion could be minimized by applying larger bias voltages.
 
 \begin{figure}[h]
 \begin{centering}
@@ -261,6 +260,8 @@ Plots of Equation \ref{eqn:biased_diffusion_solution2} are shown in Figure \ref{
 \end{centering}
 \end{figure}
 
+Figure \ref{fig:position_fluctuations}a shows a calculation of the timescale over which non-equilibrium position fluctuations relax back to equilibrium.  This is obtained by numerically solving Equation \ref{eqn:drift_diffusion3}.  At an applied bias of \SI{140}{\mV}, the ssDNA relaxes back a distance of 4 bases in less than \SI{10}{\ns}.  This makes sense, since the average velocity is $\bar{v} \approx \sigma V D / k_B T$, and the time it would take to move four bases, $4 L_b = $ \SI{2}{\nm}, would be $t \approx 4 L_b / \bar{v} \approx $ \SI{8}{\ns}.  The picture that emerges is one of constant thermal agitation of the position of the ssDNA, with rapid relaxation to equilibrium.  Over the timescales we can measure (order of microseconds), the system has had time to average over thousands of position configurations.  Thus the equilibrium position probability is sampled thoroughly over even the shortest timescales measured in experiments.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/thermal_motion_in_sequence_data.pdf}
@@ -268,6 +269,8 @@ Plots of Equation \ref{eqn:biased_diffusion_solution2} are shown in Figure \ref{
 \label{fig:thermal_motion_sequencing}
 \end{centering}
 \end{figure}
+
+This measurement of thermal position fluctuations of the ssDNA can be compared to sequencing experiments carried out using M2-MspA by Laszlo \textit{et al.} \citep{Laszlo2014}.  The method will be explained in Chapter \ref{dna_enzymes}.  Specific sequences of four nucleotides, called ``4-mers," were correlated with their current blockages and reported.  We can use this data to learn about position fluctuations as well.  Take, for example, the 4-mer \texttt{TTTT}.
 
 \subsection{Correlations}
 
