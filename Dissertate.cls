@@ -26,6 +26,7 @@
 
 \usepackage{upgreek} % SJF, 3/16/17
 \usepackage{float} % SJF, 8/3/17
+\usepackage{rotating} % SJF, 8/4/17
 \usepackage{tabularx} %Edlyn added this, Jan 28
 \newcolumntype{Y}{>{\centering\arraybackslash}X}%Edlyn added this, Jan 28
 \newcolumntype{b}{X}%Edlyn added this, Jan 28
