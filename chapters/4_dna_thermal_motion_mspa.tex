@@ -39,10 +39,10 @@ where $F(x)$ is the electrophoretic force on the ssDNA as a function of position
 \label{eqn:drift_diffusion2}
 \end{equation}
 
-The force $F(x)$ depends on the applied bias voltage and the effective charge of the ssDNA.  In the simplest case, neglecting entropic forces and considering only the electrophoretic force,
+The force $F(x)$ depends on the applied bias voltage and the effective charge of the ssDNA.  In the simplest case, we can neglect entropic forces (see Appendix \ref{first_passage} for a discussion).  The remaining forces are the electric force on the DNA due to its charge and the applied potential, and an opposing force of viscous drag caused by electroosmotic flow.  The total force measured is the sum of these forces, both of which are proportional to the applied bias voltage:
 
 \begin{equation}
-F(x) = \sigma V
+F(x) = F_{\text{bare}} + F_{\text{drag}} = (\sigma_{\text{bare}} + \sigma_{\text{drag}}) V = \sigma V
 \label{eqn:simple_force}
 \end{equation}
 
@@ -77,11 +77,9 @@ The mean escape time, along with the escape time distribution, can be directly c
 
 \section{Experimental methods}
 
-% CHANGE THIS BACK ``
-
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/experiment_setup.pdf}
+\includegraphics[width=0.9\textwidth]{figures/experiment_setup_capture_escape.pdf}
 \caption[Experimental setup for capture and escape]{Schematic diagram of the experimental setup for the capture and escape experiment.  Active voltage control is achieved by running a computer program which reads voltage and current data from a National Instruments DAQ and sets the command voltage by supplying an analog voltage output signal from the DAQ that goes to the external command input of the Axopatch 200B.  The Axopatch directly controls all voltages in the experiment.  Meanwhile, current and voltage data are recorded separately on the computer via the Digidata 1440A.}
 \label{fig:setup_capture}
 \end{centering}
@@ -322,8 +320,8 @@ Figure \ref{fig:diffusion_noise_correlation}a shows the relation $\bar{N} \propt
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/cell.pdf}
+\includegraphics[width=\textwidth]{figures/TTTTT_to_XXXXX.pdf}
 \caption[Thermal motion averaging with voltage]{Model of position fluctuations of ssDNA in MspA, and its effects on signal averaging, as a function of applied bias voltage.  Traces of TTTTT to XXXXX at various voltages...?}
-\label{fig:thermal_motion_projections}
+\label{fig:thermal_motion_averaging}
 \end{centering}
 \end{figure}
