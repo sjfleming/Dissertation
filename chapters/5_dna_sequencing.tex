@@ -7,7 +7,7 @@ When asked if his painting was inspired by nature, Jackson Pollock replied, ``I 
 
 Some data obtained from nanopore DNA sequencing experiments has already been presented to provide evidence that thermal motion of ssDNA contributes to the ionic current signal.  This chapter briefly presents recent developments which enabled nanopores to be used as a single-molecule DNA sequencing technology, in order to provide a background for the experiments covered in the rest of this work.
 
-\section{Inspired by nature}
+\section{Inspired by nature's ion channels}
 
 The initial idea to use nanopores as single-molecule sensors for sequencing nucleic acids was independently proposed by Dave Deamer and George Church around 1989 \citep{Deamer2016,Branton2008}.  The inspiration was that the opening and closing of ion channels in biology is often dependent on small peptide domains blocking the channel.  If small peptide domains can block the channel, so could nucleic acids, and the different sizes of the different nucleic acids could potentially cause different current blockages, enabling a direct readout of the sequence \citep{Branton2008}.
 
@@ -15,16 +15,46 @@ The initial idea to use nanopores as single-molecule sensors for sequencing nucl
 
 
 
-\section{Measurements of DNA sequence and its effect on ionic current}
+\section{Measurements on trapped ssDNA}
 
 
 
-\section{Observations from the data}
+\subsection{Observations from the data}
 
 
 
-\section{A theory to explain the effect}
+\subsection{A theory to explain the effect}
 
 M2-MspA introduced the key mutations D90N/D91N/D93N, which changed the amino acids lining the narrowest constriction from negatively-charged aspartic acid residues to neutral asparagine residues.
 
 Amino acids can interact with DNA bases.  By searching through 129 structures of protein-DNA complexes in the Protein Data Bank, Luscombe \textit{et al.} \citep{Luscombe2001} found that asparagine interacts favorably with adenine, while arginine strongly interacts with guanine.
+
+
+\section{DNA enzymes enable measurement of sequence information}
+
+
+\subsection{DNA helicases}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/helicase_structure_stereo.png}
+\caption[Dda helicase structure]{Stereo image of the crystal structure of Dda helicase bound to ssDNA, in gray.  The 3' end of the ssDNA is sticking out of the page.  Domains of the protein are shown in different colors and labeled.  Protein Data Bank number 3UPU. \citep{He2012}}
+\label{fig:helicase_stereo}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/helicase_dna_interaction.png}
+\caption[Dda helicase: interactions with ssDNA]{A cutaway view of Dda helicase, showing the ssDNA in its groove.  The major interactions of the protein with the ssDNA are shown by drawing the side-chains involved using a stick representation.  Most of the interactions are between two particular $\alpha$-helices and the ssDNA phosphate backbone.  The two $\alpha$-helices are in different domains of the protein, and move relative to each other when ATP binds.  The other important interaction is the hydrophobic stacking of two phenylalanine rings from the pin (yellow) with the ssDNA bases.}
+\label{fig:helicase_ssDNA_interactions}
+\end{centering}
+\end{figure}
+
+Most of the interactions of Dda helicase with ssDNA are between polar amino acids and the ssDNA phosphate backbone.  Some hydrophobic stacking interactions also exist between amino acid side chains and the ribose sugars of the ssDNA. \citep{He2012}
+
+The two phenylalanine rings in domain 1B (the ``pin") shown in yellow in Figure \ref{fig:helicase_ssDNA_interactions}, stack with base 6, counting from the 5' end.  This hydrophobic stacking interaction acts as the pawl in a ratchet mechanism, preventing the ssDNA from moving backwards.  Here, backwards refers to a movement of the entire ssDNA strand toward the 3' end, toward the right, where the dsDNA duplex would be located.  Effectively, the pin prevents the unwinding duplex from re-hybridizing.  If the pin is mutated, changing the base-stacking phenylalanine to alanine, and preventing this hydrophobic stacking, then the helicase is unable to unwind dsDNA.  However, this mutation does not prevent the helicase from translocating along ssDNA. \citep{He2012}
+
+Dda helicase moves along ssDNA in the 5' to 3' direction by hydrolyzing ATP.  Dda can even displace streptavidin bound to a 3' biotinylated oligonucleotide \citep{Morris1999}, a result which we confirmed experimentally in Appendix \ref{click_reaction_quad}.
+
+
