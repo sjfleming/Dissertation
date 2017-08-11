@@ -249,9 +249,6 @@ p_{eq}(x) \propto 1 - \exp{\left( -\frac{| \sigma V | (x-L)}{k_B T} \right)}
 \label{eqn:biased_diffusion_solution2}
 \end{equation}
 
-\noindent
-If there were no absorbing (escape) boundary at $x=L$, this would reduce to $p_{eq}(x) \propto \exp (- \frac{|\sigma V|}{k_B T} x)$, which is what would be expected from the standpoint of a Boltzmann factor.   Plots of Equation \ref{eqn:biased_diffusion_solution2} are shown in Figure \ref{fig:position_fluctuations}b for a few applied voltage biases.  The blue curve shows that at \SI{100}{\mV} bias, the ssDNA spends about 14\% of its time greater than one base away from the fully-clamped position.  However, if the voltage is increased to \SI{300}{\mV}, the ssDNA spends less than 0.3\% of its time greater than one base away from fully-clamped.  This suggests that signal averaging due to thermal motion could be minimized by applying larger bias voltages.
-
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/calc_position_fluctuations.pdf}
@@ -260,9 +257,11 @@ If there were no absorbing (escape) boundary at $x=L$, this would reduce to $p_{
 \end{centering}
 \end{figure}
 
+If there were no absorbing (escape) boundary at $x=L$, this would reduce to $p_{eq}(x) \propto \exp (- \frac{|\sigma V|}{k_B T} x)$, which is what would be expected from the standpoint of a Boltzmann factor.   Plots of Equation \ref{eqn:biased_diffusion_solution2} are shown in Figure \ref{fig:position_fluctuations}b for a few applied voltage biases.  The blue curve shows that at \SI{100}{\mV} bias, the ssDNA spends about 14\% of its time greater than one base away from the fully-clamped position.  However, if the voltage is increased to \SI{300}{\mV}, the ssDNA spends less than 0.3\% of its time greater than one base away from fully-clamped.  This suggests that signal averaging due to thermal motion could be minimized by applying larger bias voltages.
+
 Figure \ref{fig:position_fluctuations}a shows a calculation of the timescale over which non-equilibrium position fluctuations relax back to equilibrium.  This is obtained by numerically solving Equation \ref{eqn:drift_diffusion3}.  At an applied bias of \SI{140}{\mV}, the ssDNA relaxes back a distance of 4 bases in less than \SI{10}{\ns}.  This is in agreement with a rough estimate, since the average velocity is $\bar{v} \approx \sigma V D / k_B T$, and the time it would take to move four bases, $4 L_b = $ \SI{2}{\nm}, would be $t \approx 4 L_b / \bar{v} \approx $ \SI{8}{\ns}.  The picture that emerges is one of constant thermal agitation of the position of the ssDNA, with rapid relaxation to equilibrium.  Over the timescales we can measure (order of microseconds), the system has had time to average over thousands of position configurations.  Thus the equilibrium position probability is sampled thoroughly over even the shortest timescales measured in experiments.
 
-\begin{figure}[H] % this may be too aggressive...
+\begin{figure}[h] % this may be too aggressive...
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/thermal_motion_in_sequence_data.pdf}
 \caption[Thermal motion averaging and sequencing data]{Thermal motion of ssDNA is consistent with nanopore sequencing data.  The cartoons show how a few example sequences sit in the constriction of MspA.  The plots show measured current as a function of the position of a single base substitution in a homopolymeric strand.  The single base substitution results in a different current than the homopolymer, but only in some locations.  The fact that the width of this peak is never less than two or three bases is consistent with the thermal motion we report.  Sequence-specific currents come from measurements on M2-MspA made available online by Laszlo \textit{et al.} \citep{Laszlo2014}.}

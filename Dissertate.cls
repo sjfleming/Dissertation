@@ -53,18 +53,18 @@
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{TeX Gyre Termes}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
-\RequirePackage[labelfont={bf,sf,footnotesize,singlespacing},
-                textfont={sf,footnotesize,singlespacing},
+\RequirePackage[labelfont={bf,sf,small,singlespacing},
+                textfont={sf,small,singlespacing},
                 justification={justified,RaggedRight},
                 singlelinecheck=false,
                 margin=0pt,
                 figurewithin=chapter,
-                tablewithin=chapter]{caption}
+                tablewithin=chapter]{caption} % SJF, small size
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % Headings and headers.
 \RequirePackage{fancyhdr}
-\RequirePackage[tiny, md, sc]{titlesec}
+\RequirePackage[small, md, sc]{titlesec} % SJF, small size
 \setlength{\headheight}{15pt}
 \pagestyle{plain}
 \RequirePackage{titling}
