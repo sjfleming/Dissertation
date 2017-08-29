@@ -5,30 +5,65 @@
 
 A schematic diagram of the physical setup for a nanopore experiment is shown in Figure \ref{fig:physical_setup}.  The lipid bilayer membrane is spread over a tiny aperture in one end of a Teflon tube.  This tube, called the ``patch tube," is filled with buffer, and connects two reservoirs (about \SI{200}{\uL} volume each) of buffer, called ``cis" and ``trans," which are housed in a machined piece of Teflon, called the ``patch stand."  Each reservoir of buffer is contacted by an electrode of Ag/AgCl, sheathed in Teflon, which can be removed.  The patch stand and patch tube are all Teflon.
 
-The patch stand is snugly press-fit into a copper stand, also shown in Figure \ref{fig:physical_setup}, which is mounted on a thermoelectric heater/cooler.  The temperature of the copper stand is monitored by a thermistor in contact with the outside of the stand, and is controlled by a Newport 3040 temperature controller (Newport Co., Irvine, CA).  A water flow heat exchanger is mounted below, and water can be flowed through using a Haake DC10-P5 water circulator.
+The patch stand is snugly press-fit into a copper stand, also shown in Figure \ref{fig:physical_setup}, which is mounted on a thermoelectric heater/cooler.  The temperature of the copper stand is monitored by a thermistor in contact with the outside of the stand, and is controlled by a Newport 3040 temperature controller (Newport Co., Irvine, CA).  A water flow heat exchanger is mounted below, and water can be flowed through using a Haake DC10-P5 water circulator.  Water flow is only required for temperatures below \SI{20}{\celsius} or above \SI{30}{\celsius}.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{figures/setup.pdf}
-\caption[Diagram of physical experimental setup]{...}
+\caption[Diagram of physical experimental setup]{Diagram of the physical setup for nanopore experiments.  Blue is the buffer solution, housed in the Teflon ``patch stand" and ``patch tube."  The patch tube connects two reservoirs of buffer (about \SI{200}{\uL} each), and has a small aperture (on the right), where a lipid bilayer is formed.  Ag/AgCl pellet electrodes contact the buffer in each reservoir.  The entire Teflon patch stand and patch tube arrangement is press-fit into a copper stand, which is temperature-controlled.}
 \label{fig:physical_setup}
 \end{centering}
 \end{figure}
 
 
-
 \section{The ``patch stand"}
+
+A more detailed diagram of the Teflon patch stand is shown in Figure \ref{fig:patch_stand}.  Openings on the left and right allow for Teflon-sheathed electrodes to be inserted, which contact the buffer.  The reservoir on the left, termed the ``trans" side, the reservoir is connected to the open end of the patch tube, a U-shaped tube that connects the two reservoirs.  The reservoir on the right, termed the ``cis" side, is where the patch tube ends in a narrow aperture, over which a lipid bilayer membrane is formed.  The two sections of Teflon shown above and below the cis side in Figure \ref{fig:patch_stand} are for connections to a buffer perfusion system, which allows buffer to be flowed through the cis side reservoir.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/protocol_diagram.pdf}
-\caption[Schematic of patch stand]{...}
+\caption[Schematic of patch stand]{Detailed sketch of the patch stand, based on a photograph.  The sketch is a view from the top, and the blue diagram below is a side view, showing the patch tube, here called the ``U-tube."  This side view corresponds to the diagram shown in Figure \ref{fig:physical_setup}.}
 \label{fig:patch_stand}
 \end{centering}
 \end{figure}
 
+The electrodes can be removed so that the entire patch stand and patch tube setup, which is entirely Teflon, can be cleaned by boiling in 10\% nitric acid.
+
 \section{The ``patch tube"}
 
-\subsection{Fabrication using the traditional method}
+Figure \ref{fig:patch_tube} shows the patch tube in more detail.  Specifically, the cis end of the patch tube is where the experiment takes place.  The Teflon is formed into a small aperture, of approximately \SI{20}{\um} to \SI{40}{\um} in diameter.  Across this opening, a lipid bilayer is formed.  In the zoomed in 3D sketch in Figure \ref{fig:patch_tube} on the right, the gray area denotes Teflon, while the white area shows the conical opening, which is filled with buffer.  The aperture itself is shown, and it forms the only pathway for ions to flow between the cis and trans electrodes.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/patch_tube.pdf}
+\caption[Schematic of patch tube]{Detailed sketch of the patch tube, showing the aperture on the cis side's opening.  The patch tube, when filled with buffer, connects the two buffer reservoirs which are contacted by electrodes.  The trans end is an open tube, while the cis end is carefully formed into a small aperture, using the process described.  This aperture is where the lipid bilayer is formed, and it is shown in the 3D detail on the right.}
+\label{fig:patch_tube}
+\end{centering}
+\end{figure}
+
+\subsection{Fabrication using the needle method}
+
+Patch tube apertures used in this work were fabricated by melting heat-shrinkable Teflon tubing around a steel needle machined to a fine point (less than \SI{5}{\um}) for this purpose.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/patch_tube_making.pdf}
+\caption[Patch tube aperture made using a steel needle]{Optical images of the process of patch tube aperture formation using a steel needle.  The inner Teflon tubing is not heat-shrinkable, while the outer, larger diameter Teflon tubing is heat-shrinkable.  The coil shown is a heating coil made of tungsten.  (a) Initial setup, showing the steel needle and the inner Teflon tubing around it.  (b) A section of heat-shrinkable Teflon tubing fits around the inner tubing and the exposed portion of the needle.  (c) Heating the coil results in the outer Teflon tubing melting and shrinking around the inner tubing and the needle.  (d) In the final stage, the needle is pressed into a copper backstop while the Teflon is molten, and the heating is then stopped.  The needle leaves a small aperture in the Teflon.}
+\label{fig:patch_tube_needle}
+\end{centering}
+\end{figure}
 
 \subsection{Fabrication using a focused ion beam}
+
+Much work was carried out using a focused ion beam to mill an aperture of precise size and shape, including more intricate patterns that were designed in improve membrane stability and longevity.  \SI{25}{\um} thick FEP Teflon was used for the milling process, and this FEP film with the aperture drilled would be carefully melted onto the patch tube and sealed all the way around with larger diameter heat shrinkable Teflon tubing.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/patch_tube_fib.pdf}
+\caption[Patch tube aperture milled using FIB]{Optical image of a large and intricate patch tube aperture made using a focused ion beam mill.  The Teflon FEP thin film is \SI{25}{\um} thick, and two focal planes are shown.  The actual opening is a round hole, seen on the right, just inside the corrugated area.  The gear-like fins are designed to capture and hold excess lipid and oil near the aperture itself.}
+\label{fig:patch_tube_fib}
+\end{centering}
+\end{figure}
+
+For all of the work shown in this dissertation, the apertures used are the ones made using the needle method.  Examination of apertures made using the needle method revealed surface roughness which may be important for oil adhesion and membrane stability.  The surface of the FEP Teflon thin films used for FIB milling was very smooth, and adhesion of the lipid was never quite as complete and stable.
