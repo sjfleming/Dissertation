@@ -6,7 +6,7 @@ blank
 \chapter{Measuring helicase movement along DNA}
 \label{helicase_on_dna}
 
-\section{Experimental setup and data}
+\section{Experimental setup}
 
 \begin{figure}[h]
 \begin{centering}
@@ -24,8 +24,8 @@ Of course, unlike the NeutrAvidin protein, the helicase is able to step along th
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/helicase_data.pdf}
-\caption[Data for helicase stepping along DNA]{...}
+\includegraphics[width=\textwidth]{figures/helicase_data.pdf}
+\caption[Data for helicase stepping along DNA]{(a) Current recorded when one particular Dda helicase / ssDNA complex is held in the M2-MspA nanopore at \SI{120}{\mV} bias using the experimental setup in Figure \ref{fig:helicase_scheme}b, with ATP powering the helicase.  (b) Same data, but with the y-axis zoomed in and the data discretized into stable levels (shown in red) with sudden jumps between them.  Buffer is \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, pH \num{8.00}, with \SI{2}{\m\Molar} MgCl$_2$ and \SI{2}{\m\Molar} ATP.}
 \label{fig:helicase_data}
 \end{centering}
 \end{figure}
@@ -33,12 +33,20 @@ Of course, unlike the NeutrAvidin protein, the helicase is able to step along th
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/helicase_stepping_three_molecules.pdf}
-\caption[Helicase stepping along three molecules]{...}
+\caption[Helicase stepping along three DNA molecules]{Data from three individual molecules.  The current levels shown are those that correspond to the same region of the DNA molecule as the current levels from about \SI{2.3}{\s} to about \SI{4.5}{\s} in the data shown in Figure \ref{fig:helicase_data}.  The discrete levels have been labeled with the same numbers in each dataset.  The length of time each stable current level lasts, as well as the presence or absence of particular levels, gives a feel for the variability between individual molecules.}
 \label{fig:helicase_data_3}
 \end{centering}
 \end{figure}
 
 \section{Data analysis}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/helicase_levels_several_mols.pdf}
+\caption[Current levels are reproducible molecule to molecule]{ ...}
+\label{fig:helicase_data_aligned}
+\end{centering}
+\end{figure}
 
 \section{Movement of helicase along DNA is revealed by current levels}
 
@@ -51,5 +59,13 @@ Of course, unlike the NeutrAvidin protein, the helicase is able to step along th
 \end{figure}
 
 In the configuration shown in Figure \ref{fig:helicase_sequencing}a, an ATP-driven step of the helicase will result in the helicase being positioned one base closer to the 3’ end of the DNA, shown in panel (b), and a single base of the duplex will have been unzipped in the process.  As soon as the helicase moves, the electrophoretic force on the DNA causes it to be pulled through the MspA nanopore by one base.  Before the ATP-driven step, the 5 base sequence near the narrow constriction of MspA was \texttt{ATTCG}.  The 5-base sequence near the nanopore’s constriction is referred to as the “5-mer.”  After the ATP-driven step, the 5-mer is \texttt{TTCGC}.  As shown in Figure \ref{fig:helicase_sequencing}c, the measured current depends on the 5-mer, and there is an abrupt step in the current when the helicase takes a step.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/helicase_position_time.pdf}
+\caption[Current levels reveal helicase movement]{(a) ...}
+\label{fig:helicase_movement}
+\end{centering}
+\end{figure}
 
 \section{Discussion}
