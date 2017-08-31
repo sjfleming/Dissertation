@@ -5,35 +5,90 @@ When asked if his painting was inspired by nature, Jackson Pollock replied, ``I 
 \chapter{The nanopore as a DNA sequencing technology}
 \label{dna_sequencing}
 
-Some data obtained from nanopore DNA sequencing experiments has already been presented to provide evidence that thermal motion of ssDNA contributes to the ionic current signal.  This chapter briefly presents recent developments which enabled nanopores to be used as a single-molecule DNA sequencing technology, in order to provide a background for the experiments covered in the rest of this work.
+Some data obtained from nanopore DNA sequencing experiments has already been presented to provide evidence that thermal motion of ssDNA contributes to the ionic current signal.  This chapter briefly reviews recent developments which enabled nanopores to be used as a single-molecule DNA sequencing technology, in order to provide a background for the experiments covered in the rest of this work.
 
 \section{Inspired by nature's ion channels}
 
 The initial idea to use nanopores as single-molecule sensors for sequencing nucleic acids was independently proposed by Dave Deamer and George Church around 1989 \citep{Deamer2016,Branton2008}.  The inspiration was that the opening and closing of ion channels in biology is often dependent on small peptide domains blocking the channel.  If small peptide domains can block the channel, so could nucleic acids, and the different sizes of the different nucleic acids could potentially cause different current blockages, enabling a direct readout of the sequence \citep{Branton2008}.
 
-\subsection{Developments from 1990 - 2010}
+\subsection{Developments with $\alpha$-hemolysin from 1990 - 2009}
 
+First demonstration that an electric field can drive ssDNA and ssRNA through $\alpha$-hemolysin \citep{Kasianowicz1996}.
 
+Discrimination between pyrimidine and purine block segments in ssRNA in the $\alpha$-hemolysin nanopore \citep{Akeson1999}.
 
-\section{Measurements on trapped ssDNA}
+Discrimination between poly(dA)$_{100}$ and poly(dC)$_{100}$ in the $\alpha$-hemolysin nanopore \citep{Meller2000, Meller2002}.
 
+Discrimination between DNA hairpins with different lengths in $\alpha$-hemolysin \citep{Vercoutere2001}.
 
+Discrimination between base pairs at the end of blunt DNA hairpins in $\alpha$-hemolysin \citep{Vercoutere2003}.
 
-\subsection{Observations from the data}
+Detection of single nucleotide C to A substitutions in a DNA hairpin held in an $\alpha$-hemolysin nanopore \citep{Ashkenasy2005}.
 
+Detection of motor protein P4 - RNA complexes in an $\alpha$-hemolysin nanopore \citep{Astier2007}.
 
+Detection of Klenow fragment of DNA polymerase I bound to DNA in $\alpha$-hemolysin \citep{Benner2007}.
 
-\subsection{A theory to explain the effect}
+Detection of ssDNA - exonuclease I complexes in an $\alpha$-hemolysin nanopore \citep{Hornblower2007}.
 
-M2-MspA introduced the key mutations D90N/D91N/D93N, which changed the amino acids lining the narrowest constriction from negatively-charged aspartic acid residues to neutral asparagine residues.
+Detection of single-base movement of a DNA polymerase on DNA using abasics as reporters \citep{Cockroft2008}.
 
-Amino acids can interact with DNA bases.  By searching through 129 structures of protein-DNA complexes in the Protein Data Bank, Luscombe \textit{et al.} \citep{Luscombe2001} found that asparagine interacts favorably with adenine, while arginine strongly interacts with guanine.
+Discrimination between individual nucleic acids at certain locations in a DNA strand immobilized in $\alpha$-hemolysin using streptavidin \citep{Stoddart2009}.
+
+\subsection{Foundational work with MspA}
+
+Initial engineering of MspA to translocate DNA \citep{Butler2008}.
+
+DNA hairpins used to show that homopolymers could be distinguished using MspA \citep{Derrington2010}.
+
+NeutrAvidin-ssDNA complexes used in MspA to show that MspA is sensitive to the positions of single base substitutions in homopolymers in a region of about 4 nucleotides \citep{Manrao2011}.
+
+%\section{Measurements on trapped ssDNA}
+%
+%
+%
+%\subsection{Observations from the data}
+%
+%
+%
+%\subsection{A theory to explain the effect}
+%
+%M2-MspA introduced the key mutations D90N/D91N/D93N, which changed the amino acids lining the narrowest constriction from negatively-charged aspartic acid residues to neutral asparagine residues.
+%
+%Amino acids can interact with DNA bases.  By searching through 129 structures of protein-DNA complexes in the Protein Data Bank, Luscombe \textit{et al.} \citep{Luscombe2001} found that asparagine interacts favorably with adenine, while arginine strongly interacts with guanine.
 
 
 \section{DNA enzymes enable measurement of sequence information}
 
+In an important review on nanopore sequencing written in 2008 \citep{Branton2008}, it was noted that a key challenge to DNA sequencing with a nanopore at the time was finding methods to slow down and control DNA translocation.  DNA enzymes had just begun to be used in nanopore experiments the year before \citep{Astier2007, Hornblower2007}, and showed promise for at least slowing down DNA translocation.
+
+Klenow fragment of DNA polymerase I induced stepwise motion of DNA as polymerization occurred \citep{Chu2010} in $\alpha$-hemolysin.  Stepping monitored with abasic residues.
+
+T7 DNA polymerase replicates DNA molecules in an $\alpha$-hemolysin nanopore \citep{Olasagasti2010}.  First strategy to inhibit DNA replication in the bulk phase by using blocking oligos that are peeled off by the pore.  Stepping monitored with abasic residues.
+
+Phi29 DNA polymerase replicates full DNA molecules in $\alpha$-hemolysin.  More processive than T7 DNA polymerase \citep{Lieberman2010}.
+
+Phi29 DNA polymerase on DNA shows single-nucleotide steps, which can be reversed by voltage-mediated unzipping, in $\alpha$-hemolysin \citep{Cherf2012}.
+
+Phi29 DNA polymerase on DNA used to obtain sequence-specific current levels in MspA \citep{Manrao2012}.
+
+Phi29 DNA polymerase on DNA used to create a library of 4-mer current levels in MspA and to read a DNA sequence \citep{Laszlo2014}.
+
+By this time, in 2014, Oxford Nanopore Technologies had released its MinION nanopore DNA sequencer to a select group of researchers.
+
+Use of Hel308 helicase on DNA to obtain sequence information with MspA \citep{Derrington2015}.
+
+The use of a Dda helicase to ratchet DNA through a nanopore base-by-base has not yet appeared in the literature, but is the subject of the work described here.
 
 \subsection{DNA helicases}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{figures/helicase_drawing.pdf}
+\caption[DNA helicase general function]{Cartoon diagram showing the general function of a DNA helicase, and the way it interacts with DNA.  DNA helicases unwind dsDNA to form separated strands of ssDNA under the action of ATP.  The helicase grips one of the ssDNA strands and steps along it, a distance of one nucleotide per ATP molecule hydrolyzed in the case of Dda helicase.}
+\label{fig:helicase_drawing}
+\end{centering}
+\end{figure}
 
 \begin{figure}[h]
 \begin{centering}
@@ -55,6 +110,6 @@ Most of the interactions of Dda helicase with ssDNA are between polar amino acid
 
 The two phenylalanine rings in domain 1B (the ``pin") shown in yellow in Figure \ref{fig:helicase_ssDNA_interactions}, stack with base 6, counting from the 5' end.  This hydrophobic stacking interaction acts as the pawl in a ratchet mechanism, preventing the ssDNA from moving backwards.  Here, backwards refers to a movement of the entire ssDNA strand toward the 3' end, toward the right, where the dsDNA duplex would be located.  Effectively, the pin prevents the unwinding duplex from re-hybridizing.  If the pin is mutated, changing the base-stacking phenylalanine to alanine, and preventing this hydrophobic stacking, then the helicase is unable to unwind dsDNA.  However, this mutation does not prevent the helicase from translocating along ssDNA. \citep{He2012}
 
-Dda helicase moves along ssDNA in the 5' to 3' direction by hydrolyzing ATP.  Dda can even displace streptavidin bound to a 3' biotinylated oligonucleotide \citep{Morris1999}, a result which we confirmed experimentally in Appendix \ref{click_reaction_quad}.
+Dda helicase moves along ssDNA in the 5' to 3' direction by hydrolyzing ATP.  Dda can even displace streptavidin bound to a 3' biotinylated oligonucleotide \citep{Morris1999}, a result which we confirmed experimentally using a gel electrophoresis assay (data not shown). %in Appendix \ref{click_reaction_quad}.
 
 
