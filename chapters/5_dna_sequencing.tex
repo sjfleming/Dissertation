@@ -9,33 +9,35 @@ Some data obtained from nanopore DNA sequencing experiments has already been pre
 
 \section{Inspired by nature's ion channels}
 
-The initial idea to use nanopores as single-molecule sensors for sequencing nucleic acids was independently proposed by Dave Deamer and George Church around 1989 \citep{Deamer2016,Branton2008}.  The inspiration was that the opening and closing of ion channels in biology is often dependent on small peptide domains blocking the channel.  If small peptide domains can block the channel, so could nucleic acids, and the different sizes of the different nucleic acids could potentially cause different current blockages, enabling a direct readout of the sequence \citep{Branton2008}.  This general idea was mentioned in the Introduction and depicted in Figure \ref{fig:nanopore_seq_expectation}.  Since the initial idea, the last three decades have seen an explosion of research activity into the use of nanopores for DNA sequencing.  Here, a few of the major milestones are discussed.
+The initial idea to use nanopores as single-molecule sensors for sequencing nucleic acids was independently proposed by Dave Deamer and George Church around 1989 \citep{Deamer2016,Branton2008}.  The inspiration was that the opening and closing of ion channels in biology is often dependent on small peptide domains blocking the channel.  If small peptide domains can block the channel, so could nucleic acids, and the different sizes of the different nucleic acids could potentially cause different current blockages, enabling a direct readout of the sequence \citep{Branton2008}.  This general idea was mentioned in the Introduction and depicted in Figure \ref{fig:nanopore_seq_expectation}.  Since the initial idea, the last three decades have seen an explosion of research activity into the use of nanopores for DNA sequencing.  Here, a few of the major milestones are discussed.  For a more comprehensive historical review, refer to Reference \citenum{Deamer2016}.
 
 \subsection{Developments with $\alpha$-hemolysin from 1990 - 2009}
 
-Early work on nanopores and DNA was conducted with the protein nanopore $\alpha$-hemolysin, a transmembrane protein with a $\sim$ \SI{4}{\nm} long beta barrel of approximately \SI{1.5}{\nm} diameter that extends through the membrane.  The first demonstration that an electric field can drive ssDNA and ssRNA through $\alpha$-hemolysin was performed by Kasianowicz \textit{et al.} and published in 1996 \citep{Kasianowicz1996}.
+Early work studying DNA in nanopores was carried out using the protein nanopore $\alpha$-hemolysin, a transmembrane protein with a $\sim$ \SI{5}{\nm} long beta barrel of approximately \SI{1.5}{\nm} diameter that extends through the membrane (see Figure \ref{fig:mspa_ahl}a).  The first demonstration that an electric field can drive ssDNA and ssRNA through $\alpha$-hemolysin was performed by Kasianowicz \textit{et al.} and published in 1996 \citep{Kasianowicz1996}.
 
-Discrimination between pyrimidine and purine segments in ssRNA was demonstrated in 1999 by Akeson \textit{et al.} \citep{Akeson1999}.  Meller \textit{et al.} followed up with two works in 2000 and 2002 that showed that $\alpha$-hemolysin could discriminate between DNA poly(dA)$_{100}$ and poly(dC)$_{100}$ \citep{Meller2000, Meller2002}.
+Discrimination between pyrimidine and purine segments in ssRNA on the basis of ionic current was demonstrated in 1999 by Akeson \textit{et al.} \citep{Akeson1999}.  Meller \textit{et al.} followed up with two works in 2000 and 2002 that showed that $\alpha$-hemolysin can discriminate between DNA poly(dA)$_{100}$ and poly(dC)$_{100}$ on the basis of ionic current \citep{Meller2000, Meller2002}.
 
-Work was also carried out using hairpin DNA.  The narrow passage through $\alpha$-hemolysin cannot accommodate dsDNA, so a DNA hairpin can be trapped and held in the nanopore, unlike ssDNA which translocates quickly.  In 2001, Vercoutere \textit{et al.} demonstrated the ability of $\alpha$-hemolysin to discriminate between DNA hairpins of different lengths \citep{Vercoutere2001}.
+Around that same time, work was also carried out using hairpin DNA in order to prolong the ionic current signals as compared to free translocation (\textit{translocation} being the movement of a molecule through the nanopore from the cis to trans side of the membrane).  The narrow passage through $\alpha$-hemolysin cannot accommodate dsDNA, so a DNA hairpin can be trapped and held in the nanopore, unlike ssDNA which translocates quickly.  In 2001, Vercoutere \textit{et al.} demonstrated the ability of $\alpha$-hemolysin to discriminate between DNA hairpins of different lengths on the basis of ionic current and blockage duration \citep{Vercoutere2001}.  Discrimination between the identity of individual base pairs at the end of blunt DNA hairpins in $\alpha$-hemolysin followed in 2003 \citep{Vercoutere2003}.
 
-Discrimination between base pairs at the end of blunt DNA hairpins in $\alpha$-hemolysin \citep{Vercoutere2003}.
+DNA hairpins trapped in a nanopore can be examined at length, when a free ssDNA overhang is captured in the pore.  In 2005, work by Ashkenasy \textit{et al.} demonstrated differences in ionic current through $\alpha$-hemolysin when individual nucleotide \texttt{C} to \texttt{A} substitutions were made in the region of the ssDNA hairpin tail that was dangling in the narrow beta-barrel of the pore \citep{Ashkenasy2005}.
 
-Detection of single nucleotide \texttt{C} to \texttt{A} substitutions in a DNA hairpin held in an $\alpha$-hemolysin nanopore \citep{Ashkenasy2005}.
+These studies showed that one promising avenue for obtaining sequence-dependent ionic currents was to trap and hold a strand of ssDNA in the nanopore.  Aside from DNA hairpins, DNA-binding proteins could be used to perform this function.  A protein, which would be too large to translocate through the nanopore, would hold the ssDNA in place.  A step in this direction was taken by Astier \textit{et al.} in 2007, where it was shown that the ionic current blockages caused by motor protein P4 - RNA complexes in an $\alpha$-hemolysin nanopore could be distinguished from the RNA alone on the basis of the duration of the current blockage \citep{Astier2007}.  Around the same time, Benner \textit{et al.} demonstrated the detection of the Klenow fragment of DNA polymerase I bound to DNA in $\alpha$-hemolysin, and even showed that the addition of dNTPs would cause the polymerase to function, causing the current blockage events to last even longer \citep{Benner2007}.  Hornblower \textit{et al.} demonstrated the detection of ssDNA - exonuclease I complexes in an $\alpha$-hemolysin nanopore, also in 2007 \citep{Hornblower2007}.  These studies identified the presence of the protein by the fact that the protein - nucleic acid complexes would cause current blockages of longer duration than the nucleic acid alone, but sequence-specific signals or control over the motion of the nucleic acid was yet to be demonstrated.
 
-Detection of motor protein P4 - RNA complexes in an $\alpha$-hemolysin nanopore \citep{Astier2007}.
+Then in 2008, a large step was made by Cockroft \textit{et al.} in demonstrating single-nucleotide movements of a DNA polymerase on DNA using abasics as reporters \citep{Cockroft2008}.  The abasic moieties (segments of polyethylene glycol) block far less ionic current than regular nucleotides, and so as the polymerase takes a step and pulls the strand back toward the cis side, it positions more abasics in the nanopore's beta barrel, and the step-wise changes in ionic current can be detected using the $\alpha$-hemolysin nanopore.
 
-Detection of Klenow fragment of DNA polymerase I bound to DNA in $\alpha$-hemolysin \citep{Benner2007}.
+Using streptavidin protein bound to a biotinylated ssDNA oligo, Stoddart \textit{et al.} in 2009 showed discrimination between individual nucleotides at certain locations in a DNA strand immobilized in $\alpha$-hemolysin \citep{Stoddart2009}.  Together, these studies demonstrated that ssDNA could be trapped in the nanopore, that it might be able to be moved through a nanopore in a controlled way, and that the ionic current does in fact have the potential to provide sequence-specific information, even at the single-nucleotide level.
 
-Detection of ssDNA - exonuclease I complexes in an $\alpha$-hemolysin nanopore \citep{Hornblower2007}.
-
-Detection of single-base movement of a DNA polymerase on DNA using abasics as reporters \citep{Cockroft2008}.
-
-Discrimination between individual nucleic acids at certain locations in a DNA strand immobilized in $\alpha$-hemolysin using streptavidin \citep{Stoddart2009}.
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.65\textwidth]{figures/mspa_ahl_comparison.pdf}
+\caption[Comparison between geometries of MspA and $\alpha$-hemolysin]{Vertical cutaways showing the interior of the solvent-accessible surfaces of (a) $\alpha$-hemolysin [Protein Data Bank: 7AHL] and (b) MspA [Protein Data Bank: 1UUN].  The extended beta-barrel of $\alpha$-hemolysin is about \SI{5}{nm} long, which results in ionic current being averaged over all the nucleotides which reside there.  In contrast, MspA's much shorter constriction leads to less signal averaging.}
+\label{fig:mspa_ahl}
+\end{centering}
+\end{figure}
 
 \subsection{Foundational work with MspA}
 
-Initial engineering of MspA to translocate DNA \citep{Butler2008}.
+The crystal structure of MspA, obtained in 2004 by Faller \textit{et al.} \citep{Faller2004}, provided a new nanopore that had a shape which seemed very interesting for the purposes of nanopore DNA sequencing.  Shown again in Figure \ref{fig:mspa_ahl}b, the narrowest constriction is much shorter than the constriction of $\alpha$-hemolysin, leading to the conjecture that it might average over fewer nucleotides at a time.  However, unlike $\alpha$-hemolysin, the wild-type MspA nanopore has negative charges lining the constriction and would not translocate ssDNA.  Initial engineering of MspA to translocate ssDNA was carried out in 2008 by Butler \textit{et al.} \citep{Butler2008}.  That study resulted in the creation of M2-MspA, one of the variants of MspA used in this work.
 
 DNA hairpins used to show that homopolymers could be distinguished using MspA \citep{Derrington2010}.
 
@@ -58,25 +60,19 @@ NeutrAvidin-ssDNA complexes used in MspA to show that MspA is sensitive to the p
 
 \section{DNA enzymes enable measurement of sequence information}
 
-In an important review on nanopore sequencing written in 2008 \citep{Branton2008}, it was noted that a key challenge to DNA sequencing with a nanopore at the time was finding methods to slow down and control DNA translocation.  DNA enzymes had just begun to be used in nanopore experiments the year before \citep{Astier2007, Hornblower2007}, and showed promise for at least slowing down DNA translocation.
+In an important review on nanopore sequencing written by Branton \textit{et al.} in 2008 \citep{Branton2008}, it was noted that a key challenge to DNA sequencing with a nanopore at the time was finding methods to slow down and control DNA translocation.  DNA enzymes had just begun to be used in nanopore experiments the year before \citep{Astier2007, Hornblower2007}, and showed promise for at least slowing down DNA translocation.  Around the same time the review was written, the study mentioned above by Cockroft \textit{et al.} \citep{Cockroft2008} made a first step toward demonstrating control over the motion of DNA in a nanopore.  This study was extended by Chu \textit{et al.} in 2010 \citep{Chu2010}.
 
-Klenow fragment of DNA polymerase I induced stepwise motion of DNA as polymerization occurred \citep{Chu2010} in $\alpha$-hemolysin.  Stepping monitored with abasic residues.
+Other DNA polymerases were also studied.  T7 DNA polymerase was shown to replicate DNA molecules in an $\alpha$-hemolysin nanopore \citep{Olasagasti2010}.  This was the first instance of using a strategy to inhibit DNA replication in the bulk phase by using blocking oligos that are peeled off by the pore.  Individual steps of the polymerase could be seen, though not in great detail, using abasic residues as mentioned above.
 
-T7 DNA polymerase replicates DNA molecules in an $\alpha$-hemolysin nanopore \citep{Olasagasti2010}.  First strategy to inhibit DNA replication in the bulk phase by using blocking oligos that are peeled off by the pore.  Stepping monitored with abasic residues.
+The same strategy was employed to great effect using Phi29 DNA polymerase by Lieberman \textit{et al.} in 2010.  Phi29 DNA polymerase was shown to replicate full DNA molecules in $\alpha$-hemolysin, and individual, discrete current levels could be seen, and looked similar from one molecule to the next.  The Phi29 polymerase turned out to be more processive than T7 DNA polymerase \citep{Lieberman2010}, which is an important point, since the experiment ends when the enzyme detaches from the DNA.
 
-Phi29 DNA polymerase replicates full DNA molecules in $\alpha$-hemolysin.  More processive than T7 DNA polymerase \citep{Lieberman2010}.
+Following up on this work, a fascinating study in 2012 by Cherf \textit{et al.} demonstrates that Phi29 DNA polymerase can be operated both as a voltage-driven unzipper and an enzymatically-driven ratchet (as it polymerizes) \citep{Cherf2012}.  Phi29 was shown to take single-nucleotide steps on DNA, which can be reversed by voltage-mediated unzipping.  This work was carried out using $\alpha$-hemolysin, using abasic residues to get a large current signal.
 
-Phi29 DNA polymerase on DNA shows single-nucleotide steps, which can be reversed by voltage-mediated unzipping, in $\alpha$-hemolysin \citep{Cherf2012}.
+The major step that remained was the combination of the benefits of the MspA nanopore with the DNA enzyme ratcheting using Phi29.  Such a study was conducted by Manrao \textit{et al.} in 2012 \citep{Manrao2012}.  Phi29 DNA polymerase on DNA was demonstrated to produce sequence-specific current levels in MspA that corresponded to single-nucleotide steps.  Importantly, the steps in ionic current were due to normal DNA nucleotides rather than the presence versus absence of abasic moieties.  In 2014, Laszlo \textit{et al.} followed up with a more comprehensive study of Phi29 DNA polymerase on DNA in MspA, and created a library of current levels in MspA for every possible 4-base combination of nucleotides that block MspA's narrow constriction [\texttt{AAAA}, \texttt{AAAC}, \texttt{AACA}, ... \texttt{TTTT}].  This library was used to read a DNA sequence \citep{Laszlo2014}.
 
-Phi29 DNA polymerase on DNA used to obtain sequence-specific current levels in MspA \citep{Manrao2012}.
+By this time, in 2014, Oxford Nanopore Technologies, Inc., had released its MinION nanopore DNA sequencer to a select group of researchers.  The sequencer, approximately one by four by one inches in physical size, contains an array of 2000+ individual nanopores in separate membranes, each electronically controlled and monitored, and connects via USB to a computer.
 
-Phi29 DNA polymerase on DNA used to create a library of 4-mer current levels in MspA and to read a DNA sequence \citep{Laszlo2014}.
-
-By this time, in 2014, Oxford Nanopore Technologies had released its MinION nanopore DNA sequencer to a select group of researchers.
-
-Use of Hel308 helicase on DNA to obtain sequence information with MspA \citep{Derrington2015}.
-
-The use of a Dda helicase to ratchet DNA through a nanopore base-by-base has not yet appeared in the literature, but is the subject of the work described here.
+Further work in the literature has made use of other kinds of DNA enzymes, recently the helicase Hel308.  This helicase can also be used with MspA to obtain sequence information \citep{Derrington2015}.  In this work, a Dda helicase is used to control the motion of DNA through the MspA nanopore.  The use of a Dda helicase to ratchet DNA through a nanopore base-by-base has not yet appeared in the literature.
 
 \subsection{DNA helicases}
 
