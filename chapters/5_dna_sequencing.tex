@@ -60,13 +60,17 @@ Further work in the literature has made use of other kinds of DNA enzymes, recen
 
 \subsection{DNA helicases}
 
+The helicase used in this work is Dda, a monomeric SF1B DNA helicase that takes a single nucleotide step in the 5' to 3' direction when it hydrolyzes a single molecule of ATP.  As it steps, it unzips the dsDNA duplex ahead of it, and stabilizes the unzipped form of the DNA.  The general action of this helicase, and others like it, is depicted in Figure \ref{fig:helicase_drawing}.  Helicases perform a critical role in cells, allowing for ssDNA to be exposed and transcribed to mRNA as well as to be copied prior to cell division.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{figures/helicase_drawing.pdf}
-\caption[DNA helicase general function]{Cartoon diagram showing the general function of a DNA helicase, and the way it interacts with DNA.  DNA helicases unwind dsDNA to form separated strands of ssDNA under the action of ATP.  The helicase grips one of the ssDNA strands and steps along it, a distance of one nucleotide per ATP molecule hydrolyzed in the case of Dda helicase.}
+\caption[DNA helicase general function]{Cartoon diagram showing the general function of a DNA helicase, and the way it interacts with DNA.  DNA helicases unwind dsDNA to form separated strands of ssDNA under the action of ATP.  The helicase shown here is monomeric, like Dda helicase, and this helicase grips one of the ssDNA strands and steps along it, a distance of one nucleotide per ATP molecule hydrolyzed in the case of Dda helicase.  Other helicases can be multimeric, and can have different mechanisms of action.}
 \label{fig:helicase_drawing}
 \end{centering}
 \end{figure}
+
+In 2012, He \textit{et al.} \citep{He2012} obtained a crystal structure of Dda helicase bound to a short stretch of ssDNA, poly(dT)$_8$ (Protein Data Bank: 3UPU).  A stereo pair image of that crystal structure is shown in Figure \ref{fig:helicase_stereo}.  The structure is angled so that the ssDNA molecule points out of the page, with the 3' end out.  The different domains are labeled in different colors.
 
 \begin{figure}[h]
 \begin{centering}
@@ -76,6 +80,8 @@ Further work in the literature has made use of other kinds of DNA enzymes, recen
 \end{centering}
 \end{figure}
 
+The different domains of Dda helicase are thought to perform different functional roles.  Domains 1A and 2A primarily interact with the negatively-charged phosphate backbone of the ssDNA.  Domain 2B and the hook (in green) stabilize the position of domain 1B, called the ``pin."  The pin domain, remarkably, acts as the pawl on a ratcheting mechanism.  Figure \ref{fig:helicase_ssDNA_interactions} shows the interactions between the helicase and the ssDNA in more detail.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/helicase_dna_interaction.png}
@@ -84,9 +90,11 @@ Further work in the literature has made use of other kinds of DNA enzymes, recen
 \end{centering}
 \end{figure}
 
-Most of the interactions of Dda helicase with ssDNA are between polar amino acids and the ssDNA phosphate backbone.  Some hydrophobic stacking interactions also exist between amino acid side chains and the ribose sugars of the ssDNA. \citep{He2012}
+Most of the interactions of Dda helicase with ssDNA are between polar amino acids and the ssDNA phosphate backbone \citep{He2012}.  These interactions are shown in Figure \ref{fig:helicase_ssDNA_interactions} in orange, cyan, and blue by drawing the amino acids involved using a stick representation.  Some hydrophobic stacking interactions also exist between amino acid side chains and the ribose sugars of the ssDNA \citep{He2012}, which are not shown.
 
-The two phenylalanine rings in domain 1B (the ``pin") shown in yellow in Figure \ref{fig:helicase_ssDNA_interactions}, stack with base 6, counting from the 5' end.  This hydrophobic stacking interaction acts as the pawl in a ratchet mechanism, preventing the ssDNA from moving backwards.  Here, backwards refers to a movement of the entire ssDNA strand toward the 3' end, toward the right, where the dsDNA duplex would be located.  Effectively, the pin prevents the unwinding duplex from re-hybridizing.  If the pin is mutated, changing the base-stacking phenylalanine to alanine, and preventing this hydrophobic stacking, then the helicase is unable to unwind dsDNA.  However, this mutation does not prevent the helicase from translocating along ssDNA. \citep{He2012}
+The remarkable part of the helicase is domain 1B, the ``pin."  The two phenylalanine rings in the pin, shown in yellow in stick form in Figure \ref{fig:helicase_ssDNA_interactions}, stack with ssDNA base 6 (counting from base 1 at the 5' end).  This hydrophobic stacking interaction acts as the pawl in a ratchet mechanism, preventing the ssDNA from moving backwards.  Here, backwards refers to a movement of the entire ssDNA strand toward the 3' end, toward the right, where the dsDNA duplex would be located.  Effectively, the pin prevents the unwinding duplex from re-hybridizing.  If the pin is mutated, changing the base-stacking phenylalanine to alanine, which removes this hydrophobic stacking, then the helicase is unable to unwind dsDNA.  However, this mutation does not prevent the helicase from translocating along ssDNA \citep{He2012}.
+
+Though there is no crystal structure of Dda helicase bound to ssDNA and ATP, it is believed that ATP binds between domains 1A and 2A \citep{He2012}.  The binding of ATP, and subsequent hydrolysis and release of ADP, causes a conformational change that leads to 
 
 Dda helicase moves along ssDNA in the 5' to 3' direction by hydrolyzing ATP.  Dda can even displace streptavidin bound to a 3' biotinylated oligonucleotide \citep{Morris1999}, a result which we confirmed experimentally using a gel electrophoresis assay (data not shown). %in Appendix \ref{click_reaction_quad}.
 
