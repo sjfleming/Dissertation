@@ -198,9 +198,9 @@ The buffer perfusion lines are made of ethanol-resistant Tygon tubing.  They sho
 
 \begin{itemize}
 \item \SI{60}{\mL} DI water
-\item \SI{60}{\mL} ethanol
-\item \SI{60}{\mL} DI water
 \item \SI{60}{\mL} \num{10}\% bleach (in DI water)
+\item \SI{60}{\mL} DI water
+\item \SI{60}{\mL} ethanol
 \item \SI{60}{\mL} DI water
 \end{itemize}
 
@@ -215,7 +215,22 @@ High purity, molecular biology grade reagents are used in these experiments.  De
 
 \subsection{Preparation of NeutrAvidin/ssDNA complexes}
 
+NeutrAvidin binds to the 3' biotinylation (see Appendix \ref{idt_dna}) on the homopolymer ssDNA used in the experiments in Chapter \ref{dna_thermal_motion_mspa} (see Appendix \ref{dna}).  The NeutrAvidin protein is a homotetramer with four binding sites for biotin.  Ideally, in this preparation, each NeutrAvidin protein will be bound to only one ssDNA molecule, not several.  To achieve this, a solution of \SI{2}{\micro\Molar} ssDNA was added, dropwise, with stirring, to a \SI{6}{\micro\Molar} solution of NeutrAvidin in \num{1}x PBS.  The result was that, according to a Poisson distribution, most NeutrAvidin proteins ($\sim$ \num{72}\%) had zero molecules of ssDNA attached, some ($\sim$ \num{24}\%) had one ssDNA, and very few (< \num{4}\%) had more than one ssDNA bound.  Any free ssDNA was removed, and the complexes were buffer-exchanged into the cis running buffer, by means of a buffer exchange step using a \SI{20}{\kilo\dalton} molecular weight size exclusion cutoff spin column.
 
+NeutrAvidin/ssDNA complexes are generally introduced into the experiment by adding about \SI{10}{\pico\mol} to the \SI{200}{\micro\liter} cis volume and mixing well.
 
 \subsection{Preparation of Dda/DNA complexes}
 
+Buffer is \SI{100}{\m\Molar} K-acetate, \SI{50}{\m\Molar} HEPES, \SI{2}{\m\Molar} EDTA, pH \num{8.00}.  In a small PCR tube, combine:
+
+\begin{itemize}
+\item \SI{2}{\micro\liter} tether DNA at \SI{1}{\micro\Molar} in buffer
+\item \SI{2}{\micro\liter} sample DNA at \SI{1}{\micro\Molar} in buffer
+\item Let hybridize at room temperature for \num{30} minutes
+\item \SI{2}{\micro\liter} Dda helicase at $\sim$ \SI{5.6}{\micro\Molar} in buffer
+\item \SI{3}{\micro\liter} buffer
+\item Let sit at room temperature \num{5} minutes
+\item Add \SI{2}{\micro\liter} of \SI{1}{\milli\Molar} TMAD
+\item Incubate at \SI{35}{\celsius} for \num{1} hour
+\item Add \SI{30}{\micro\liter} of cis running buffer (typically \SI{1}{\Molar} KCl)
+\end{itemize}
