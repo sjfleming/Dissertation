@@ -1,5 +1,5 @@
 \begin{savequote}[75mm]
-Less is more.
+In a single-molecule experiment, less is more.
 \end{savequote}
 
 \chapter{Detailed protocol for nanopore experiments}
@@ -11,13 +11,13 @@ Measurements of ionic current through a nanopore in a lipid bilayer are obtained
 
 Our setup uses a Teflon “patch stand” to hold two volumes of buffer solution which are separated by a lipid bilayer.  A separate Ag/AgCl electrode makes contact to each of these two volumes of buffer.  The buffer chamber closest to the operator is electrically grounded, and is termed the “cis side.”  The buffer chamber attached to the headstage of the current amplifier is termed the “trans side.”  During the experiment, all manipulations by the experimenter take place on the cis side.
 
-The cis side and the trans side are connected by a small, U-shaped tube, also made of Teflon.  At the trans side, the tube is wide open, and the opening of the tube in the cis side is terminated with a cone-shaped void in a Teflon piece with a very small (~40 micron) aperture.  This small aperture forms the only opening for an electrical connection between the cis and the trans side.  Thus, spreading a lipid bilayer across this aperture entirely blocks the flow of ionic current from one electrode to the other.
+The cis side and the trans side are connected by a small, U-shaped tube, also made of Teflon.  At the trans side, the tube is wide open, and the opening of the tube in the cis side is terminated with a cone-shaped void in a Teflon piece with a very small ($\sim$ \SI{40}{\micro\m}) aperture.  This small aperture forms the only opening for an electrical connection between the cis and the trans side.  Thus, spreading a lipid bilayer across this aperture entirely blocks the flow of ionic current from one electrode to the other.
 
 \section{Preparation of the electrodes}
 
 The electrodes are Ag/AgCl pellets connected to a copper connector.  The pellets are housed in a Teflon sheath, made to fit into the patch stand.  Electrodes should be cleaned with ethanol and DI water, and prepared in the following way before each experiment.
 
-Take a very small amount of bleach (just enough to cover Ag/AgCl but not much of the Teflon, about 70uL) in a tiny (1.5mL) eppendorf tube.  Put the electrode into the bleach so that only the Ag/AgCl is submerged.  Do this for both electrodes.  Wait for 5 minutes while surface Ag is converted to AgCl.  The color of fresh Ag electrodes should change from light silver to a dark brownish color.  If something looks wrong, sand down the surface of the electrodes gently with fine grit sand paper and retry.
+Take a very small amount of bleach (just enough to cover Ag/AgCl but not much of the Teflon, about \SI{70}{\micro\liter}) in a \SI{1.5}{\mL} eppendorf tube.  Put the electrode into the bleach so that only the Ag/AgCl is submerged.  Do this for both electrodes.  Wait for about \num{5} minutes while any surface Ag is converted to AgCl.  Clean again with DI water, ethanol, and DI water.
 
 \begin{figure}[h]
 \begin{centering}
@@ -77,42 +77,40 @@ Without pre-coating the Teflon patch tube's aperture with lipid, the membranes w
 
 \subsection{Preparing lipid in hexane}
 
-Take a fresh \SI{0.4}{\m\g} tube of PC lipid (Avanti Polar Lipids, Inc., dessicated and stored at \SI{-20}{\celsius}).  Add \SI{200}{\micro\L} hexane and gently mix by flicking the tube.  Store in the refrigerator in a ``humidor” of hexane.
+Take a fresh \SI{0.4}{\m\g} tube of PC lipid (Avanti Polar Lipids, Inc., dessicated and stored at \SI{-20}{\celsius}).  Add \SI{200}{\micro\L} hexane and gently mix by flicking the tube.  Store in the refrigerator in a ``humidor” of hexane.  This stock can be re-used for months, stored in this way.
 
 \subsection{Pre-paint}
 
-Set up the patch stand under a dissecting microscope and look at the end of the patch tube where the aperture is (the cis side).  Using a long pipette tip, withdraw \SI{5}{\micro\L} of PC/hexane.  Drop onto the Teflon aperture, one drop at a time, allowing the solution to wick into the patch tube.  As each drop is applied, give several seconds for some of the hexane to evaporate.  After applying all \SI{5}{\micro\L} of PC/hexane to the aperture, attach the air syringe to the trans side of the patch tube and push air through the tube, from trans to cis, expelling excess PC/hexane from the patch tube and drying it.
-
-Allow at least \num{20} minutes for the patch stand to dry fully.
+Set up the patch stand under a dissecting microscope and look at the end of the patch tube where the aperture is (the cis side).  Using a long pipette tip, withdraw \SI{5}{\micro\L} of PC/hexane.  Drop onto the Teflon aperture, one drop at a time, allowing the solution to wick into the patch tube.  As each drop is applied, give several seconds for some of the hexane to evaporate.  After applying all \SI{5}{\micro\L} of PC/hexane to the aperture, attach the air syringe to the trans side of the patch tube and push air through the tube, from trans to cis, expelling excess PC/hexane from the patch tube and drying it.  Allow at least \num{20} minutes for the patch stand to dry fully.
 
 \section{Setting up the patch stand to start an experiment}
 
-After the patch stand has been pre-painted with PC lipid, set up the patch stand in its copper block holder, with the Ag/AgCl electrodes and the buffer flow lines.  Choose a buffer to use.  Typically, we use \SI{1}{\Molar} KCl, \SI{10}{\m\Molar} HEPES, at pH \num{8.0}.  Pull some buffer into the buffer syringe, and use it to fill the U-tube from trans side to cis.  Once the patch tube is filled with buffer and buffer has started to come through the cis side aperture, stop and remove the buffer syringe.  Fill the cis buffer flow lines with buffer using the syringes attached to each (one inlet, one outlet, see Figure \ref{fig:protocol_perfusion}).  Fill the cis and trans sides of the patch stand with buffer, ensuring there are no bubbles and that there is good contact between the solution and the electrodes.
+After the patch stand has been pre-painted with PC lipid, set up the patch stand in its copper block holder, with the Ag/AgCl electrodes and the buffer flow lines plugged in.  Choose a buffer to use.  Typically, we use \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, at pH \num{8.00}.  Pull some buffer into the buffer syringe, and use it to \textit{slowly} fill the patch tube from trans side to cis.  Once the patch tube is filled with buffer and buffer has started to come through the aperture into the cis side, stop and remove the buffer syringe.  Fill the cis buffer flow lines with buffer using the syringes attached to each (one inlet, one outlet, see Figure \ref{fig:protocol_perfusion}).  Then fill the cis and trans sides of the patch stand with buffer, ensuring there are no bubbles and that there is good contact between the solution and the electrodes.
 
 At this point, the current amplifier should probably be overloaded.  If even a small voltage is applied by the amplifier, the current should certainly overload.  This indicates that ionic current is flowing freely, and the patch stand has been set up correctly.  If you see zero current, there is likely a bubble present somewhere, either over one electrode, or on/under the aperture, or deep in the patch tube.  Remove the bubble to achieve ionic current flow.  A bubble in the patch tube can be removed by pushing fresh buffer trans to cis using the buffer syringe.
 
 \section{Creation of a lipid membrane}
 
-The nanopore experiment is a single-molecule experiment.  A large amount of lipid, oil, protein, etc. is not necessary.  Less is more.  The goal of the experiment is to establish a single nanopore in a bilayer membrane using as little material as possible.
+The nanopore experiment is a single-molecule experiment.  A large amount of lipid, oil, protein, etc., is not necessary.  Less is more.  The goal of the experiment is to establish a single nanopore in a bilayer membrane using as little material as possible.
 
-Based on the kind instruction I received from Andrew Smith and Robin Abu-Shumays in the lab of Mark Akeson at the University of California at Santa Cruz, I learned of the ``lipid ball" technique.  This technique for membrane formation allowed experiments to last for days, where before they lasted for hours at most.  This technique is an art form, but one well worth learning for these single-channel nanopore experiments.
+Based on the kind and patient instruction I received from Andrew Smith and Robin Abu-Shumays in the lab of Mark Akeson at the University of California at Santa Cruz, I learned of the ``lipid ball" technique.  This technique for membrane formation allowed experiments to last for days, where before they lasted for hours at most.  This technique is an art form, but one well worth learning for these single-channel nanopore experiments.
 
 \subsection{Lipid ball technique}
 
-First, dry ``lipid drops" are needed, which are dried down lipid on a glass coverslip, each ``drop" being maybe \SI{2}{\mm} in diameter.  To make these, add \SI{40}{\micro\L} of chloroform to a \SI{0.4}{\m\g} tube of dessicated PC from the freezer.  Take \num{4} clean glass coverslips.  At each of the four corners of each coverslip, drop a small \SI{1}{\micro\L} drop of PC/chloroform and let the chloroform evaporate.  Repeat this, dropping drops on top of each dried PC spot in turn, over and over until the PC/chloroform is all gone.  Store these coverslips of ``lipid drops" in vacuum in a bell jar.
+First, desiccated ``lipid drops" are needed, which are dried down lipid on a glass coverslip, each ``drop" being maybe \SI{2}{\mm} in diameter.  To make these, add \SI{40}{\micro\L} of chloroform to a \SI{0.4}{\m\g} tube of desiccated PC stored in a \SI{-20}{\celsius} freezer.  Take \num{4} clean glass coverslips.  At each of the four corners of each coverslip, drop a small \SI{1}{\micro\L} drop of PC/chloroform and let the chloroform evaporate.  Repeat this, dropping drops on top of each dried PC spot in turn, over and over until the PC/chloroform is all gone.  The entire \SI{40}{\micro\liter} of PC/chloroform should now be evenly distributed among \num{16} dry ``drops" of lipid.  Store these coverslips of ``lipid drops" in vacuum in a bell jar.
 
-Using one of these glass coverslips, pick one of the four lipid drops and use it to create a ``lipid ball."  This is accomplished by re-hydrating the dried lipid very slowly with 1-hexadecene (Sigma Aldrich, Inc.) using a paintbrush with only a single bristle.  The bristle should be pliable.  Dip the bristle into hexadecene.  Under a microscope, use the bristle as a squeegee to gently scrape the dry lipid up from one side.  Push the bristle against the dry lipid.  Dip the bristle in hexadecene again.  Repeat this dipping and pushing from the side hundreds of times.  The lipid will reluctantly begin to re-hydrate.  The process should not be rushed, and will take about \num{10} minutes.  Eventually, the entire spot of dried lipid will be hydrated with hexadecene, and will be optically transparent and very uniform.  If it is not uniform, use the bristle to ``knead" the lipid ball, folding it over on itself to mix it.  The ideal lipid ball is viscous but not solid, sticky but not like rubber cement, and will form a tiny tendril of lipid/hexadecene attached to the bristle when the bristle is pulled away from the ball.  The ball should be quite wet, just barely solid enough to not disintegrate into a liquid.
+Take one of these glass coverslips, pick one of the four lipid drops, and use it to create a ``lipid ball."  This is accomplished by re-hydrating the dried lipid very slowly with 1-hexadecene (Sigma Aldrich, Inc.) using a paintbrush with only a single bristle.  The bristle should be pliable.  Dip the bristle into hexadecene.  Under a microscope, use the bristle as a squeegee to gently scrape the dry lipid up from one side.  Push the bristle against the dry lipid.  Dip the bristle in hexadecene again.  Repeat this dipping and pushing from the side hundreds of times.  The lipid will reluctantly begin to re-hydrate.  The process should not be rushed, and will take about \num{10} minutes.  Eventually, the entire spot of dried lipid will be hydrated with hexadecene, and will be optically transparent and very uniform.  If it is not uniform, use the bristle to ``knead" the lipid ball, folding it over on itself to mix it.  The ideal lipid ball is viscous but not solid, sticky but more runny than rubber cement, and it will form a tiny tendril of lipid/hexadecene attached to the bristle when the bristle is pulled away from the ball.  The ball should be quite wet, just barely solid enough to not disintegrate into a liquid.
 
-Using another brush with a single thick, less flexible bristle, pick up the lipid ball.  The ball is now stuck to the tip of the thick bristle.  Use this bristle to dunk the lipid ball into the cis side buffer and touch the lipid ball to the surface of the patch tube where the aperture is.  Use the bristle to roll the lipid ball around the surface of the patch tube.  As it rolls, the lipid ball will leave a slight trail of PC/hexadecene.  This trail will be the reservoir which maintains the stability of the membrane.  Once the lipid ball has been rolled around and over the aperture, use the bristle to remove the lipid ball from the cis side, and place the ball back on its glass coverslip, where it can be stored for immediate re-use the same day, if necessary.
+Using another brush with a single thick, stiffer bristle (a medium toothbrush bristle works well), pick up the lipid ball.  The ball is now stuck to the tip of the thick bristle.  Use this bristle to dunk the lipid ball into the cis side buffer and touch the lipid ball to the surface of the patch tube where the aperture is.  Use the bristle to roll the lipid ball around the surface of the patch tube.  As it rolls, the lipid ball will leave a slight trail of PC/hexadecene.  This trail will be the reservoir which maintains the stability of the membrane.  Once the lipid ball has been rolled around and over the aperture, use the bristle to remove the lipid ball from the cis side, and place the ball back on its glass coverslip, where it can be stored for immediate re-use the same day, if necessary.
 
 \subsection{Using an air bubble to establish a membrane}
 
-Dip a clean, long (gel-loading) pipette tip into the cis side buffer.  Looking into the microscope, blow an air bubble out of the pipette tip (holding the tip under water), and while the air bubble is still attached to the pipette tip, rub the bubble across the aperture.  Remove the bubble by suckin git back up.  This process is depicted in Figure \ref{fig:protocol_bubble}.  Watch the ionic current during this process (or, preferably, listen to the current using a voltage-to-audio speaker box connected to the output of the Axopatch).  A seal can be established that blocks ionic current, and the membrane can be destroyed and recreated in this way many times.  The membrane is shown from a side-view in Figure \ref{fig:protocol_membrane}.
+Dip a clean, long (gel-loading) pipette tip into the cis side buffer.  Looking into the microscope, blow an air bubble out of the pipette tip (holding the tip under water), and while the air bubble is still attached to the pipette tip, rub the bubble across the aperture.  Remove the bubble by sucking it back up.  This process is depicted in Figure \ref{fig:protocol_bubble}.  Watch the ionic current during this process (or, preferably, listen to the current using a voltage-to-audio speaker box connected to the output of the Axopatch).  A seal can be established that blocks ionic current, and the membrane can be destroyed and recreated in this way many times.  The membrane is shown from a side-view in Figure \ref{fig:protocol_membrane}.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/protocol_bubble.pdf}
-\caption[Establishing a lipid membrane with a bubble]{These four cartoon images depict the formation of a lipid membrane using an air bubble expressed from the end of a long pipette tip.  When a bubble touches down and spans the aperture, current ceases flowing.  When the bubble is removed, most of the time, a membrane remains across the aperture.}
+\caption[Establishing a lipid membrane with a bubble]{These four cartoon images depict the formation of a lipid membrane using an air bubble expressed from the end of a long pipette tip underwater.  When a bubble touches down and spans the aperture, current ceases flowing.  When the bubble is removed, most of the time, a membrane remains across the aperture.}
 \label{fig:protocol_bubble}
 \end{centering}
 \end{figure}
@@ -120,14 +118,14 @@ Dip a clean, long (gel-loading) pipette tip into the cis side buffer.  Looking i
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/protocol_pic_membrane.png}
-\caption[Diagram of membrane on Teflon patch tube]{Membrane forms across the open aperture in the Teflon patch tube.  Lipid and hexadecene oil are adhered to the Teflon, and after applying and removing an air bubble, a lipid membrane remains.  If everything is right, the lipid membrane has an area of thin bilayer.}
+\caption[Diagram of membrane on Teflon patch tube]{Membrane forms across the open aperture in the Teflon patch tube.  Lipid and hexadecene oil are adhered to the Teflon, and after applying and removing an air bubble (as shown in Figure \ref{fig:protocol_bubble}), a lipid membrane remains.  If everything is right, the lipid membrane has an area of thin bilayer.}
 \label{fig:protocol_membrane}
 \end{centering}
 \end{figure}
 
 Note: too much of the hexadecene oil can clog the aperture entirely.  If the lipid ball has been smeared over the aperture and too much remains, it can also block the aperture.  This excess can be cleared by gently using the thick bristle, or by blasting buffer through the patch tube.
 
-Break the membrane and reform it.  The membrane should be stable at \SI{300}{\m\V}.  Use the ``seal test” feature on the AxoPatch to look at the capacitive current spike that results when a voltage step is applied.  A diagram of the current spikes is shown in Figure \ref{fig:protocol_capacitance}.  The size of the current spike is proportional to the capacitance.  More bilayer area means higher capacitance, so break and reform new membranes and look for the size of the spike to increase.  Keep forming membranes and try to get a high capacitance membrane.
+Break the membrane and reform it.  The membrane should be stable at \SI{300}{\m\V} (meaning no current fluctuations and < \SI{2}{\pA} current).  Use the ``seal test” feature on the Axopatch to look at the capacitive current spike that results when a voltage step is applied.  A diagram of the current spikes is shown in Figure \ref{fig:protocol_capacitance}.  The size of the current spike is proportional to the capacitance.  More bilayer area means higher capacitance, so break and reform new membranes and look for the size of the spike to increase.  Keep forming membranes and try to get a high capacitance membrane.  The capacitance of a membrane can slowly increase over the course of minutes as the membrane settles down and the hexadecene and lipid bilayer reach an equilibrium.
 
 \begin{figure}[h]
 \begin{centering}
@@ -137,38 +135,83 @@ Break the membrane and reform it.  The membrane should be stable at \SI{300}{\m\
 \end{centering}
 \end{figure}
 
+\subsection{Capturing a single nanopore}
 
+The most interesting and challenging part of the process is capturing a single nanopore in the lipid membrane.  Each different nanopore seems to require its own slightly different optimal technique.  The protocol given here is optimized for MspA.  In a tube, combine:
+
+\begin{itemize}
+\item \SI{18.5}{\micro\liter} cis buffer
+\item \SI{1.0}{\micro\liter} \num{50}\% glycerol, \num{0.1}\% (w/v) dodecyl maltoside [DDM] (non-ionic detergent) in water
+\item \SI{0.5}{\micro\liter} glycerol
+\item \SI{0.5}{\micro\liter} \SI{0.5}{\mg / \mL} MspA protein in \num{50}\% glycerol, stored at \SI{-20}{\celsius}
+\end{itemize}
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/protocol_pic_membrane_pores.png}
-\caption[Diagram of nanopore introduction]{...}
+\caption[Diagram of nanopore introduction]{Introduction of nanopores (small blue shapes) on the cis side results in the situation depicted in this cartoon.  Nanopores introduced on one side of the membrane will insert with a given orientation, as long as the membrane remains unbroken.}
 \label{fig:protocol_pores}
 \end{centering}
 \end{figure}
 
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/protocol_pic_membrane_single_pore.png}
-\caption[Diagram of single nanopore capture]{...}
-\label{fig:protocol_single_pore}
-\end{centering}
-\end{figure}
+Once the membrane appears to be stable and high-capacitance, apply \SI{180}{\mV} bias across the membrane.  Ensure that the buffer perfusion lines are connected and open, and that the buffer syringes are set up and the fresh buffer syringe is full (see Figure \ref{fig:protocol_perfusion}).  While looking through a microscope, introduce \num{1} or \SI{2}{\micro\liter} of this MspA solution into the cis side, carefully injecting it directly over the membrane.  Do not mix.  Its density will sink it right onto the membrane.  Wait to see a sudden jump in the current to about \SI{2}{\nano\siemens} conductance.  During this waiting time, the situation looks like Figure \ref{fig:protocol_pores}.  There are many pores waiting for a chance to insert themselves into the bilayer.  Once a pore inserts into a region of bilayer, current will begin to flow.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/protocol_perfusion.pdf}
-\caption[Setup for removing nanopores by buffer perfusion]{...}
+\caption[Setup for removing nanopores by buffer perfusion]{Perfusion setup involved in quickly exchanging buffer in the cis side.  Flow lines are connected to remove buffer from the cis side at the right while simultaneously injecting fresh buffer from the left.  Because the plungers are pushed together, the solution volume in the cis side does not change.}
 \label{fig:protocol_perfusion}
 \end{centering}
 \end{figure}
+
+As soon as a nanopore inserts into the membrane (sudden jump in current), use the buffer syringes to quickly but gently perfuse buffer through the setup, exchanging the buffer in the cis side and removing all the nanopores from the cis buffer solution.  The physical action taken by the experimenter is shown in the perfusion setup in Figure \ref{fig:protocol_perfusion}.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{figures/protocol_pic_membrane_single_pore.png}
+\caption[Diagram of single nanopore capture]{In the ideal scenario, as soon as a single nanopore inserts into the lipid bilayer, the experimenter perfuses fresh buffer into the cis side, flushing out all of the excess nanopores in solution.}
+\label{fig:protocol_single_pore}
+\end{centering}
+\end{figure}
+
+The result of the perfusion process is depicted in Figure \ref{fig:protocol_single_pore}.  When executed correctly, this procedure results in a single nanopore spanning the lipid bilayer.  This technique typically results in nanopore insertion in under \num{2} minutes.  If the wait time for nanopore insertion exceeds \num{3} minutes, it is likely that the membrane is not really a bilayer, but is something thicker.  I usually perfuse buffer to remove the nanopores, break the membrane, reform the membrane using a bubble (trying for a larger capacitance membrane), and redo the previous steps for nanopore insertion.
+
+If two or more nanopores insert, the membrane must unfortunately be destroyed so that the process can be started over.  In cases where reforming a membrane using the bubble method results in a single nanopore, it can be used for experiments, provided it is right side up, which can be determined by the current versus voltage curve (see the discussion in Section \ref{pore_orientation}).  If reforming membranes often results in many nanopores, or if membranes seem fragile and unstable, it is possible to re-roll the lipid ball over and around the patch tube aperture on the cis side.
+
+\subsection{Cleaning after an experiment}
+
+Cleaning of the patch stand, buffer flow lines, and electrodes is of utmost importance for single-molecule experiments.  After an experiment, the patch stand should be cleaned in the following way:
+
+\begin{itemize}
+\item Rinse with DI water, and pull DI water through the patch tube
+\item Rinse with ethanol, and pull ethanol through the patch tube
+\item Fill the cis side with hexane, and pull hexane through the patch tube
+\item Rinse with DI water, and pull DI water through the patch tube, leaving the patch tube and cis side full of water
+\item Submerge the patch stand and the Teflon plugs in \num{10}\% nitric acid (in DI water)
+\item Bring to a boil in the nitric acid solution for \num{1} minute, and let cool on hot plate
+\item Store the patch stand under DI water
+\end{itemize}
+
+Electrodes can be cleaned by rinsing in DI water, rinsing with ethanol, and rinsing again with DI water.  Ag/AgCl pellet electrodes should be stored dry.
+
+The buffer perfusion lines are made of ethanol-resistant Tygon tubing.  They should be cleaned by attaching them to a \SI{60}{\mL} syringe and allowing gravity to flow through:
+
+\begin{itemize}
+\item \SI{60}{\mL} DI water
+\item \SI{60}{\mL} ethanol
+\item \SI{60}{\mL} DI water
+\item \SI{60}{\mL} \num{10}\% bleach (in DI water)
+\item \SI{60}{\mL} DI water
+\end{itemize}
+
+These cleaning procedures ensure excellent results.  The difference in the open pore current, in terms of minimizing the number of spurious current blockage events when there is no sample present, is noticeable.
 
 \section{Sample Preparation}
 \label{sample_prep}
 
 \subsection{Handling of reagents}
 
-
+High purity, molecular biology grade reagents are used in these experiments.  Deionized \SI{18}{\mega\ohm\cm} water is used throughout.  Buffers are made, titrated to the desired pH $\pm$ \num{0.01} using a calibrated pH meter.  All buffers are vacuum-filtered using a Corning \SI{0.22}{\micro\m} filtration system.  Dda helicase enzymes absolutely require storage at \SI{-80}{\celsius}.  MspA is stored at \SI{-20}{\celsius} in \num{50}\% glycerol which does not freeze solid.  MspA is stable stored in this way for years.  PC lipid is desiccated by aliquotting in chloroform and drying under nitrogen in small glass vials, and is stored at \SI{-20}{\celsius}.
 
 \subsection{Preparation of NeutrAvidin/ssDNA complexes}
 
