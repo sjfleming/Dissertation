@@ -91,11 +91,31 @@ Experiments and data
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/helicase_pulse_level_change.pdf}
-\caption[Voltage pulse can induce a helicase step]{M3-MspA, applied constant bias voltage of \SI{160}{\mV} in \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.}
+\caption[Voltage pulse can induce a helicase step]{M3-MspA, applied constant bias voltage of \SI{160}{\mV} in \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}. Data filtered to \SI{200}{\Hz}}
 \label{fig:helicase_pulse}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/helicase_data_pulses.pdf}
+\caption[A fraction of pulses move the helicase]{M3-MspA, applied constant bias voltage of \SI{160}{\mV} in \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.  Gray is raw data, hardware filtered at \SI{10}{\kHz}, black is \SI{1}{\kHz} filtered data.}
+\label{fig:helicase_pulse_traces}
 \end{centering}
 \end{figure}
 
 \subsection{Analysis and discussion}
 
 discussion.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/helicase_pulse_correlation.pdf}
+\caption[Quantifying efficacy of pulses]{M3-MspA, applied constant bias voltage of \SI{160}{\mV} in \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.}
+\label{fig:helicase_pulse_efficacy}
+\end{centering}
+\end{figure}
+
+Many pulse voltages and durations were tried, from 200mV to 2V, and 200ns to 2ms, in both 1M KCl and 0.5M KCl, with and without ATP and ADPNP.
+
+What really remains is to try other enzymes.
