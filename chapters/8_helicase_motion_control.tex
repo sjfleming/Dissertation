@@ -10,27 +10,27 @@ All the physical and chemical laws that are known to play an important part in t
 
 \subsection{Motivation for controlling helicase motion}
 
-The general goal and its motivation (talk about homopolymers here).
+One of the main factors that limits the accuracy of a DNA sequence obtained from a single read in a nanopore is the presence of homopolymer regions, or repeated nucleotides, in the DNA.  Repeated nucleotides in stretches longer than the five bases are common in biology \citep{Dechering1998}, but the constriction of MspA reads only about \num{5} nucleotides simultaneously.  This means that as the DNA is unwound by a helicase or other enzyme and fed through the pore base-by-base, the \num{5} nucleotides in the pore remain the same, and the current does not change.  Thus the nanopore misses information about stretches of homopolymers longer than \num{5} nucleotides.
+
+Reads from several identical copies of a DNA molecule can be obtained and the data combined using a variety of algorithms (for a discussion see Reference \citenum{Szalay2015}).  Combining information from \num{100} molecules can yield approximately \num{99}\% accuracy in the DNA sequence.  However, the information about the length of long homopolymer repeats is missing, and this missing information accounts for approximately half of the remaining error \citep{Szalay2015}.  As data quality improve and as the data analysis increasingly takes place using recurrent neural networks \citep{Boza2017}, it is possible that the major source of error that will remain is these long stretches of homopolymers.
+
+If the length of these homopolymer regions of DNA could be determined, it would boost the overall accuracy of DNA sequences obtained with a nanopore.  One strategy is to use the time information obtained from nanopore current recordings.  Since current levels last different amounts of time, it is possible to make inferences about repeats \citep{Sarkozy2017}.  Yet the most desirable solution would be to determine the number of repeats experimentally.  The strategy of the work presented in this chapter is to develop such an approach, based on exerting temporal control over the motion of the helicase enzyme.  If the motion of the enzyme could be precisely timed, and the enzyme made to step at regular intervals, then the number of nucleotides in a homopolymer repeat could be read directly.
 
 \subsection{General considerations about mechanical force in biology}
 
-The broader question about mechanical force in biology, and using mechanical force to get an enzyme to perform its function.
+The strategy employed here to control the motion of a helicase along DNA will be to advance the helicase using applied mechanical force.  Experiments will demonstrate that mechanical force can be used as a substitute for the hydrolysis of ATP in order to force the enzyme to take single-nucleotide steps.
 
-Review on single-molecule force spectroscopy, including optical tweezers, magnetic tweezers, and atomic force microscopy \citep{Neuman2008}.  Also recently done with a nanopore and called SPRNT \citep{Derrington2015}.
+Much work has been carried out in studying the role of mechanical force in the functioning of motor proteins, ever since the development of single-molecule experimental techniques such as optical tweezers, magnetic tweezers, and atomic force microscopy \citep{Neuman2008}.  The nanopore-DNA experimental setup described here has also been proposed as a sensitive instrument capable of measuring small forces and displacements \citep{Derrington2015}.
 
-Force applied by an \textit{E. coli} RNA polymerase during trascription using an optical tweezer \citep{Yin1995}
+Mechanical forces are important in biochemistry, particularly in the functioning of motor proteins.  For an overview, see Reference \citenum{Bustamante2004}.  In general, motor proteins convert chemical energy into mechanical work \citep{Oster2003}.  Motor proteins, including helicases, polymerases, and also mysosins (involved in muscle contraction) and kinesins (involved in intracellular cargo trafficking) walk along directional tracks, hydrolyzing nucleotide triphosphates in order to do so.
 
-Myosin-V acts as a mechanical ratchet, rectifying mechanical forces applied to it.  Measured applied forces in the forward and reverse direction using an optical tweezer \citep{Gebhardt2006}.  Force-dependent stepping rates of Myosin-V \citep{Clemen2005}
+% Mechanical force is also important in force-sensitive ion channels such as those involved in mechanotransduction, \textit{i.e.} biochemical signaling within a cell in response to mechanical forces \citep{Jaalouk2009}.
 
-Examination of the kinetics of backward steps of kinesin under mechanical load \citep{Hyeon2009}
+An optical tweezer setup was used to measure the force applied by an \textit{E. coli} RNA polymerase during trascription in 1995 (approximately \SI{14}{\pico\N}) \citep{Yin1995}.  Myosin-V was found to act as a mechanical ratchet, rectifying mechanical forces applied to it \citep{Gebhardt2006}.  External forces were applied in the forward direction, assisting the enzyme's motion along actin, as well as in the reverse direction, using an optical tweezer.  The rate of stepping by myosin-V was found to depend on this applied force \citep{Clemen2005}.  Kinesin is capable of producing forces of about \SI{7}{\pico\N} \citep{Higuchi1997}.  Studies on kinesin have demonstrated that force-induced backward steps of kinesin might in fact synthesize ATP, in the reverse reaction of ATP hydrolysis involved in forward stepping \citep{Hyeon2009}.  Synthesis of ATP was demonstrated by Itoh \textit{et al.} by applying a torque to rotate the F$_1$-ATPase in the reverse of its ATP-hydrolysis direction \citep{Itoh2004}.
 
-F$_1$-ATPase can generate ATP when rotated using an applied mechanical force \citep{Itoh2004}
+\subsection{This work}
 
-mechanotransduction in cells \citep{Jaalouk2009}
-
-Motor proteins convert chemical energy into mechanical work \citep{Oster2003}
-
-Review of mechanical processes in biochemistry \citep{Bustamante2004}
+Mechanical force has been shown by Cherf \textit{et al.} to mediate unzipping of a duplex by phi29 DNA polymerase in nanopore experiments \citep{Cherf2012}.  Here, this same idea of force-mediated unzipping of a duplex is explored, using the Dda helicase enzyme.  Measurements are made to quantify helicase step times as a function of voltage and temperature.  Attempts are made at temporal control over helicase stepping using brief pulses of applied voltage.
 
 
 \section{Experiment}
