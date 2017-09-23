@@ -35,6 +35,8 @@ Review of mechanical processes in biochemistry \citep{Bustamante2004}
 
 \section{Experiment}
 
+The experimental setup is the same as that shown in Figure \ref{fig:helicase_scheme}b, with MspA in a PC lipid membrane.  A Dda helicase - DNA complex is captured in the nanopore, and a constant voltage bias is applied.  The buffer is typically \SI{1}{\Molar} KCl with \SI{25}{\m\Molar} K-phosphate buffer at pH \num{8.00}.  \SI{2}{\m\Molar} MgCl$_2$ is added to the cis side with the helicase, but no ATP is added.  The only force applied to advance the helicase along the DNA is the electrophoretic force on the DNA induced by the voltage across the membrane.
+
 \section{Mechanical force as a sufficient substitute for ATP}
 
 Sliding mode, agreement of current levels.  All sorts of results about sliding distributions, average rates with voltage and temperature.
@@ -42,7 +44,7 @@ Sliding mode, agreement of current levels.  All sorts of results about sliding d
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/helicase_force_stepping.pdf}
-\caption[Mechanical force substitutes for ATP and moves helicase]{...}
+\caption[Mechanical force substitutes for ATP and moves helicase]{(a) Selected segment of a current versus time trace obtained at \SI{37}{\celsius} as a constant \SI{160}{\mV} bias is applied across the membrane.  The Dda helicase is apparently forced to move forward along the DNA strand, unzipping the dsDNA duplex ahead of it.  Note the relatively long time scale on the x-axis.  Gray is the raw data obtained at \SI{10}{\kHz}, while blue is filtered to \SI{1}{\kHz}.  (b) The current level means, with the time information removed, showing a single molecule read of a repetitive DNA sequence traversing the constriction of M3-MspA.  Current levels measured when the helicase advances due to applied force (red) are aligned to known model levels, measured with ATP (black).  The segment of data in panel (a) corresponds to the same current levels shown in panel (b).}
 \label{fig:helicase_force_stepping}
 \end{centering}
 \end{figure}
@@ -50,7 +52,7 @@ Sliding mode, agreement of current levels.  All sorts of results about sliding d
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/helicase_levels_sliding.pdf}
-\caption[Mechanical force results in the same current levels]{... several molecules aligned ... M3-MspA, \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, \SI{37}{\celsius}, \SI{160}{\mV}.}
+\caption[Mechanical force results in the same current levels]{Aligned data from several molecules of identical DNA sequence, showing the current levels measured in M3-MspA (red) as helicase steps along the strand.  The helicase is advanced by the mechanical force applied due to a \SI{160}{\mV} transmembrane potential difference.  Current levels are aligned to known model levels from measurements using ATP.  Error bars are the standard deviation of the mean currents of levels from each molecule measured.  \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, \SI{2}{\m\Molar} MgCl$_2$, \SI{37}{\celsius}.}
 \label{fig:helicase_force_stepping_2}
 \end{centering}
 \end{figure}
@@ -60,7 +62,7 @@ Sliding mode, agreement of current levels.  All sorts of results about sliding d
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/helicase_sliding_analog.pdf}
-\caption[Unzipping time due to force depends on ATP analog]{... several molecules aligned ... M3-MspA, \SI{1}{\Molar} KCl,, \SI{37}{\celsius}.}
+\caption[Forced unzipping time depends on the presence of an ATP analog]{(a) Without ATP analog, the distribution of the time it takes to force a helicase to unzip a \num{50}bp duplex has a long tail.  The average of the \SI{180}{\mV} distribution (red) is a shorter time than the \SI{160}{\mV} distribution (blue), but both are quite broad.  (b) With \SI{2}{\m\Molar} ADPNP present, the same distributions become slightly less broad.  Data taken with M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{37}{\celsius}.  Log-normal fits are shown as dotted lines to guide the eye.}
 \label{fig:helicase_sliding_analog}
 \end{centering}
 \end{figure}
@@ -68,7 +70,7 @@ Sliding mode, agreement of current levels.  All sorts of results about sliding d
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.5\textwidth]{figures/helicase_sliding_step_dist.pdf}
-\caption[Distribution of step durations using mechanical force]{... several molecules aligned ... M3-MspA, \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, \SI{37}{\celsius}.}
+\caption[Distribution of step durations using mechanical force]{Probability distributions for helicase step durations measured without ATP, when Dda is advanced by mechanical force through a duplex.  The three voltages shown all display quite broad distributions, but step durations are generally shorter at higher applied bias voltages.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{2}{\m\Molar} ADPNP, \SI{37}{\celsius}.}
 \label{fig:helicase_sliding_time_dist}
 \end{centering}
 \end{figure}
@@ -78,7 +80,7 @@ Sliding mode, agreement of current levels.  All sorts of results about sliding d
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/helicase_sliding_voltage.pdf}
-\caption[Forced helicase stepping depends on voltage]{...  M3-MspA, \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP.}
+\caption[Forced helicase stepping depends on voltage]{The median step duration of Dda helicase forced to unwind a duplex is plotted as a function of voltage, at several temperatures.  Spline curves are drawn to guide the eye along measurements at constant temperature.  Error bars are $median(t)/\sqrt{N}$, where $N$ was typically many hundreds of individual steps.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{2}{\m\Molar} ADPNP.}
 \label{fig:helicase_stepping_voltage}
 \end{centering}
 \end{figure}
@@ -86,7 +88,7 @@ Sliding mode, agreement of current levels.  All sorts of results about sliding d
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/helicase_sliding_temp.pdf}
-\caption[Forced helicase stepping depends on temperature]{...  M3-MspA, \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP.}
+\caption[Forced helicase stepping depends on temperature]{Same data shown in Figure \ref{fig:helicase_stepping_voltage}.  The median step duration of Dda helicase forced to unwind a duplex is plotted here as a function of temperature, at several applied bias voltages.  Spline curves are drawn to guide the eye along measurements at constant voltage.  Error bars are $median(t)/\sqrt{N}$, where $N$ was typically many hundreds of individual steps.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{2}{\m\Molar} ADPNP.}
 \label{fig:helicase_stepping_temp}
 \end{centering}
 \end{figure}
@@ -104,7 +106,7 @@ Limits in terms of membrane charging.
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/pulse_electronics.pdf}
-\caption[Electronic setup for low-noise pulses across a nanopore]{...}
+\caption[Electronic setup for low-noise pulses across a nanopore]{Schematic of the electronic setup used to apply short voltage pulses across the nanopore.  The nanopore equivalent circuit is shown on the bottom left, with access resistance $R_{\text{a}}$, pore resistance $R_{\text{pore}}$, and membrane capacitance $C_{\text{mem}}$.  The voltage difference across the membrane is $\Delta V = V_{\text{bias}} + V_{\text{pulse}}$.  Voltage pulses of duration \SI{50}{\ns} to \SI{10}{\ms} and up to \SI{5}{\V} are applied using a custom-built low-noise pulse generator, inserted between the cis side of the experiment and the ground of the Axopatch's headstage.  In order to cancel out capacitive current spikes before they reach the current amplifier, the pulse generator simultaneously outputs a pulse of opposite polarity, meant to compensate.}
 \label{fig:helicase_pulse_setup}
 \end{centering}
 \end{figure}
