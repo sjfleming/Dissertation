@@ -3,24 +3,33 @@
 
 \section{General}
 
-Data are recorded using the ClampEx 10.3 software provided by the Molecular Devices Corporation, maker of the Axopatch 200B patch clamp current amplifier.  Analog measurements from the Axopatch 200B are digitized using the Axon CNS DigiData 1440A, a 16-bit analog-to-digital converter capable of acquisition at 250kHz.  This process results in a \texttt{.ABF} file, the proprietary Axon Binary File format.  In general, for the purposes of further analysis, the data are imported into MATLAB (The MathWorks, Inc.) using a suite of files, several of which are part of the PoreView package written by Tamas Szalay, and ultimately these make use of the MATLAB file \texttt{ABFLOAD.m}, written by Harald Hentschke and Forrest Collman.
+Data are recorded using the ClampEx 10.3 software provided by the Molecular Devices Corporation, maker of the Axopatch 200B patch clamp current amplifier.  Analog measurements from the Axopatch 200B are digitized using the Axon CNS Digidata 1440A, a \num{16}-bit analog-to-digital converter capable of acquisition at \SI{250}{\kHz}.  This process results in a \texttt{.ABF} file, the proprietary Axon Binary File format.  In general, for the purposes of further analysis, the data are imported into Matlab (The MathWorks, Inc.) using a suite of files, several of which are part of the PoreView package written by Tamas Szalay, and ultimately these make use of the Matlab file \texttt{ABFLOAD.m}, written by Harald Hentschke and Forrest Collman.
+
+PoreView, run in Matlab, is capable of displaying arbitrarily large data files using downsampling and caching.  Most of the rest of the data analysis was written in Matlab, using methods available in the PoreView package to load data as needed.
+
 
 \section{Event-finding and analysis}
+
+An ``event" in this context refers to a contiguous segment of data where the measured current has dropped below the open pore current.  This analysis is performed using the class \texttt{analysis.m}, which utilizes parts of PoreView for data handling, and has many methods which enable the user to easily perform common tasks, such as creating current histograms, finding events, plotting scatter plots, plotting individual events, and finding discrete current levels within an event.  Event data are aggregated, along with statistics about each event, and are saved in a \texttt{.MAT} file for future analysis.
+
+Event-finding is achieved by means of setting a threshold for the type of blockages that are considered events, finding the open pore current by identifying the center of the highest-current gaussian peak in the current histogram of the entire file (that totals at least \num{5}\% of the data), filtering the data and identifying rough regions in a downsampled version of the data where the current is below the threshold, identifying contiguous such segments, and then taking a detailed look at the raw data to identify the beginning and end of each event exactly.  This use of downsampled data to identify candidate events speeds up the algorithm considerably.  After each event is found, a variety of event statistics are computed.
+
 
 \section{Level-finding algorithm}
 \label{level_finding}
 
-In an MspA experiment using a helicase to ratchet DNA through the nanopore one base at a time, recordings of current as a function of time exhibit discrete steps between stable levels.
-
-\citep{Schreiber2015}
-
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/data_analysis_level_finding.pdf}
+\includegraphics[width=0.95\textwidth]{figures/data_analysis_level_finding.pdf}
 \caption[Data analysis: level-finding]{(a) Current versus time data recorded for a helicase stepping along DNA held in the MspA nanopore.  Stable current levels are marked by abrupt transitions, where the helicase slides one base forward (or backward).  Raw data are hardware filtered at 10kHz (gray).  Data filtered at 1kHz in software are shown in black.  (b) After application of a level-finding algorithm, the discrete mean current levels are shown in red.}
 \label{fig:data_analysis_levels}
 \end{centering}
 \end{figure}
+
+In an MspA experiment where a helicase is used to ratchet DNA through the nanopore one base at a time, recordings of current as a function of time exhibit discrete steps between stable levels (see Figure \ref{fig:data_analysis_levels}a).  Identifying steps in time-series data, and stable levels, is sometimes referred to as ``change-point detection."  I have tested several methods, including hypothesis testing (the null hypothesis being that two segments of data are drawn from the same underlying distribution).  Hypothesis testing using a p-value threshold with the Student t-distribution produces reasonable results, but is not excellent.  Testing using the Kolmogorov-Smirnov test does slightly better, since it does not assume the distributions are gaussian, however the computational intensity makes this approach unfeasible.
+
+A better algorithm has been developed by Schreiber and Karplus \citep{Schreiber2015}, and was used in other work on nanopore data \citep{Laszlo2014}.  This algorithm looks at a segment of data, and moves the location of an index within that segment.  It computes the variance of the entire segment, as well as of the two segments that result when the data is divided into two at the given index.  The algorithm finds the index which minimizes the ratio of within-segment variance to between-segment variance.  If this ratio is below a specified threshold (which is set by probabilities calculated using a prior), then the segment is divided into two at that index.  This approach can be run on the data recursively, starting with the entire event, and splitting it into two (or not) over and over until the threshold for splitting is no longer met.  The computation of variance can also be sped up considerably by pre-computing cumulative sums of $I$ and $I^2$.  The results of the algorithm are shown on in Figure \ref{fig:data_analysis_levels}b.
+
 
 \section{Alignment of data to a known model}
 \label{level_alignment}
@@ -35,6 +44,4 @@ In an MspA experiment using a helicase to ratchet DNA through the nanopore one b
 
 \section{Alignment of data for model parameter estimation}
 
-
-\section{Analysis of correlations between pulses and current level changes}
 
