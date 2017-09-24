@@ -132,11 +132,9 @@ The pulse generator is battery powered and has its ground isolated from the grou
 
 The connection of the pulse generator to the experimental setup is shown in Figure \ref{fig:helicase_pulse_setup}.  As shown, there is a simple circuit meant to cancel the transient capacitive current spikes that are caused by applying a voltage pulse across the membrane capacitance.  These current spikes would otherwise by amplified by the Axopatch and obscure a portion of the signal.  In the configuration shown in Figure \ref{fig:helicase_pulse_setup}, the variable resistor $R_{\text{comp}}$ and capacitor $C_{\text{comp}}$ are meant to match the access resistance $R_{\text{a}}$ and the membrane capacitance $C_{\text{mem}}$ in the nanopore setup.  The pulse generator applies a simultaneous pulse of opposite polarity across the compensation resistor and capacitor, and the resulting current spike is summed with its opposite polarity spike, from the nanopore, before the Axopatch headstage.  This setup works well, though compensating the capacitance exactly requires patience, as the capacitances involved are quite small (on the order of \SI{1}{\pico\F}).
 
-One further consideration is that of limitations on the speed of voltage pulses.  Pulses arrive at the membrane after traveling through the access resistance and charging the membrane capacitance.  If the access resistance under consideration were the access resistance to the nanopore, this would mean $R_{\text{a}} = \rho / 4 r_{\text{pore}}$ \citep{Hall1975} $ \approx $ \SI{10}{\mega\ohm}, and with $C_{\text{mem}} \approx $ \SI{1}{\pico\F} (for the small area membranes used here), this gives a time constant of $\tau = R_{\text{a}} C_{\text{mem}}$ that could be on the order of \SI{10}{\micro\s}.  This would indicate that extremely short pulses, with durations less than about \SI{10}{\micro\s}, are not feasible, and will not reach the membrane.  However, if the access resistance we take into account is instead the access resistance to the entire membrane, rather than to the pore, then $R_{\text{a}} \approx $ \SI{10}{\k\ohm}, and $\tau \approx $ \SI{10}{\ns}, and fast pulses are feasible.
+One further consideration is that of limitations on the speed of voltage pulses.  Pulses arrive at the membrane after traveling through the access resistance and charging the membrane capacitance.  If the access resistance under consideration were the access resistance to the nanopore, this would mean $R_{\text{a}} = \rho / 4 r_{\text{pore}}$ \citep{Hall1975} $ \approx $ \SI{10}{\mega\ohm}, and with $C_{\text{mem}} \approx $ \SI{1}{\pico\F} (for the small area membranes used here), this gives a time constant of $\tau = R_{\text{a}} C_{\text{mem}}$ that could be on the order of \SI{10}{\micro\s}.  This would indicate that extremely short pulses, with durations less than about \SI{10}{\micro\s}, are not feasible, and will not reach the membrane.  However, if the access resistance we take into account is instead the access resistance to the entire membrane, rather than to the pore, then $R_{\text{a}} \approx $ \SI{10}{\kilo\ohm}, and $\tau \approx $ \SI{10}{\ns}.  In this case, pulses on the order of \SI{10}{\ns} or longer would be feasible.
 
 \subsection{Data obtained using voltage pulses}
-
-For an idea of what the intended results look like, refer to Figure \ref{fig:helicase_pulse}.  Two separate instances are plotted where a \SI{300}{\mV} pulse is applied, and the pulse causes the current level to change, implying that the helicase has taken a step.  Panel (a) shows a pulse of \SI{0.5}{\ms} duration, while the pulse in panel (b) is \SI{1}{\ms} in duration.  Current (filtered to \SI{200}{\Hz}) is plotted in black.  (It is worth pointing out the difference between adequate current spike compensation in panel (a), and inadequate compensation in panel (b), where the current spike is visible in the data.)  The red line shows the voltage.  There is a constant voltage of \SI{160}{\mV} applied the entire time, to hold the helicase-DNA complex in the pore and to measure the ionic current.  At \SI{0.1}{\s} on the time axis, a brief pulse of \SI{300}{\mV} is applied, which adds on top of the constant voltage.  These two instances actually represent rare occurrences, and were carefully selected from the data to demonstrate the desired scenario.
 
 \begin{figure}[h]
 \begin{centering}
@@ -146,30 +144,42 @@ For an idea of what the intended results look like, refer to Figure \ref{fig:hel
 \end{centering}
 \end{figure}
 
+For an idea of what the intended results look like, refer to Figure \ref{fig:helicase_pulse}.  Two separate instances are plotted where a \SI{300}{\mV} pulse is applied, and the pulse causes the current level to change, implying that the helicase has taken a step.  Panel (a) shows a pulse of \SI{0.5}{\ms} duration, while the pulse in panel (b) is \SI{1}{\ms} in duration.  Current (filtered to \SI{200}{\Hz}) is plotted in black.  (It is worth pointing out the difference between adequate current spike compensation in panel (a), and inadequate compensation in panel (b), where the current spike is visible in the data.)  The red line shows the voltage.  There is a constant voltage of \SI{160}{\mV} applied the entire time, to hold the helicase-DNA complex in the pore and to measure the ionic current.  At \SI{0.1}{\s} on the time axis, a brief pulse of \SI{300}{\mV} is applied, which adds on top of the constant voltage.  These two instances actually represent rare occurrences, and were carefully selected from the data to demonstrate the desired scenario.
+
 A slightly more accurate idea of what a full dataset looks like is depicted in Figure \ref{fig:helicase_pulse_traces}, although these segments of data are still selected to show some current level changes that coincide with voltage pulses.  The vertical red lines indicate the timing of voltage pulses, and the green arrows indicate current level changes that coincide with voltage pulses.  Other current level changes are due to the constant applied bias of \SI{160}{\mV}.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/helicase_data_pulses.pdf}
-\caption[A fraction of pulses move the helicase]{Helicase steps sometimes coincide with voltage pulses, but other times do not.  Gray is raw current data, hardware filtered at \SI{10}{\kHz}, black is \SI{1}{\kHz} filtered data.  Red vertical lines indicate the timing of pulses, approximately \SI{104}{\ms} apart, \SI{1}{\ms} in duration, and \SI{300}{\mV} in magnitude, in addition to a constant bias voltage of \SI{160}{\mV}.  Green arrows indicate pulses that coincide with changes in current level. M3-MspA in \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate buffer, pH \num{8.00}, \SI{2}{\m\Molar} MgCl$_2$ \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.}
+\caption[A fraction of pulses move the helicase]{Some helicase steps coincide with voltage pulses, but others do not.  Gray is raw current data, hardware filtered at \SI{10}{\kHz}, black is \SI{1}{\kHz} filtered data.  Red vertical lines indicate the timing of pulses, approximately \SI{104}{\ms} apart, \SI{1}{\ms} in duration, and \SI{300}{\mV} in magnitude, in addition to a constant bias voltage of \SI{160}{\mV}.  Green arrows indicate pulses that coincide with changes in current level. M3-MspA in \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate buffer, pH \num{8.00}, \SI{2}{\m\Molar} MgCl$_2$ \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.}
 \label{fig:helicase_pulse_traces}
 \end{centering}
 \end{figure}
 
 \section{Analysis and discussion}
 
-discussion.
+\subsection{Parameter space}
+
+This experiment has a lot of parameter space, including holding voltages, pulse voltages, pulse durations, temperatures, salt concentrations, and buffer conditions.  Many sets of parameters have been tested, though experiments have not yet completely explored the parameter space.  Pulse voltages from \SI{200}{\mV} to \SI{2}{\V} have been tried, as well as pulse durations from \SI{200}{\ns} to \SI{2}{\ms}.  Both \SI{1}{\Molar} KCl and \SI{0.5}{\Molar} KCl have been tested in some subset of conditions, with and without ADPNP or a low concentration of ATP.  These experiments have indicated that pulses of duration less than about \SI{100}{\micro\s} seem to be largely ineffective, at least at the voltages used.
+
+From a practical standpoint, with a PC lipid bilayer membrane, the tolerable voltage range is limited.  A PC lipid membrane will usually break at sustained voltages above about \SI{300}{\mV}.  The membrane will certainly break at \SI{400}{\mV}.  However, it is possible to exceed these values briefly.  For example, using \SI{0.5}{\ms} pulses where the total applied voltage reaches \SI{460}{\mV} is perfectly tolerable.  However, as the duration gets pushed to about \SI{2}{\ms}, the membrane can become unstable and break, ending the experiment.
+
+\subsection{Indications of limited success with Dda}
+
+A more quantitative look at the outcome of experiments using voltage pulses to advance Dda helicase through a dsDNA duplex is shown in Figure \ref{fig:helicase_pulse_efficacy}.  The data show that, even under the most favorable conditions tested here, which were \SI{1}{\ms} pulses of \num{300} - \SI{400}{\mV}, less than \num{1}\% of the applied pulses were effective.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.75\textwidth]{figures/helicase_pulse_efficacy.pdf}
-\caption[Quantifying efficacy of pulses]{M3-MspA, applied constant bias voltage of \SI{160}{\mV} in \SI{1}{\Molar} KCl, \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.  Error bars are the standard error of the mean for several individual DNA/helicase complexes.  The black dashed line shows the mean value corresponding to random coincidence of a pulse with a level change, as measured in the \SI{0}{\ms} control experiment.}
+\caption[Quantifying efficacy of pulses]{Under the most favorable conditions tested, only about 1\% of voltage pulses are effective in advancing the helicase.  Error bars are the standard error of the mean for several individual DNA-helicase complexes.  The black dashed line shows the mean value corresponding to random coincidence of a pulse with a level change, as measured in the \SI{0}{\ms} control experiment.  M3-MspA nanopore, with applied constant bias voltage of \SI{160}{\mV} in \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, pH \num{8.00}, \SI{2}{\m\Molar} MgCl$_2$, \SI{2}{\m\Molar} ADPNP, at \SI{37}{\celsius}.}
 \label{fig:helicase_pulse_efficacy}
 \end{centering}
 \end{figure}
 
-Many pulse voltages and durations were tried, from 200mV to 2V, and 200ns to 2ms, in both 1M KCl and 0.5M KCl, with and without ATP and ADPNP.
+``Effective" is defined here as the voltage pulse coinciding with a current level change.  In order to account for the probability of this occurring by random chance, a control experiment was carried out under the same conditions, and is shown in Figure \ref{fig:helicase_pulse_efficacy} as the dashed black line.
 
-Kinesin velocity is independent of force when a constant assisting force is applied.  Velocity of RNA polymerase is nearly force independent \citep{Bustamante2004}.
+\subsection{Future directions}
 
-What really remains is to try other enzymes.
+Further experiments could be carried out to explore more of the parameter space, including lower salt conditions and increased temperatures.  Experiments could also be carried out using other membrane materials with higher voltage tolerance, such as lipids like mycolic acid \citep{Langford2011}, or triblock copolymer membranes.  This would allow larger amplitude voltage pulses to be explored.
+
+A likely route to success in controlling the motion of DNA through the nanopore using voltage pulses could be to try other DNA enzymes.  There is no reason \textit{a priori} that Dda helicase should work better than any other enzyme.  Work has already shown that phi29 DNA polymerase undergoes voltage-mediated unzipping \citep{Cherf2012}, and so it is possible that these same experiments could be attempted using phi29 DNA polymerase.  Other processive DNA enzymes could be tried as well.  It seems that it takes quite a bit of force to push Dda through a DNA duplex.  There may be enzymes for which this force threshold is lower, and these may respond more readily to the strategy outlined in this chapter.
