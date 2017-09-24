@@ -40,12 +40,12 @@ The experimental setup is the same as that shown in Figure \ref{fig:helicase_sch
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/helicase_force_stepping.pdf}
-\caption[Mechanical force substitutes for ATP and moves helicase]{(a) Selected segment of a current versus time trace obtained at \SI{37}{\celsius} as a constant \SI{160}{\mV} bias is applied across the membrane.  The Dda helicase is apparently forced to move forward along the DNA strand, unzipping the dsDNA duplex ahead of it.  Note the relatively long time scale on the x-axis.  Gray is the raw data obtained at \SI{10}{\kHz}, while blue is filtered to \SI{1}{\kHz}.  (b) The current level means, with the time information removed, showing a single molecule read of a repetitive DNA sequence traversing the constriction of M3-MspA.  Current levels measured when the helicase advances due to applied force (red) are aligned to known model levels, measured with ATP (black).  The segment of data in panel (a) corresponds to the same current levels shown in panel (b).}
+\caption[Mechanical force substitutes for ATP and moves helicase]{(a) Selected segment of a current versus time trace obtained at \SI{37}{\celsius} as a constant \SI{160}{\mV} bias is applied across the membrane.  The Dda helicase is apparently forced to move forward along the DNA strand, unzipping the dsDNA duplex ahead of it.  Note the relatively long time scale on the x-axis.  Gray is the raw data obtained at \SI{10}{\kHz}, while blue is filtered to \SI{1}{\kHz}.  (b) The current level means, with the time information removed, showing the same data.  Current levels measured when the helicase advances due to applied force (red) are aligned to known model levels, measured with ATP (black).}
 \label{fig:helicase_force_stepping}
 \end{centering}
 \end{figure}
 
-Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versus time data for a single DNA molecule, taken as Dda helicase is forced to step along the DNA by a constant \SI{160}{\mV} applied bias at \SI{37}{\celsius}, unwinding dsDNA duplex ahead of it.  The DNA used in this experiment is sequence \# 0002, along with its complement and tether, listed in Appendix \ref{sequences}.  The same sort of discrete steps in the current are observed as in the case where helicase is driven by ATP (see Figure \ref{fig:helicase_data}, for example).
+Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versus time data for a single DNA molecule, taken as Dda helicase is forced to step along the DNA due to a constant \SI{160}{\mV} applied bias at \SI{37}{\celsius}, unwinding dsDNA duplex ahead of it.  The DNA used in this experiment is sequence \# 0002, along with its complement and tether, listed in Appendix \ref{sequences}.  The same sort of discrete steps in the current are observed as in the case where helicase is driven by ATP (see Figure \ref{fig:helicase_data}, for comparison).  The current level means can be aligned to known model levels for the same sequence obtained while running the helicase forward using ATP, when it steps one base at a time.  The comparison is shown in Figure \ref{fig:helicase_force_stepping}b, and this demonstrates that the helicase is still stepping base-by-base along the DNA.  The DNA sequence used here was intentionally designed to produce a large current variation, which is achieved by transitioning from \texttt{TTTTT}, one of the lowest current levels, to \texttt{GGAAA}, the highest current level.
 
 \begin{figure}[h]
 \begin{centering}
@@ -55,15 +55,25 @@ Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versu
 \end{centering}
 \end{figure}
 
+The data from several molecules can be aligned to current levels from a known model, as is shown in Figure \ref{fig:helicase_force_stepping_2}.  Shown are the first \num{64} levels from a longer sequence made by ligating Appendix \ref{sequences} \# 0002 and its complement to \# 0003\_ hairpin.  Measured current levels due to forced unzipping (red) align well with model levels (black), again indicating that the helicase is taking single-base steps.
+
 \subsection{Effect of a non-hydrolyzable ATP analog}
 
-\begin{figure}[h]
+Experiments were carried out to ascertain whether or not the presence of a non-hydrolyzable ATP analog made any difference in the stepping behavior of the helicase.  Since helicase has an ATP binding pocket, and undergoes a conformational change upon ATP binding, it is natural to assume that the change in conformation might cause a change in the stepping behavior under applied force.  The ATP analog used in these experiments is adenylyl-imidodiphosphate [ADPNP] (alternatively abbreviated AMP-PNP).  It is similar to ATP in all but the final phosphate, which is linked to the second phosphate via a nitrogen instead of an oxygen, and so it cannot be hydrolyzed.
+
+Figure \ref{fig:helicase_sliding_analog} shows histograms of the times it takes a full DNA molecule to be traversed by Dda helicase using force instead of ATP.  The DNA used here is Appendix \ref{sequences} \# 0002 with complement and its tether, having a dsDNA duplex region of \num{50} base pairs in front of the helicase.  Panel (a) compares the effects of \SI{160}{\mV} applied bias to \SI{180}{\mV} applied bias.  It cam be seen that the mean unzipping time is shorter at the higher bias, but both distributions are quite broad.  A log-normal fit is plotted as a dashed line to guide the eye.
+
+Figure \ref{fig:helicase_sliding_analog}b shows the same histograms when \SI{2}{\m\Molar} ADPNP is added.  The distributions tighten up somewhat compared to no ADPNP; however, they are still quite broad, spanning a range of over \SI{100}{\s} in the time it takes to unzip \num{50} base pairs.  Because the presence of ADPNP seems to result in a tighter distribution of transit times, \SI{2}{\m\Molar} ADPNP is included in the experiments presented in the rest of this work.
+
+\begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/helicase_sliding_analog.pdf}
 \caption[Forced unzipping time depends on the presence of an ATP analog]{(a) Without ATP analog, the distribution of the time it takes to force a helicase to unzip a \num{50}bp duplex has a long tail.  The average of the \SI{180}{\mV} distribution (red) is a shorter time than the \SI{160}{\mV} distribution (blue), but both are quite broad.  (b) With \SI{2}{\m\Molar} ADPNP present, the same distributions become slightly less broad.  Data taken with M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{37}{\celsius}.  Log-normal fits are shown as dotted lines to guide the eye.}
 \label{fig:helicase_sliding_analog}
 \end{centering}
 \end{figure}
+
+Due to the single-base resolution obtained from the current versus time traces recorded in these nanopore experiments, it is possible to look at the durations of individual steps of the helicase.  Shown in Figure \ref{fig:helicase_sliding_time_dist} is the probability of a step lasting for a given duration, plotted at three applied bias voltages: \SI{120}{\mV}, \SI{160}{\mV}, and \SI{180}{\mV}.  Note that the data are plotted on a log-log scale.  The differences between the distributions at the different biases are enough to shift the mean lower at higher applied bias.
 
 \begin{figure}[h]
 \begin{centering}
@@ -75,13 +85,17 @@ Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versu
 
 \section{The effects of voltage and temperature}
 
+In an effort to control the motion of the helicase enzyme on DNA, it is important to understand the dependence of the stepping rate on applied voltage and temperature.  The electrophoretic force applied to the ssDNA is directly proportional to the applied voltage, according to $F = \sigma_{\text{eff}} V$.  The quantity $\sigma_{\text{eff}}$ for ssDNA in the MspA nanopore was measured in Chapter \ref{dna_thermal_motion_mspa}, and its average value (over the four nucleotides) can be expressed as \SI{0.177}{\pico\N / \mV} (see Table \ref{table:fit_values}).  This means that the applied force at a bias of \SI{160}{\mV} is approximately \SI{28}{\pico\N}, and that applied biases of \SI{120}{\mV} and \SI{200}{\mV} differ in applied force by \SI{14}{\pico\N}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/helicase_sliding_voltage.pdf}
-\caption[Forced helicase stepping depends on voltage]{The median step duration of Dda helicase forced to unwind a duplex is plotted as a function of voltage, at several temperatures.  Spline curves are drawn to guide the eye along measurements at constant temperature.  Error bars are $median(t)/\sqrt{N}$, where $N$ was typically many hundreds of individual steps.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{2}{\m\Molar} ADPNP.}
+\caption[Forced helicase stepping depends on voltage]{The median step duration of Dda helicase forced to unwind a duplex is plotted as a function of voltage, at several temperatures.  Spline curves are drawn to guide the eye along measurements at constant temperature.  Error bars are $median(t)/\sqrt{N}$, where $N$ was typically many hundreds of individual steps.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}, \SI{2}{\m\Molar} ADPNP.  The voltage biases on the x-axis span the range of approximately \SI{21}{\pico\N} to \SI{35}{\pico\N}.}
 \label{fig:helicase_stepping_voltage}
 \end{centering}
 \end{figure}
+
+Figure \ref{fig:helicase_stepping_voltage} shows the measured step durations as a function of applied constant voltage at various temperatures.  Step durations are characterized by median step duration.  The distribution of the step durations that gives rise to each data point is quite broad, as mentioned in connection with Figure \ref{fig:helicase_sliding_time_dist}.  The error bars correspond only to $median(t)/\sqrt{N}$, and do not reflect the width of the underlying distributions.  In enzymology, this sort of data is typically plotted as a ``force - velocity curve."
 
 \begin{figure}[h]
 \begin{centering}
@@ -91,15 +105,20 @@ Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versu
 \end{centering}
 \end{figure}
 
+The same data are re-plotted in Figure \ref{fig:helicase_stepping_temp}, this time as an explicit function of temperature.  It is clear from this plot that temperature has a very large impact on the stepping of the helicase, even changes as small as \SI{10}{\celsius} or less.  At some point, the temperature will become too high for the helicase to function, and the protein could even denature.  \SI{50}{\celsius} was the highest temperature studied here, and the helicase still seemed to function as normal.  Higher temperatures were not easily accessible with this experimental setup due to the formation of bubbles which would often destroy the fragile lipid membrane.
+
 
 \section{Attempts at temporal control using voltage pulses}
 
 \subsection{The physical picture}
-The idea and a description of the physics.
 
-Limits in terms of membrane charging.
+The movement of helicase along DNA is a stochastic process, with or without ATP present.  ATP of course facilitates the stepping of helicase, but stepping can still occur without ATP on much longer time scales when force is applied.  One picture consistent with these observations and the crystal structure of Dda and other similar helicases is that the Dda helicase has to wait for a large fluctuation in order to undergo the conformational change required in order to take a step.  The binding of ATP and its subsequent hydrolysis facilitate these conformational changes and increase their rates.  In the absence of ATP, the helicase has some low probability of undergoing a large enough fluctuation to undergo the necessary conformational change.  However, the temperature apparently increases the stepping rate, probably by increasing the size of fluctuations.  The applied force also apparently increases the stepping rate, to a lesser extent, possibly by increasing the frequency with which attempts are made at taking a step.  It is also possible that the helicase must wait for the final base pair of the dsDNA duplex to ``breathe" open, and that this could also limit the stepping rate.
+
+In any event, the probably of helicase stepping increases at increased applied force.  The aim of the work in this section is to increase the applied force for a large amount, but for only a short duration.  The aim is to greatly increase the stepping probability while a short-duration force is applied, and thereby control when the helicase steps.
 
 \subsection{Experimental setup and data}
+
+This brief increase in electrophoretic force is applied using a low-noise voltage pulse generator.  Due to the unacceptable amount of current noise introduced into the experiment by commercial pulse generators that plug into a wall socket, it was necessary to design and build a low-noise pulse generator for this purpose.  Details of the design are included in Appendix \ref{pulse_generator}.
 
 \begin{figure}[h]
 \begin{centering}
