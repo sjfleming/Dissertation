@@ -41,54 +41,70 @@ A better algorithm has been developed by Schreiber and Karplus \citep{Schreiber2
 \section{Alignment of data to a known model}
 \label{level_alignment}
 
-Expected current levels for a given 5-mer sequence in MspA are known.  This is the ``known model."  The ssDNA strand translocating through the nanopore can be modeled as a hidden Markov model, where the hidden states are the actual location along the ssDNA strand, there are certain probabilities of transitions between those states, and the measured observable in a given hidden state is the current, which is drawn from a distribution that depends on the state (which bases are in the pore).  The probabilities of transitions 
+Expected current levels for a given 5-mer sequence in MspA are known.  This is the ``known model."  The ssDNA strand translocating through the nanopore can be modeled as a hidden Markov model (see Figure \ref{fig:data_analysis_hmm}), where the hidden states, $S_i$ are the actual location along the ssDNA strand.  There are certain probabilities of transitions between those states, and the measured observable is the current, which is drawn from a distribution that depends on the hidden state (which bases are in the pore).
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{figures/hmm_model.pdf}
+\includegraphics[width=0.9\textwidth]{figures/hmm_model.pdf}
 \caption[Data analysis: hidden Markov model]{A hidden Markov model can be used to model the process of DNA moving through a nanopore.  The hidden states $S$ of the hidden Markov model correspond to positions of the DNA strand, moved by one base.  There are certain probabilities for transitions between states of the model, and these correspond to the skip, stay, forward, and backward stepping probabilities.}
 \label{fig:data_analysis_hmm}
 \end{centering}
 \end{figure}
 
+The emission probability is the probability of observing a certain current, given that the Markov model is in a certain state.  The emission probability can be calculated as shown in Figure \ref{fig:data_analysis_emission}, where the area of overlap between the model current distribution and the measured current distribution is the emission probability $p(I|S_i)$ for that model state $S_i$.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/hmm_emission.pdf}
-\caption[Data analysis: hidden Markov model emission probability]{...}
+\caption[Data analysis: hidden Markov model emission probability]{Emission probabilities, $p(I|S_i)$, correspond to the probability that hidden state $S_i$ gives rise to measured current $I$.  The emission probabilities here are calculated by computing the area of overlap between the model current distribution and the measured current distribution.}
 \label{fig:data_analysis_emission}
 \end{centering}
 \end{figure}
 
-\begin{figure}[h]
+The probabilities of transitions between states correspond to probabilities of: a back-step, a stay (still in same place), a forward step (the expected situation), and a skip.  If these probabilities are known, then an efficient algorithm for finding the most likely sequence of states that gave rise to the observed measurements is the Viterbi algorithm \citep{Viterbi1967, Forney1973}, which has been used in the literature for nanopore data \citep{Timp2012, Szalay2015}.  This most likely sequence of states is here referred to as an ``alignment" of the data to the known model levels.  Such an alignment is shown in Figure \ref{fig:data_analysis_alignment}.
+
+In Figure \ref{fig:data_analysis_alignment}, panel (a) shows the aligned levels, panel (b) shows the model states assigned to each measured current level, and panel (c) shows the inner workings of the Viterbi algorithm, which traces a maximum likelihood path through all possible alignments of measured levels to model states.
+
+\begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/helicase_level_alignment.pdf}
-\caption[Data analysis: Viterbi level alignment to model]{(a) ...}
+\caption[Data analysis: Viterbi level alignment to model]{(a) Most likely alignment of measured current levels to known model levels.  (b) Each measured level can be labeled according to which model level it aligns with.  Regions of stays are visible, as well as skips and backsteps.  Some levels are identified as noise (red \texttt{X}).  (c) The Viterbi algorithm involves tracing the most likely path through a matrix of alignment probabilities.  The matrix is shown here, as well as the optimal path that corresponds to the most likely alignment (red line).}
 \label{fig:data_analysis_alignment}
 \end{centering}
 \end{figure}
 
 \section{Alignment of data for model parameter estimation}
 
+A more difficult problem is the problem of estimating the parameters of the model (the skip, stay, forward, and backward stepping probabilities) if they are unknown.  An excellent article which explains this problem has been written by Rabiner \citep{Rabiner1989}.  There are several possible methods of solution, but they involve approximations.  The approach used here is to sample from the posteriors for the parameter values using a Markov chain Monte Carlo approach.  A proposed set of parameters is generated, and then the proposed parameters are either accepted or rejected probabilistically based on a calculation of how likely the measured current levels would be given these proposed parameters.  This likelihood computation is carried out using the forward algorithm \citep{Rabiner1989}, and is only performed on a random subset of alignments, in the case of a dataset with multiple alignments, due to computational complexity.
+
+In Markov chain Monte Carlo, it is often the case that generating proposed sets of parameters in a clever way is critical to the success of the approach.  Here, proposals are generated according to a sub-optimal probabilistic traceback through the matrix of likelihoods generated by the forward algorithm.  This is shown in Figure \ref{fig:data_analysis_traceback}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/hmm_traceback.pdf}
-\caption[Data analysis: parameter estimation MCMC proposals]{...}
+\caption[Data analysis: parameter estimation MCMC proposals]{Proposals for new sets of parameters can be generated by calculating their most likely values for a sub-optimal alignment, as in Eddy \citep{Eddy1995} or Szalay \citep{Szalay2015}.  The sub-optimal alignment is obtained by a probabilistic traceback through the matrix containing an exponentiated version of the forward variable, calculated using the forward algorithm \citep{Rabiner1989}.}
 \label{fig:data_analysis_traceback}
 \end{centering}
 \end{figure}
 
+The traceback is probabilistic, and depends on a parameter which functions like a temperature that increases or decreases the likelihood of alignments further and further away from optimal.  This method for sampling of sub-optimal alignments from a hidden Markov model was discussed by Eddy \citep{Eddy1995}.  A similar approach to proposal generation was used by Szalay for correcting nanopore sequence data \citep{Szalay2015}.  Here a sub-optimal alignment is used to compute the parameters which would give rise to that sub-optimal alignment, and these parameters are proposed to the Markov chain Monte Carlo algorithm.
+
+Without this (admittedly involved) proposal generation technique, the Monte Carlo sampler does not perform well.  If the parameters are tweaked at random, the resulting alignments are usually quite poor, and the sampler is likely to reject most proposals.  If the parameters are tweaked very slowly around good starting values (say from local expectation maximization), then the alignments can be good, but the parameters are likely to get stuck in local minima, and not sample the true posteriors.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/hmm_samples.pdf}
-\caption[Data analysis: parameter estimation MCMC sampling]{...}
+\caption[Data analysis: parameter estimation MCMC sampling]{Markov chain Monte Carlo provides a means to sample from the posteriors for the distributions of parameter values.  Here the alignments are performed using a simulated dataset.}
 \label{fig:data_analysis_hmm_samples}
 \end{centering}
 \end{figure}
 
+Samples generated using this approach from the posteriors for the forward, backward, skip, and stay probabilities are shown in Figures \ref{fig:data_analysis_hmm_samples} and \ref{fig:data_analysis_hmm_sample_hist}.  Figure \ref{fig:data_analysis_hmm_samples} plots all the samples generated by the Markov chain Monte Carlo technique.  Note that certain parameter values sometimes change together, which is a benefit of the sub-optimal alignment proposal approach.  Histograms of these values are shown in Figure \ref{fig:data_analysis_hmm_sample_hist}.  This data is simulated data, generated for the purposes of validating this approach, so the true parameter values are known.  The true parameter values are plotted as the colored vertical lines in Figure \ref{fig:data_analysis_hmm_sample_hist}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/hmm_sample_hist.pdf}
-\caption[Data analysis: parameter estimation posteriors]{...}
+\caption[Data analysis: parameter estimation posteriors]{Validation fo the approach using a simulated dataset.  Histograms of the sampled posteriors are plotted for the back, stay, skip, and forward probabilities.  The known values are the vertical lines.}
 \label{fig:data_analysis_hmm_sample_hist}
 \end{centering}
 \end{figure}
