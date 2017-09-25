@@ -1,9 +1,7 @@
 \chapter{Pulse generator design}
 \label{pulse_generator}
 
-Specifications (V, duration, low noise).  How it will be connected to experiment.
-
-\section{Design}
+This pulse generator is designed to produce simultaneous positive and negative voltage pulses of variable voltage up to \SI{5}{\V}, with variable duration from \SI{50}{\ns} to \SI{10}{\ms}.  The requirements were that the noise be as low as possible, and ideally zero when the outputs are grounded.  This resulted in a battery-powered design using FET switches for the outputs.  The generator accepts control TTL input signals.  Ground of the input is isolated from the ground of the generator itself using an optocoupler.  Parts were through-hole mounted and soldered on a breadboard, contained inside an aluminum box, with knobs and connections on the outside.
 
 \begin{figure}[h]
 \begin{centering}
@@ -21,8 +19,6 @@ Specifications (V, duration, low noise).  How it will be connected to experiment
 \end{centering}
 \end{figure}
 
-\section{Schematic}
-
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.95\textwidth]{figures/pulse_gen_board.pdf}
@@ -34,11 +30,7 @@ Specifications (V, duration, low noise).  How it will be connected to experiment
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.95\textwidth]{figures/pulse_gen_switch_debounce.pdf}
-\caption[Pulse generator: switch debouncer]{Switch debouncer and ground isolator for the pulse generator.}
+\caption[Pulse generator: switch debouncer]{Switch debouncer for the pulse generator, when used in manual push-button mode.  Not shown: TTL inputs go through an HCPL2211 optocoupler, which is used to decouple the input ground of a TTL signal from the pulse generator ground.  The connection of the HCPL2211 is shown in Figure \ref{fig:pulse_gen_schematic}.}
 \label{fig:pulse_gen_debounce}
 \end{centering}
 \end{figure}
-
-\section{Spike compensation}
-
-Compensation of capacitive current spikes.

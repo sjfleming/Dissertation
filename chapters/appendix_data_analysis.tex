@@ -28,20 +28,67 @@ Event-finding is achieved by means of setting a threshold for the type of blocka
 
 In an MspA experiment where a helicase is used to ratchet DNA through the nanopore one base at a time, recordings of current as a function of time exhibit discrete steps between stable levels (see Figure \ref{fig:data_analysis_levels}a).  Identifying steps in time-series data, and stable levels, is sometimes referred to as ``change-point detection."  I have tested several methods, including hypothesis testing (the null hypothesis being that two segments of data are drawn from the same underlying distribution).  Hypothesis testing using a p-value threshold with the Student t-distribution produces reasonable results, but is not excellent.  Testing using the Kolmogorov-Smirnov test does slightly better, since it does not assume the distributions are gaussian, however the computational intensity makes this approach unfeasible.
 
-A better algorithm has been developed by Schreiber and Karplus \citep{Schreiber2015}, and was used in other work on nanopore data \citep{Laszlo2014}.  This algorithm looks at a segment of data, and moves the location of an index within that segment.  It computes the variance of the entire segment, as well as of the two segments that result when the data is divided into two at the given index.  The algorithm finds the index which minimizes the ratio of within-segment variance to between-segment variance.  If this ratio is below a specified threshold (which is set by probabilities calculated using a prior), then the segment is divided into two at that index.  This approach can be run on the data recursively, starting with the entire event, and splitting it into two (or not) over and over until the threshold for splitting is no longer met.  The computation of variance can also be sped up considerably by pre-computing cumulative sums of $I$ and $I^2$.  The results of the algorithm are shown on in Figure \ref{fig:data_analysis_levels}b.
+A better algorithm has been developed by Schreiber and Karplus \citep{Schreiber2015}, and was used in other work on nanopore data \citep{Laszlo2014}.  This algorithm looks at a segment of data (Figure \ref{fig:data_analysis_level_alg}a), and moves the location of an index within that segment.  It computes the variance of the entire segment, as well as of the two segments that result when the data is divided into two at the given index.  The algorithm finds the index which minimizes the ratio of within-segment variance to between-segment variance (the ``metric" in Figure \ref{fig:data_analysis_level_alg}b).  If this ratio is below a specified threshold (which is set by probabilities calculated using a prior), then the segment is divided into two at that index (Figure \ref{fig:data_analysis_level_alg}c).  This approach can be run on the data recursively, starting with the entire event, and splitting it into two (or not) over and over until the threshold for splitting is no longer met.  The computation of variance can also be sped up considerably by pre-computing cumulative sums of $I$ and $I^2$.  The results of the algorithm are shown in Figure \ref{fig:data_analysis_levels}b.
 
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{figures/data_analysis_level_finding_algorithm.pdf}
+\caption[Data analysis: level-finding algorithm]{(a) Segment of nanopore current versus time data.  (b) The metric calculated to determine a level change, as defined by Schreiber and Karplus \citep{Schreiber2015}.  This metric has a minimum at a level transition.  The extreme cusp is characteristic of this particular metric, and is extremely advantageous.  (c) The current versus time data, with level 1 in red and level 2 in blue.  This procedure can be performed recursively on each new level until some threshold is satisfied.}
+\label{fig:data_analysis_level_alg}
+\end{centering}
+\end{figure}
 
 \section{Alignment of data to a known model}
 \label{level_alignment}
 
+Expected current levels for a given 5-mer sequence in MspA are known.  This is the ``known model."  The ssDNA strand translocating through the nanopore can be modeled as a hidden Markov model, where the hidden states are the actual location along the ssDNA strand, there are certain probabilities of transitions between those states, and the measured observable in a given hidden state is the current, which is drawn from a distribution that depends on the state (which bases are in the pore).  The probabilities of transitions 
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{figures/hmm_model.pdf}
+\caption[Data analysis: hidden Markov model]{A hidden Markov model can be used to model the process of DNA moving through a nanopore.  The hidden states $S$ of the hidden Markov model correspond to positions of the DNA strand, moved by one base.  There are certain probabilities for transitions between states of the model, and these correspond to the skip, stay, forward, and backward stepping probabilities.}
+\label{fig:data_analysis_hmm}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/hmm_emission.pdf}
+\caption[Data analysis: hidden Markov model emission probability]{...}
+\label{fig:data_analysis_emission}
+\end{centering}
+\end{figure}
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/helicase_level_alignment.pdf}
-\caption[Data analysis: level alignment to model]{(a) ...}
+\caption[Data analysis: Viterbi level alignment to model]{(a) ...}
 \label{fig:data_analysis_alignment}
 \end{centering}
 \end{figure}
 
 \section{Alignment of data for model parameter estimation}
 
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/hmm_traceback.pdf}
+\caption[Data analysis: parameter estimation MCMC proposals]{...}
+\label{fig:data_analysis_traceback}
+\end{centering}
+\end{figure}
 
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/hmm_samples.pdf}
+\caption[Data analysis: parameter estimation MCMC sampling]{...}
+\label{fig:data_analysis_hmm_samples}
+\end{centering}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/hmm_sample_hist.pdf}
+\caption[Data analysis: parameter estimation posteriors]{...}
+\label{fig:data_analysis_hmm_sample_hist}
+\end{centering}
+\end{figure}
