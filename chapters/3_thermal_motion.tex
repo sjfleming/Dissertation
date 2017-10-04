@@ -68,6 +68,10 @@ S_I(f) = 4 k_B T \, \operatorname{Re}(Y(f))
 \noindent
 where Re denotes the real part of the complex conductance.  This expression reduces to Equation \ref{eqn:johnson} for the simple case of a resistor.
 
+\subsection{Thermal fluctuations of charge across capacitors}
+
+Thermal fluctuations of charge carriers also cause current fluctuations when a capacitance is in series with some resistance.  In the case of a nanopore experiment, a simple model electrical circuit can be drawn as in Figure \ref{fig:circuit_equiv}.  $R_p$ is the resistance of the nanopore, and $R_f$ is the resistance of the amplifier's feedback resistor, \SI{500}{\mega\ohm} for the Axopatch 200B in whole cell mode with $\beta = 1$.  $C_m$ is the capacitance of the membrane, typically a few picofarads, and $R_a$ is the access resistance, which is given by $R_a = \rho/4r$, where $\rho$ is the resistivity of the electrolyte and $r$ is the radius of the nanopore \citep{Hall1975}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/noise_electronics.pdf}
@@ -76,9 +80,7 @@ where Re denotes the real part of the complex conductance.  This expression redu
 \end{centering}
 \end{figure}
 
-\subsection{Thermal fluctuations of charge across capacitors}
-
-Thermal fluctuations of charge carriers also cause current fluctuations when a capacitance is in series with some resistance.  In the case of a nanopore experiment, a simple model electrical circuit can be drawn as in Figure \ref{fig:circuit_equiv}.  $R_p$ is the resistance of the nanopore, and $R_f$ is the resistance of the amplifier's feedback resistor, \SI{500}{\mega\ohm} for the Axopatch 200B in whole cell mode with $\beta = 1$.  $C_m$ is the capacitance of the membrane, typically a few picofarads, and $R_a$ is the access resistance, which is given by $R_a = \rho/4r$, where $\rho$ is the resistivity of the electrolyte and $r$ is the radius of the nanopore \citep{Hall1975}.  The expression for the complex conductance is
+The expression for the complex conductance is
 
 \begin{equation}
 Y(f) = i \, 2 \pi \, f \, C_{in} + \left[ 2 R_a + \frac{1}{ 1/R_p + i \, 2 \pi \, f \, C_m } \right]^{-1} + \frac{1}{R_f}
