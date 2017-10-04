@@ -37,6 +37,8 @@ The experimental setup is the same as that shown in Figure \ref{fig:helicase_sch
 
 \section{Mechanical force as a sufficient substitute for ATP}
 
+Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versus time data for a single DNA molecule, taken as Dda helicase is forced to step along the DNA due to a constant \SI{160}{\mV} applied bias at \SI{37}{\celsius}, unwinding dsDNA duplex ahead of it.  The DNA used in this experiment is sequence \# 0002, along with its complement and tether, listed in Appendix \ref{sequences}.  The same sort of discrete steps in the current are observed as in the case where helicase is driven by ATP (see Figure \ref{fig:helicase_data}, for comparison).  The current level means can be aligned to known model levels for the same sequence obtained while running the helicase forward using ATP, when it steps one base at a time.  The comparison is shown in Figure \ref{fig:helicase_force_stepping}b, and this demonstrates that the helicase is still stepping base-by-base along the DNA.  The DNA sequence used here was intentionally designed to produce a large current variation, which is achieved by transitioning from \texttt{TTTTT}, one of the lowest current levels, to \texttt{GGAAA}, the highest current level.
+
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/helicase_force_stepping.pdf}
@@ -45,7 +47,7 @@ The experimental setup is the same as that shown in Figure \ref{fig:helicase_sch
 \end{centering}
 \end{figure}
 
-Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versus time data for a single DNA molecule, taken as Dda helicase is forced to step along the DNA due to a constant \SI{160}{\mV} applied bias at \SI{37}{\celsius}, unwinding dsDNA duplex ahead of it.  The DNA used in this experiment is sequence \# 0002, along with its complement and tether, listed in Appendix \ref{sequences}.  The same sort of discrete steps in the current are observed as in the case where helicase is driven by ATP (see Figure \ref{fig:helicase_data}, for comparison).  The current level means can be aligned to known model levels for the same sequence obtained while running the helicase forward using ATP, when it steps one base at a time.  The comparison is shown in Figure \ref{fig:helicase_force_stepping}b, and this demonstrates that the helicase is still stepping base-by-base along the DNA.  The DNA sequence used here was intentionally designed to produce a large current variation, which is achieved by transitioning from \texttt{TTTTT}, one of the lowest current levels, to \texttt{GGAAA}, the highest current level.
+The data from several molecules can be aligned to current levels from a known model, as is shown in Figure \ref{fig:helicase_force_stepping_2}.  Shown are the first \num{64} levels from a longer sequence made by ligating Appendix \ref{sequences} \# 0002 and its complement to \# 0003\_ hairpin.  Measured current levels due to forced unzipping (red) align well with model levels (black), again indicating that the helicase is taking single-base steps.
 
 \begin{figure}[h]
 \begin{centering}
@@ -54,8 +56,6 @@ Figure \ref{fig:helicase_force_stepping}a shows a short segment of current versu
 \label{fig:helicase_force_stepping_2}
 \end{centering}
 \end{figure}
-
-The data from several molecules can be aligned to current levels from a known model, as is shown in Figure \ref{fig:helicase_force_stepping_2}.  Shown are the first \num{64} levels from a longer sequence made by ligating Appendix \ref{sequences} \# 0002 and its complement to \# 0003\_ hairpin.  Measured current levels due to forced unzipping (red) align well with model levels (black), again indicating that the helicase is taking single-base steps.
 
 \subsection{Effect of a non-hydrolyzable ATP analog}
 
@@ -87,6 +87,8 @@ Due to the single-base resolution obtained from the current versus time traces r
 
 In an effort to control the motion of the helicase enzyme on DNA, it is important to understand the dependence of the stepping rate on applied voltage and temperature.  The electrophoretic force applied to the ssDNA is directly proportional to the applied voltage, according to $F = \sigma_{\text{eff}} V$.  The quantity $\sigma_{\text{eff}}$ for ssDNA in the MspA nanopore was measured in Chapter \ref{dna_thermal_motion_mspa}, and its average value (over the four nucleotides) can be expressed as \SI{0.177}{\pico\N / \mV} (see Table \ref{table:fit_values}).  This means that the applied force at a bias of \SI{160}{\mV} is approximately \SI{28}{\pico\N}, and that applied biases of \SI{120}{\mV} and \SI{200}{\mV} differ in applied force by \SI{14}{\pico\N}.
 
+Figure \ref{fig:helicase_stepping_voltage} shows the measured step durations as a function of applied constant voltage at various temperatures.  Step durations are characterized by median step duration.  The distribution of the step durations that gives rise to each data point is quite broad, as mentioned in connection with Figure \ref{fig:helicase_sliding_time_dist}.  The error bars correspond only to $median(t)/\sqrt{N}$, and do not reflect the width of the underlying distributions.  In enzymology, this sort of data is typically plotted as a ``force - velocity curve" \citep{Bustamante2004}.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/helicase_sliding_voltage.pdf}
@@ -95,7 +97,7 @@ In an effort to control the motion of the helicase enzyme on DNA, it is importan
 \end{centering}
 \end{figure}
 
-Figure \ref{fig:helicase_stepping_voltage} shows the measured step durations as a function of applied constant voltage at various temperatures.  Step durations are characterized by median step duration.  The distribution of the step durations that gives rise to each data point is quite broad, as mentioned in connection with Figure \ref{fig:helicase_sliding_time_dist}.  The error bars correspond only to $median(t)/\sqrt{N}$, and do not reflect the width of the underlying distributions.  In enzymology, this sort of data is typically plotted as a ``force - velocity curve."
+The same data are re-plotted in Figure \ref{fig:helicase_stepping_temp}, this time as an explicit function of temperature.  It is clear from this plot that temperature has a very large impact on the stepping of the helicase, even changes as small as \SI{10}{\celsius} or less.  At some point, the temperature will become too high for the helicase to function, and the protein could even denature.  \SI{50}{\celsius} was the highest temperature studied here, and the helicase still seemed to function as normal.  Higher temperatures were not easily accessible with this experimental setup due to the formation of bubbles which would often destroy the fragile lipid membrane.
 
 \begin{figure}[h]
 \begin{centering}
@@ -105,31 +107,37 @@ Figure \ref{fig:helicase_stepping_voltage} shows the measured step durations as 
 \end{centering}
 \end{figure}
 
-The same data are re-plotted in Figure \ref{fig:helicase_stepping_temp}, this time as an explicit function of temperature.  It is clear from this plot that temperature has a very large impact on the stepping of the helicase, even changes as small as \SI{10}{\celsius} or less.  At some point, the temperature will become too high for the helicase to function, and the protein could even denature.  \SI{50}{\celsius} was the highest temperature studied here, and the helicase still seemed to function as normal.  Higher temperatures were not easily accessible with this experimental setup due to the formation of bubbles which would often destroy the fragile lipid membrane.
-
 
 \section{Helicase on dsDNA and ssDNA}
+
+Experiments were also carried out to assess the differences in helicase movement when it is pushed against dsDNA versus ssDNA.  This can be achieved using a DNA hairpin construction, as shown in Figure \ref{fig:helicase_stepping_full_ss_ds}.  The DNA sequence is provided in Appendix \ref{sequences} as \# 0002 with its complement and tether, ligated to \# 0003\_ hairpin.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=\textwidth]{figures/helicase_sliding_trace_full.pdf}
-\caption[Forced helicase stepping depends on temperature]{M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}.}
+\caption[Forced helicase stepping depends on unzipping]{The two diagrams show the sequential unzipping of a DNA hairpin by a helicase.  At first, the helicase is up against a dsDNA duplex, but after the entire duplex is unzipped, the helicase is on ssDNA.  Data from a single molecule are plotted below.  The red arrow denotes 18-carbon abasic spacers that are put in the sequence to mark the transition from dsDNA to ssDNA.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}.}
 \label{fig:helicase_stepping_full_ss_ds}
 \end{centering}
 \end{figure}
 
+When the helicase is unzipping the duplex, it is pushing up against dsDNA, but after the full duplex has been unzipped, the helicase turns the hairpin loop and continues to move on ssDNA (see the two diagrams in Figure \ref{fig:helicase_stepping_full_ss_ds}).  The sequence \# 0003\_ hairpin (Appendix \ref{sequences}) contains three 18-carbon abasic spacers at a position where they will be in the constriction of MspA when the duplex has just been fully unzipped.  The large increase in current that accompanies these spacers provides a marker in the sequence to denote this transition, and is shown with a red arrow in the current trace in Figure \ref{fig:helicase_stepping_full_ss_ds}.  The current trace before and after this marker reflect traversal of the same number of bases.  It is clear from the current trace that the movement along ssDNA is much faster than along dsDNA.  Figure \ref{fig:helicase_stepping_ss_ds} shows two segments of current trace, each \num{6} seconds, from before and after this abasic marker.
+
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=\textwidth]{figures/helicase_sliding_trace_ss_and_ds.pdf}
-\caption[Forced helicase stepping depends on temperature]{M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}.}
+\includegraphics[width=0.85\textwidth]{figures/helicase_sliding_trace_ss_and_ds.pdf}
+\caption[Forced helicase stepping on dsDNA versus ssDNA]{Current traces showing \SI{6}{\s} of movement of helicase along (a) dsDNA, and (b) ssDNA, from the same individual molecule.  Same experimental conditions as in Figure \ref{fig:helicase_stepping_full_ss_ds}.}
 \label{fig:helicase_stepping_ss_ds}
 \end{centering}
 \end{figure}
 
+The data in Figure \ref{fig:helicase_stepping_ss_ds} panel (a) reflects the movement of Dda helicase against dsDNA, while panel (b) shows data generated by Dda movement along ssDNA.  The difference in the rate of helicase stepping is clearly visible, with the helicase stepping much faster along ssDNA.  This data is taken without ATP, when the helicase is pushed along the strand by mechanical force using an applied bias of \SI{160}{\mV}.
+
+A histogram of the stepping times in the two cases is plotted in Figure \ref{fig:helicase_stepping_hist_ss_ds}.  Here the fraction of the total number of measured current levels is plotted against their duration.  Both distributions appear to be roughly exponential but with a fat tail.  The distributions share a large amount of overlap, but the difference in time to traverse a long strand is pronounced (see for example, Figure \ref{fig:helicase_stepping_full_ss_ds}), mainly due to contributions from levels with very long durations in the dsDNA distribution, and the high probability of very short duration levels in the ssDNA distribution.
+
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.6\textwidth]{figures/helicase_sliding_durations_ss_ds.pdf}
-\caption[Forced helicase stepping depends on temperature]{Median level duration is \SI{0.1}{\s} on ssDNA and \SI{0.6}{\s} on dsDNA.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}.}
+\includegraphics[width=0.55\textwidth]{figures/helicase_sliding_durations_ss_ds.pdf}
+\caption[Forced helicase step times on dsDNA and ssDNA]{Distribution of Dda helicase step times, \textit{i.e.} current level durations, on ssDNA and dsDNA.  Median level duration is \SI{0.1}{\s} on ssDNA and \SI{0.6}{\s} on dsDNA.  M3-MspA, \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, \SI{2}{\m\Molar} MgCl$_2$, pH \num{8.00}.}
 \label{fig:helicase_stepping_hist_ss_ds}
 \end{centering}
 \end{figure}
@@ -145,7 +153,7 @@ In any event, the probability of helicase stepping increases at increased applie
 
 \subsection{Experimental setup}
 
-This brief increase in electrophoretic force is applied using a low-noise voltage pulse generator.  Due to the unacceptable amount of current noise introduced into the experiment by commercial pulse generators that plug into a wall socket, it was necessary to design and build a low-noise pulse generator for this purpose.  Details of the design are included in Appendix \ref{pulse_generator}.
+This brief increase in electrophoretic force is applied using a low-noise voltage pulse generator (see Figure \ref{fig:helicase_pulse_setup}).  Due to the unacceptable amount of current noise introduced into the experiment by commercial pulse generators that plug into a wall socket, it was necessary to design and build a low-noise pulse generator for this purpose.  Details of the design are included in Appendix \ref{pulse_generator}.
 
 \begin{figure}[h]
 \begin{centering}
@@ -159,9 +167,11 @@ The pulse generator is battery powered and has its ground isolated from the grou
 
 The connection of the pulse generator to the experimental setup is shown in Figure \ref{fig:helicase_pulse_setup}.  As shown, there is a simple circuit meant to cancel the transient capacitive current spikes that are caused by applying a voltage pulse across the membrane capacitance.  These current spikes would otherwise by amplified by the Axopatch and obscure a portion of the signal.  In the configuration shown in Figure \ref{fig:helicase_pulse_setup}, the variable resistor $R_{\text{comp}}$ and capacitor $C_{\text{comp}}$ are meant to match the access resistance $R_{\text{a}}$ and the membrane capacitance $C_{\text{mem}}$ in the nanopore setup.  The pulse generator applies a simultaneous pulse of opposite polarity across the compensation resistor and capacitor, and the resulting current spike is summed with its opposite polarity spike, from the nanopore, before the Axopatch headstage.  This setup works well, though compensating the capacitance exactly requires patience, as the capacitances involved are quite small (on the order of \SI{1}{\pico\F}).
 
-One further consideration is that of limitations on the speed of voltage pulses.  Pulses arrive at the membrane after traveling through the access resistance and charging the membrane capacitance.  If the access resistance under consideration were the access resistance to the nanopore, this would mean $R_{\text{a}} = \rho / 4 r_{\text{pore}}$ \citep{Hall1975} $ \approx $ \SI{10}{\mega\ohm}, and with $C_{\text{mem}} \approx $ \SI{1}{\pico\F} (for the small area membranes used here), this gives a time constant of $\tau = R_{\text{a}} C_{\text{mem}}$ that could be on the order of \SI{10}{\micro\s}.  This would indicate that extremely short pulses, with durations less than about \SI{10}{\micro\s}, are not feasible, and will not reach the membrane.  However, if the access resistance we take into account is instead the access resistance to the entire membrane, rather than to the pore, then $R_{\text{a}} \approx $ \SI{10}{\kilo\ohm}, and $\tau \approx $ \SI{10}{\ns}.  In this case, pulses on the order of \SI{10}{\ns} or longer would be feasible.
+One further consideration is that of limitations on the speed of voltage pulses.  Pulses arrive at the membrane after traveling through the access resistance and charging the membrane capacitance.  However, here the access resistance of relevance here is the access resistance to the entire membrane, not to the nanopore.  In this case, $R_{\text{a}} \approx $ \SI{10}{\kilo\ohm}, and $\tau = R_{\text{a}} C_{\text{mem}} \approx $ \SI{10}{\ns}.  In this case, pulses on the order of \SI{10}{\ns} or longer would be feasible.
 
 \subsection{Data obtained using voltage pulses}
+
+For an idea of what the intended results look like, refer to Figure \ref{fig:helicase_pulse}.  Two separate instances are plotted where a \SI{300}{\mV} pulse is applied, and the pulse causes the current level to change, implying that the helicase has taken a step.
 
 \begin{figure}[h]
 \begin{centering}
@@ -171,7 +181,7 @@ One further consideration is that of limitations on the speed of voltage pulses.
 \end{centering}
 \end{figure}
 
-For an idea of what the intended results look like, refer to Figure \ref{fig:helicase_pulse}.  Two separate instances are plotted where a \SI{300}{\mV} pulse is applied, and the pulse causes the current level to change, implying that the helicase has taken a step.  Panel (a) shows a pulse of \SI{0.5}{\ms} duration, while the pulse in panel (b) is \SI{1}{\ms} in duration.  Current (filtered to \SI{200}{\Hz}) is plotted in black.  (It is worth pointing out the difference between adequate current spike compensation in panel (a), and inadequate compensation in panel (b), where the current spike is visible in the data.)  The red line shows the voltage.  There is a constant voltage of \SI{160}{\mV} applied the entire time, to hold the helicase-DNA complex in the pore and to measure the ionic current.  At \SI{0.1}{\s} on the time axis, a brief pulse of \SI{300}{\mV} is applied, which adds on top of the constant voltage.  These two instances actually represent rare occurrences, and were carefully selected from the data to demonstrate the desired scenario.
+Panel (a) shows a pulse of \SI{0.5}{\ms} duration, while the pulse in panel (b) is \SI{1}{\ms} in duration.  Current (filtered to \SI{200}{\Hz}) is plotted in black.  (It is worth pointing out the difference between adequate current spike compensation in panel (a), and inadequate compensation in panel (b), where the current spike is visible in the data.)  The red line shows the voltage.  There is a constant voltage of \SI{160}{\mV} applied the entire time, to hold the helicase-DNA complex in the pore and to measure the ionic current.  At \SI{0.1}{\s} on the time axis, a brief pulse of \SI{300}{\mV} is applied, which adds on top of the constant voltage.  These two instances actually represent rare occurrences, and were carefully selected from the data to demonstrate the desired scenario.
 
 A slightly more accurate idea of what a full dataset looks like is depicted in Figure \ref{fig:helicase_pulse_traces}, although these segments of data are still selected to show some current level changes that coincide with voltage pulses.  The vertical red lines indicate the timing of voltage pulses, and the green arrows indicate current level changes that coincide with voltage pulses.  Other current level changes are due to the constant applied bias of \SI{160}{\mV}.
 
@@ -189,7 +199,7 @@ A slightly more accurate idea of what a full dataset looks like is depicted in F
 
 This experiment has a lot of parameter space, including holding voltages, pulse voltages, pulse durations, temperatures, salt concentrations, and buffer conditions.  Many sets of parameters have been tested, though experiments have not yet completely explored the parameter space.  Pulse voltages from \SI{200}{\mV} to \SI{2}{\V} have been tried, as well as pulse durations from \SI{200}{\ns} to \SI{2}{\ms}.  Both \SI{1}{\Molar} KCl and \SI{0.5}{\Molar} KCl have been tested in some subset of conditions, with and without ADPNP or a low concentration of ATP.  These experiments have indicated that pulses of duration less than about \SI{100}{\micro\s} seem to be largely ineffective, at least at the voltages used.
 
-From a practical standpoint, with a PC lipid bilayer membrane, the tolerable voltage range is limited.  A PC lipid membrane will usually break at sustained voltages above about \SI{300}{\mV}.  The membrane will certainly break at \SI{400}{\mV}.  However, it is possible to exceed these values briefly.  For example, using \SI{0.5}{\ms} pulses where the total applied voltage reaches \SI{460}{\mV} is perfectly tolerable.  However, as the duration gets pushed to about \SI{2}{\ms}, the membrane can become unstable and break, ending the experiment.
+From a practical standpoint, with a PC lipid bilayer membrane, the tolerable voltage range is limited.  A PC lipid membrane will usually break at sustained voltages above about \SI{300}{\mV}.  The membrane will certainly break at \SI{400}{\mV}.  However, it is possible to exceed these voltage tolerances for a brief duration.  For example, using \SI{0.5}{\ms} pulses where the total applied voltage reaches \SI{460}{\mV} is perfectly tolerable.  However, as the duration gets pushed to about \SI{2}{\ms}, the membrane can become unstable and break, ending the experiment.
 
 \subsection{Indications of limited success with Dda}
 

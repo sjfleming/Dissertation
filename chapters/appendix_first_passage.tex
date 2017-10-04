@@ -149,7 +149,25 @@ The dimensionless combination $\frac{\sigma V L}{k_B T}$ is seen to play an impo
 \label{eqn:analytical_first_passage_pe}
 \end{equation}
 
-In this system, $L$ is \SI{7}{\nm}, and $D$ was found to be approximately \SI{5e-11}{\m^2/\s}, so the timescale $L^2/D$ is on the order of $\sim$ \SI{1}{\us}.  This would be the order of the escape time at zero applied bias, too fast to be recorded with our experimental setup.  At an applied voltage bias of \SI{30}{\mV}, the Péclet number is $Pe \approx -4$, while at \SI{70}{\mV}, $Pe \approx -10$.  Here the negative sign, corresponding to the fact that the voltage opposes diffusive ssDNA escape from the nanopore, signifies that this problem involves escape over an energy barrier.  A plot of Equation \ref{eqn:analytical_first_passage_pe} is shown in Figure ...
+In this system, $L$ is \SI{7}{\nm}, and $D$ was found to be approximately \SI{5e-11}{\m^2/\s}, so the timescale $L^2/D$ is on the order of $\sim$ \SI{1}{\us}.  This would be the order of the escape time at zero applied bias, too fast to be recorded with our experimental setup.  At an applied voltage bias of \SI{30}{\mV}, the Péclet number is $Pe \approx -4$, while at \SI{70}{\mV}, $Pe \approx -10$.  Here the negative sign, corresponding to the fact that the voltage opposes diffusive ssDNA escape from the nanopore, signifies that this problem involves escape over an energy barrier.  A plot of Equation \ref{eqn:analytical_first_passage_pe} is shown in Figure \ref{fig:escape_time_peclet}.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{figures/escape_time_peclet.pdf}
+\caption[Escape time depends on the Péclet number]{Plot of the analytical solution for the average escape time as a function of Péclet number in the simple case corresponding to Equation \ref{eqn:analytical_first_passage_pe}.}
+\label{fig:escape_time_peclet}
+\end{centering}
+\end{figure}
+
+The escape time depends on the parameters of interest, the effective charge and diffusion constant, to different extents.  Several plots are shown in Figure \ref{fig:escape_time_dependencies} to give a feel for the differences.  The dashed lines show the solutions when a certain parameter is changed by a given amount.  Panel (a) shows that small changes in the length of the DNA which must escape lead to a large change in the escape time.  Likewise, panel (b) shows that the escape time is extremely sensitive to the effective charge.  In panel (c) however, it is shown that the escape time is much less sensitive to small changes in the effective diffusion constant.  This explains the relatively large uncertainty in the measurement of the diffusion constant as compared to the effective charge.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=\textwidth]{figures/escape_time_dependencies.pdf}
+\caption[Escape time depends on DNA length, charge, and diffusion constant]{The analytical solution for the average escape time (Equation \ref{eqn:analytical_first_passage}) depends on the parameters involved to different extents.  (a) Changing the length of DNA by one base leads to a large change in the escape times.  (b) A ten percent change in the effective charge also leads to large changes in the escape time.  (c) A ten percent change in the effective diffusion constant leads to a small change in the escape time, barely visible on this plot.  Thus the error bars reported for the diffusion constant are much larger than for the effective charge.}
+\label{fig:escape_time_dependencies}
+\end{centering}
+\end{figure}
 
 The quasi-equilibrium position probability distribution, $p_{eq}(x)$, derived by normalizing Equation \ref{eqn:biased_diffusion_solution} by the mean escape time in Equation \ref{eqn:analytical_first_passage}, can be written as
 

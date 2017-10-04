@@ -10,6 +10,8 @@ The review of the recent progress in nanopore research given in Chapter \ref{dna
 
 \section{Experimental setup}
 
+Figure \ref{fig:helicase_scheme} depicts the experimental scheme for using a helicase enzyme to slow the translocation of DNA through the nanopore, from the cis to the trans side of the lipid membrane.  The helicase, bound to the ssDNA strand at the ssDNA – dsDNA junction, unwinds the dsDNA duplex by stepping forward along the ssDNA and stabilizing the open conformation of the helix.
+
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.95\textwidth]{figures/helicase_scheme.pdf}
@@ -18,13 +20,19 @@ The review of the recent progress in nanopore research given in Chapter \ref{dna
 \end{centering}
 \end{figure}
 
-Figure \ref{fig:helicase_scheme} depicts the experimental scheme for using a helicase enzyme to slow the translocation of DNA through the nanopore, from the cis to the trans side of the lipid membrane.  The helicase, bound to the ssDNA strand at the ssDNA – dsDNA junction, unwinds the dsDNA duplex by stepping forward along the ssDNA and stabilizing the open conformation of the helix.  The helicase moves by catalyzing the hydrolysis of ATP.  When the free 5’ end of the ssDNA strand is pulled into the MspA nanopore, the helicase ends up perched on top of MspA.  The helicase is too large to fit into the vestibule of MspA, and so it is clamped in place by the electrophoretic force which pulls the DNA through the nanopore.  The extent of this clamping, and the thermal motion of the helicase in this clamped state, was explored in Chapter \ref{dna_thermal_motion_mspa}, where now the helicase is playing the role previously played by the NeutrAvidin protein.
+The helicase moves by catalyzing the hydrolysis of ATP.  When the free 5’ end of the ssDNA strand is pulled into the MspA nanopore, the helicase ends up perched on top of MspA.  The helicase is too large to fit into the vestibule of MspA, and so it is clamped in place by the electrophoretic force which pulls the DNA through the nanopore.  The extent of this clamping, and the thermal motion of the helicase in this clamped state, was explored in Chapter \ref{dna_thermal_motion_mspa}, where now the helicase is playing the role previously played by the NeutrAvidin protein.
 
 Of course, unlike the NeutrAvidin protein, the helicase is able to step along the ssDNA.  This helicase is always oriented with its front facing the 3’ end of the ssDNA strand to which it is bound (see the crystal structure in Figures \ref{fig:helicase_stereo} and \ref{fig:helicase_ssDNA_interactions}).  It will be shown that the helicase is capable of moving forward (5’ to 3’) and backward (3’ to 5’) along ssDNA; however, the steps associated with hydrolysis of ATP are thought to be exclusively in the forward (5’ to 3’) direction.
 
 \section{Data from a helicase / DNA experiment}
 
-The experimental scheme depicted in Figure \ref{fig:helicase_scheme} was used to obtain the ionic current data shown in Figure \ref{fig:helicase_data}.  The attachment of helicase to DNA is described in Appendix Section \ref{sample_prep}, and the DNA used is listed in detail in Appendix \ref{sequences}, sequence \# 0001, with its complement and tether.  As shown in Figure \ref{fig:helicase_scheme}, the DNA used is a hairpin, with a section of dsDNA duplex, \num{50} base pairs, a binding site for the Dda helicase, poly(dT)$_{12}$, and an overhang of abasic spacer ssDNA, \num{30} nucleotides in length, where the helicase cannot bind.
+The experimental scheme depicted in Figure \ref{fig:helicase_scheme} was used to obtain the ionic current data shown in Figure \ref{fig:helicase_data}.  The attachment of helicase to DNA is described in Appendix Section \ref{sample_prep}, and the DNA used is listed in detail in Appendix \ref{sequences}, sequence \# 0001, with its complement and tether.  As shown in Figure \ref{fig:helicase_scheme}, the DNA has a section of dsDNA duplex, \num{50} base pairs, a binding site for the Dda helicase, poly(dT)$_{12}$, and an overhang of abasic spacer ssDNA, \num{30} nucleotides in length, where the helicase cannot bind.
+
+The buffer used in the experiment is \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, pH \num{8.00}, with \SI{2}{\m\Molar} MgCl$_2$ and \SI{2}{\m\Molar} ATP.  The helicase will not unwind the duplex DNA in bulk solution due to the fact that there is a stretch of \num{4} abasic spacers in front of the helicase, between it and the duplex, which prevent its normal function.  Once a helicase/DNA complex is pulled into the nanopore however, the electrophoretic force pulls the helicase past this abasic region and the helicase is then able to function normally with ATP.  Approximately \SI{1}{\pico\mol} of the helicase/DNA complex is loaded into the cis side buffer solution (~\SI{200}{\micro\liter} total volume) and mixed well.  The DNA preferentially sticks in the lipid membrane due to a cholesterol tether which is attached to the DNA strand via a flexible linker.
+
+Figure \ref{fig:helicase_data} shows an ionic current trace recorded when one such complex is captured in the M2-MspA nanopore at a \SI{120}{\mV} bias (trans side positive with respect to cis).  Raw data obtained with a \SI{10}{\kHz} hardware filter is in gray, while a \SI{1}{\kHz} filtered version of the data is shown in blue.
+
+The open pore current can be seen near the top of the current axis in Figure \ref{fig:helicase_data}a at the beginning and end of this particular event.  The ionic current is seen to drop, change between what appear to be many discrete, stable levels, all lasting different amounts of time, and then finally the the current returns to the open pore level.  This corresponds to capture of the ssDNA free end with the helicase preventing unchecked translocation, followed by different current levels due to different nucleotides in the nanpore's constriction as the helicase unwinds the duplex and feeds ssDNA through the nanopore.
 
 \begin{figure}[H]
 \begin{centering}
@@ -34,11 +42,9 @@ The experimental scheme depicted in Figure \ref{fig:helicase_scheme} was used to
 \end{centering}
 \end{figure}
 
-The buffer used in the experiment is \SI{1}{\Molar} KCl, \SI{25}{\m\Molar} K-phosphate, pH \num{8.00}, with \SI{2}{\m\Molar} MgCl$_2$ and \SI{2}{\m\Molar} ATP.  The helicase will not unwind the duplex DNA in bulk solution due to the fact that there is a stretch of \num{4} abasic spacers in front of the helicase, between it and the duplex, which prevent its normal function.  Once a helicase/DNA complex is pulled into the nanopore however, the electrophoretic force pulls the helicase past this abasic region and the helicase is then able to function normally with ATP.  Approximately \SI{1}{\pico\mol} of the helicase/DNA complex is loaded into the cis side buffer solution (~\SI{200}{\micro\liter} total volume) and mixed well.  The DNA preferentially sticks in the lipid membrane due to a cholesterol tether which is attached to the DNA strand via a flexible linker.
-
-Figure \ref{fig:helicase_data} shows an ionic current trace recorded when one such complex is captured in the M2-MspA nanopore at a \SI{120}{\mV} bias (trans side positive with respect to cis).  Raw data obtained with a \SI{10}{\kHz} hardware filter is in gray, while a \SI{1}{\kHz} filtered version of the data is shown in blue.  The open pore current can be seen near the top of the current axis in Figure \ref{fig:helicase_data}a at the beginning and end of this particular event.  The ionic current is seen to drop, change between what appear to be many discrete, stable levels, all lasting different amounts of time, and then finally the the current returns to the open pore level.  This corresponds to capture of the ssDNA free end with the helicase preventing unchecked translocation, followed by different current levels due to different nucleotides in the nanpore's constriction as the helicase unwinds the duplex and feeds ssDNA through the nanopore.
-
 A slightly larger plot of the same data is presented in Figure \ref{fig:helicase_data}b.  The current blocks to a level near \SI{100}{\pA} initially, then falls to near \SI{20}{\pA}, then climbs back up to \SI{100}{\pA} and back down.  The relatively high current levels correspond to abasic moieties in the nanopore's constriction, while the data after about \SI{2.5}{\s} correspond to currents measured with combinations of the nucleotides \texttt{A}, \texttt{T}, \texttt{C}, and \texttt{G} in the nanopore's constriction.  Remarkably, this experiment provides enough signal-to-noise to distinguish different current levels corresponding to different DNA sequences.
+
+Plots of data recorded in the same way for three individual helicase/DNA complexes are shown in Figure \ref{fig:helicase_data_3}.  Here ionic current is displayed normalized by the open pore current, $I_0$.  In order for these ionic current levels to correspond to DNA sequence, they should be reproducible molecule-to-molecule.
 
 \begin{figure}[H]
 \begin{centering}
@@ -47,8 +53,6 @@ A slightly larger plot of the same data is presented in Figure \ref{fig:helicase
 \label{fig:helicase_data_3}
 \end{centering}
 \end{figure}
-
-Plots of data recorded in the same way for three individual helicase/DNA complexes are shown one on top of another in Figure \ref{fig:helicase_data_3}.  Here ionic current is displayed normalized by the open pore current, $I_0$.  In order for these ionic current levels to correspond to DNA sequence, they should be reproducible molecule-to-molecule for individual helicase/DNA complexes on strands of DNA with the same sequence.
 
 It turns out that the current levels are reproducible from one molecule to the next.  The solid color lines and numeric annotations in Figure \ref{fig:helicase_data_3} show unique ionic current levels that occur in a specific order.  These levels can be compared between the three molecules shown.  These three current traces were selected at random from a larger dataset.  The timing of each current level is very different (note the separate time axes), and while the same levels usually appear in all three molecules, some are skipped over in one particular recording or another.  Some of the levels also differ slightly in the ionic current value from one molecule to the next, but many are nearly exactly the same.
 
