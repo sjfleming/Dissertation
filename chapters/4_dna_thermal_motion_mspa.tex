@@ -328,12 +328,20 @@ It was demonstrated in Figure \ref{fig:thermal_motion_sequencing} that thermal m
 
 Another independent measure of thermal motion in sequencing experiments can be obtained by looking at a transition between poly(dT) and poly(X), where ``X" stands for an 18-carbon abasic spacer from Integrated DNA Technologies (see Appendix \ref{idt_dna} for chemical structure).  A region of poly(dT) is held in the MspA nanopore by a helicase enzyme and stepped through the nanopore one base at a time as the sequence goes from poly(dT) to poly(X).  The data from such an experiment is shown in Figure \ref{fig:thermal_motion_sequencing2}.
 
-\begin{sidewaysfigure}[h]
+\begin{figure}[h]
 \begin{centering}
-\includegraphics[width=\textwidth]{figures/TTTTT_to_XXXXX.pdf}
+\includegraphics[width=0.75\textwidth]{figures/TTTTT_to_XXXXX_1.pdf}
 \caption[Thermal motion averaging depends on bias voltage]{Traces of current recorded as ssDNA steps through MspA nanopore base by base from poly(dT) to poly(X), where X is an 18-carbon abasic spacer.  The number of current levels in this transition reveals the number of bases that contribute to the current signal.  This number depends on voltage, as expected from thermal motion.  Initial current levels are poly(dT), and the last current levels are poly(X).  Current shows a sharp transition at each step of the ssDNA, by one base, through the MspA nanopore.}
 \label{fig:thermal_motion_sequencing2}
 \end{centering}
-\end{sidewaysfigure}
+\end{figure}
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.75\textwidth]{figures/TTTTT_to_XXXXX_2.pdf}
+\caption[Thermal motion averaging depends on bias voltage, part 2]{Continuation of Figure \ref{fig:thermal_motion_sequencing2}.}
+\label{fig:thermal_motion_sequencing2_2}
+\end{centering}
+\end{figure}
 
 If MspA were averaging over 2 nucleotides, the transition would show 3 distinct current levels: those corresponding to \texttt{TT}, \texttt{TX}, and \texttt{XX}.  If MspA were averaging over 4 nucleotides, the transition would show 5 distinct current levels: those corresponding to \texttt{TTTT}, \texttt{TTTX}, and \texttt{TTXX}, \texttt{TXXX}, and \texttt{XXXX}.  Figure \ref{fig:thermal_motion_sequencing2} shows that the number of nucleotides averaged over does in fact depend on voltage, consistent with the notion of thermal motion contributing to this averaging.  There are 12 levels measured in the transition at \SI{80}{\mV} applied bias, while there are 8 levels at \SI{160}{\mV}.  The difference of 4 bases at the different voltages is the product of thermal motion of the ssDNA in the MspA nanopore.
